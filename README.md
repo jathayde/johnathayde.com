@@ -1,24 +1,13 @@
-# README
+# JohnAthayde.com
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a public build for my portfolio site. Suggestions welcome. Want to use the code for your own? Please give me credit. The visuals (logo, images) are not to be reused.
 
-Things you may want to cover:
+# Fonts
 
-* Ruby version
+Fonts are served from H&Co. If you are forking this, you need to use your own fonts. This is using
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+font-family: "Gotham Narrow A", "Gotham Narrow B";
+font-style: normal / italic;
+font-weight: 200, 400, 700, 900; // Light, Regular, Bold, Ultra
+```
