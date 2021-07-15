@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JohnathaydeCom</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>JohnathaydeCom</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <!-- For IE 11, Chrome, Firefox, Safari, Opera -->
+    <% ['16', '32', '48', '62', '192'].each do |size| %>
+      <%= favicon_png_link_tag(size: size) %>
+    <% end %>
+
+    <link rel="author" href="/humans.txt" />
 
     <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/672732/7327232/css/fonts.css" />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <% if content_for?(:head) %>
+      <%= yield :head %>
+    <% end %>
   </head>
 
   <body>
