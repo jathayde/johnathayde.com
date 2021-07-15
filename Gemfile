@@ -28,6 +28,8 @@ gem "redis", "~> 4.0"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
 
+gem 'meta-tags'
+
 group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"

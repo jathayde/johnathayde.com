@@ -7,6 +7,23 @@
 
     <title>JohnathaydeCom</title>
 
+    <%= display_meta_tags site: 'John Athayde',
+                          reverse: true,
+                          image_src: '/assets/favicons/favicon-192.png',
+                          keywords: %W[  ],
+                          canonical: request.original_url,
+                          og: {
+                            title:     "John Athayde",
+                            site_name: 'johnathayde.com',
+                            type:      'website',
+                            url:       request.original_url,
+                            image:     "/assets/favicons/favicon-192.png",
+                          },
+                          twitter: {
+                            card: 'summary',
+                            site: '@johnathayde'
+                          } %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
