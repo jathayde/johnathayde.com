@@ -5,7 +5,7 @@ module FaviconHelper
     png_link_tag(
       rel: 'apple-touch-icon',
       size: size,
-      folder_name: 'apple_touch_icons',
+      folder_name: 'favicons',
       file_prefix: 'apple-touch-icon'
     )
   end

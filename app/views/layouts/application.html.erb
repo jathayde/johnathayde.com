@@ -15,6 +15,15 @@
       <%= favicon_png_link_tag(size: size) %>
     <% end %>
 
+    <!-- iOS Touch Icons -->
+    <% ['180'].each do |size| %>
+      <%= apple_touch_icon_link_tag(size: size) %>
+    <% end %>
+
+    <link rel="mask-icon" href="images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
     <link rel="author" href="/humans.txt" />
 
     <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/672732/7327232/css/fonts.css" />
