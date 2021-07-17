@@ -28,7 +28,9 @@ gem "redis", "~> 4.0"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
 
-gem 'meta-tags'
+gem "dotenv-rails", groups: [:development, :test], require: "dotenv/rails-now"
+gem "meta-tags"
+gem "recaptcha"
 
 group :development, :test do
   gem "better_errors"

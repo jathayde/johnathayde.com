@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "pages#index"
 
-  get 'resume', to: 'pages#resume'
+  get "contact", to: "contact#new"
+  get "resume", to: "pages#resume"
 end
