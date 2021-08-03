@@ -31,6 +31,7 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem "dotenv-rails", groups: [:development, :test], require: "dotenv/rails-now"
 gem "meta-tags"
 gem "recaptcha"
+gem "simple-navigation"
 
 group :development, :test do
   gem "better_errors"
