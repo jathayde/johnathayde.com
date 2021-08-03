@@ -1,0 +1,128 @@
+// *****************************************************************************
+// COLORS
+// *****************************************************************************
+
+// Primary Palette
+// ------------------------------------------------------------------
+
+$base:       #16A085;
+$light-base: adjust-color($base, $saturation: -20%, $lightness: 10%);
+$dark-base:  adjust-color(adjust-hue($base, 4deg), $saturation: -1%, $lightness: -7%);
+
+// Secondary Palette
+// ------------------------------------------------------------------
+
+
+// ------------------------------------------------------------------
+//  GLOBAL COLORS
+// ------------------------------------------------------------------
+
+// Accent colors
+
+$yellow:                #fff200;
+$black:                 #000;
+$white:                 #fff;
+$dark-yellow: darken($yellow, 15%);
+$red: #B53C30;
+$green: $base;
+
+$light-red: lighten($red, 90%);
+
+
+
+// Grays
+// ----------------------------------------------------------------------------
+
+$gray-lightest: #fbfbfa;
+$gray-lighter: #f1f1ef;
+$gray-light: #bdbcb9;
+$gray: #c9c7c3;
+$gray-dark: #9d9b97;
+$gray-darker: #666;
+$gray-darkest: #444;
+
+// Transparent Colors
+// ----------------------------------------------------------------------------
+
+$transparent: transparent;
+$transparent-white: hsla(100,100%,100%,0) !default;
+$transparent-black: hsla(0,0%,0%,0) !default;
+$color-highlight: transparentize($yellow, .7);
+
+
+//  Shadows and Glows
+// ----------------------------------------------------------------------------
+
+$color-shadow-dark: hsla(0,0,0,.75);
+$color-shadow: hsla(0,0,0,.5);
+$color-shadow-light: hsla(0,0,0,.15);
+$color-shadow-lighter: hsla(0,0,0,.05);
+$color-shadow-lightest: hsla(0,0,0,.03);
+
+$color-glow-bright: hsla(100,100,100,.75);
+$color-glow: hsla(100,100,100,.5);
+$color-glow-dim: hsla(100,100,100,.25);
+$color-glow-dimmer: hsla(100,100,100,.15);
+
+
+//  Set dem colors!
+// ----------------------------------------------------------------------------
+$app-color-primary: $base; // main highlight color
+$app-color-secondary: $light-base; // secondary color used
+
+$site-background-color: $white;
+
+// Links
+$link-color: $app-color-secondary;
+$link-color-hover: lighten($link-color, 20%);
+$link-color-active: lighten($link-color, 30%);
+$link-color-visited: darken($link-color, 20%);
+
+// Form states and alerts
+$warning-text:             #c09853 !default;
+$warning-background:       #fcf8e3 !default;
+$warning-border:           darken(adjust-hue($warning-background, -10), 3%) !default;
+
+$error-text:               #b94a48 !default;
+$error-background:         #f2dede !default;
+$error-border:             darken(adjust-hue($error-background, -10), 3%) !default;
+
+$success-text:             $green !default;
+$success-background:       mix(white, $success-text, 80%) !default;
+$success-border:           darken(adjust-hue($success-text, -10), 5%) !default;
+
+$info-text:                #3a87ad !default;
+$info-background:          #d9edf7 !default;
+$info-border:              darken(adjust-hue($info-background, -10), 7%) !default;
+
+
+// Default Buttons
+$button-default-background: $gray-darker;
+$button-default-background-hover: lighten($button-default-background, 15%);
+$button-default-background-active: darken($button-default-background, 15%);
+
+// Disabled
+$button-disabled-text: $gray-lighter;
+$button-disabled-background: $gray-light;
+$button-disabled-background-hover: $gray-light;
+$button-disabled-background-active: $gray-light;
+
+// Main Action Buttons
+$button-primary-background: $red;
+$button-primary-background-hover: lighten($button-primary-background, 10%);
+$button-primary-background-active: darken($button-primary-background, 15%);
+
+// Danger Buttons
+$button-danger-background: $red;
+$button-danger-background-hover: lighten($button-danger-background, 10%);
+$button-danger-background-active: darken($button-danger-background, 15%);
+
+// Success Buttons
+$button-success-background: $green;
+$button-success-background-hover: lighten($button-success-background, 10%);
+$button-success-background-active: darken($button-success-background, 15%);
+
+// Warning Buttons
+$button-warning-background: $yellow;
+$button-warning-background-hover: lighten($button-warning-background, 10%);
+$button-warning-background-active: darken($button-warning-background, 15%);

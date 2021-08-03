@@ -1,0 +1,43 @@
+%heading-1 {
+  @include font-size(36px);
+  text-transform: capitalize;
+} // %heading-1
+
+%heading-2 {
+  color: $gray-darker;
+  @include font-size(17px);
+  font-family: $patchvault-stack3;
+  text-transform: uppercase;
+} // %heading-2
+
+%heading-3 {
+  color: $gray-darker;
+  font-size: 1.5em;
+  font-weight: normal;
+} // %heading-3
+
+%heading-4 {
+  @include font-size(13px);
+  font-family: $patchvault-stack3;
+  text-transform: capitalize;
+} // %heading-4
+
+%heading-5 {
+  color: $gray;
+  font-family: $patchvault-stack3;
+  font-size: 0.75em;
+  font-weight: normal;
+  text-transform: uppercase;
+} // %heading-5
+
+%box-headline {
+  @include font-size(13px);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+%subheadcounter {
+  @include font-size(13px);
+  font-style: italic;
+  margin: 0 0 1em 0;
+}

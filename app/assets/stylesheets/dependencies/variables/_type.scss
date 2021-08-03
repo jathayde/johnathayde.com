@@ -1,0 +1,43 @@
+// *****************************************************************************
+// TYPOGRAPHY VARIABLES
+// *****************************************************************************
+
+// ------------------------------------------------------------------
+//  Font Stacks
+// ------------------------------------------------------------------
+
+// Fonts from H&FJ
+
+$gothamnarrow: "Gotham Narrow A", "Gotham Narrow B";
+// font-style: normal / italic;
+// font-weight: 200, 400, 700, 900; // Light, Regular, Bold, Ultra
+
+//  Font Stacks
+// ----------------------------------------------------------------------------
+
+$body-stack: $gothamnarrow, Avenir, "Helvetica Neue", Helvetica, "Arial Narrow", sans-serif;
+$legal-stack: Georgia, "Times New Roman", Times, serif;
+$code-stack: Menlo, Monaco, Consolas, "Courier New", monospace;
+$monospace-stack: Monaco, "Liberation Mono", Courier, monospace;
+
+//  Type Sizing
+// ----------------------------------------------------------------------------
+
+$base-font-size: 1em;
+$base-line-height: $base-font-size * 1.4;
+
+//  Headings
+// ----------------------------------------------------------------------------
+
+// Defined in components/headings.scss
+
+//  Navigation
+// ----------------------------------------------------------------------------
+
+$nav-font-family: $body-stack;
+$nav-font-weight: 500; // instead of browser default, bold
+
+//  Body
+// ----------------------------------------------------------------------------
+
+$base-font-family: $body-stack;

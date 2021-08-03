@@ -1,0 +1,89 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+// Might need ☃
+// ----------------------------------------------------------------------------
+@charset "UTF-8";
+
+// Get all browsers on the same page
+// ----------------------------------------------------------------------------
+@import "vendor/normalize";
+
+// Media Queries
+// ----------------------------------------------------------------------------
+@import "vendor/include-media";
+
+$breakpoints: (
+  'phone': 320px,
+  'phone-wide': 480px,
+  'tablet': 768px,
+  'desktop': 1024px,
+  'widescreen': 1200px
+);
+
+// keywords
+$media-expressions: (
+  'screen': 'screen',
+  'print': 'print',
+  'handheld': 'handheld',
+  'landscape': '(orientation: landscape)',
+  'portrait': '(orientation: portrait)',
+  'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
+  'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
+);
+
+// Fonts
+// ----------------------------------------------------------------------------
+/* Included via HF&J stylesheet in layout */
+
+// Dependencies (Varibales, Mixins, Etc)
+// ----------------------------------------------------------------------------
+@import "dependencies/extends/non-semantic-helpers";
+
+@import "dependencies/mixins/alerted";
+@import "dependencies/mixins/animation";
+@import "dependencies/mixins/cross-browser-opacity";
+@import "dependencies/mixins/currency";
+@import "dependencies/mixins/ghost-vertical-align";
+@import 'dependencies/mixins/gradient-overrides';
+@import "dependencies/mixins/hui_tooltip";
+@import "dependencies/mixins/placeholder-text";
+@import "dependencies/mixins/rem-font-sizing";
+@import "dependencies/mixins/sass-prefixer";
+@import "dependencies/mixins/svg-background-image-fallback";
+@import "dependencies/mixins/transition";
+@import "dependencies/mixins/triangle";
+@import "dependencies/mixins/truncate";
+
+@import "dependencies/variables/colors";
+@import "dependencies/variables/paths";
+@import "dependencies/variables/sizes";
+@import "dependencies/variables/type";
+@import "dependencies/variables/z-index";
+
+@import "dependencies/print";
+
+// Base
+// ----------------------------------------------------------------------------
+@import 'base/boilerplate';
+@import 'base/typestandards';
+
+// Components
+// ----------------------------------------------------------------------------
+@import "dependencies/extends/light-gray-box";
+
+// Areas
+// ----------------------------------------------------------------------------
+@import 'areas/layout';
+@import 'areas/pages';
