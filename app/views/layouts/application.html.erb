@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title>JohnathaydeCom</title>
+    <title>John Athayde \\ Creative Technologist & Design Leader</title>
 
     <%= display_meta_tags site: 'John Athayde',
                           reverse: true,
@@ -52,7 +52,53 @@
     <% end %>
   </head>
 
-  <body>
+  <body class="<%= controller_name.parameterize %>">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser.
+        Please <a href="http://browsehappy.com/">upgrade your browser</a>
+        to improve your experience.
+      </p>
+    <![endif]-->
+    <header id="masthead" role="banner">
+      <p id="header_logo">John Athayde</h1>
+      <nav id="primary_nav" role="navigation">
+        <%= render_navigation %>
+      </nav>
+      <hgroup>
+        <h1>John Athayde</h1>
+        <h2>
+          is a <b>creative technologist</b> working at the intersection of <b>brand,
+          experience, motion, and audio</b> with over 20 years experience
+          <b>building creative teams</b> to launch <b>compelling brands</b> and
+          effective products</b>.
+        </h2>
+      </hgroup>
+    </header>
+
     <%= yield %>
+
+    <footer id="page_footer" role="banner">
+      <h2 id="footer_logo">John Athayde</h2>
+
+      <nav id="footer_nav">
+        <ul>
+          <li><%= link_to "Resume/CV", "" %></li>
+          <li><%= link_to "Work", "" %></li>
+          <li><%= link_to "Blog", "" %></li>
+          <li><%= link_to "Speaking", "" %></li>
+          <li><%= link_to "Music", "" %></li>
+        </ul>
+      </nav>
+
+      <nav id="social_links">
+        <ul>
+          <li><%= link_to "LinkedIn", "" %></li>
+          <li><%= link_to "Github", "" %></li>
+          <li><%= link_to "Instagram", "" %></li>
+          <li><%= link_to "Twitter", "" %></li>
+        </ul>
+      </nav>
+    </footer>
   </body>
 </html>
