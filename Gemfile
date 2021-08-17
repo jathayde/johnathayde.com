@@ -29,6 +29,7 @@ gem "redis", "~> 4.0"
 gem "bootsnap", ">= 1.4.4", require: false
 
 gem "dotenv-rails", groups: [:development, :test], require: "dotenv/rails-now"
+gem 'friendly_id', '~> 5.4.0'
 gem "meta-tags"
 gem "recaptcha"
 gem "simple-navigation"
@@ -42,6 +43,7 @@ group :development, :test do
   gem "faker"
   gem "pry-rails"
   gem "rspec-rails", "~> 5.0.0"
+  gem "shoulda-matchers", '~> 5.0'
   gem "standard", "~> 1.0.0"
 end
 
