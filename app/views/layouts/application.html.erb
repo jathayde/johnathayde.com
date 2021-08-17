@@ -61,8 +61,7 @@
       </p>
     <![endif]-->
     <header id="masthead" role="banner">
-      <div class="backdrop">
-      <p id="header_logo">John Athayde</h1>
+      <div class="backdrop"><div class="nest">
       <nav id="primary_nav" role="navigation">
         <%= render_navigation %>
       </nav>
@@ -72,15 +71,18 @@
           is a <b>creative technologist</b> working at the intersection of <b>brand,
           experience, motion, and audio</b> with over 20 years experience
           <b>building creative teams</b> to launch <b>compelling brands</b> and
-          effective products</b>.
+          <b>effective products</b>.
         </h2>
       </hgroup>
-      </div>
+      </div></div>
     </header>
 
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
 
     <footer id="page_footer" role="banner">
+    <div class="nest">
       <h2 id="footer_logo">John Athayde</h2>
 
       <nav id="footer_nav">
@@ -101,6 +103,7 @@
           <li><%= link_to "Twitter", "" %></li>
         </ul>
       </nav>
+    </div>
     </footer>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->

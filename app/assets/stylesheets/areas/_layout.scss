@@ -10,6 +10,12 @@ header {
   margin-top: 0;
   padding: 1em;
 
+  @include media('>tablet') {
+    padding: 1em 3em;
+  }
+
+  hgroup { display: none; }
+
   &#masthead {
     background-image: url("/assets/ja_clean_lines_bkgnd.jpg");
     background-repeat: no-repeat;
@@ -26,35 +32,45 @@ header {
       }
     }
 
+    hgroup {
+      display: block;
+
+      @include media('>tablet') {
+        margin: 7em 0 5em;
+      }
+    }
+
     h1 {
       color: $white;
       font-weight: 900;
-      @include font-size(72px);
+      @include font-size(52px);
       line-height: 1;
       margin-bottom: 10px;
 
       @include media('>phone') {
-        @include font-size(80px);
+        @include font-size(60px);
       }
 
       @include media('>tablet') {
-        @include font-size(96px);
+        @include font-size(72px);
       }
     } // h1
 
     h2 {
       color: $white;
-      font-weight: 400;
-      @include font-size(24px);
+      font-weight: 300;
+      @include font-size(18px);
       line-height: 1.4;
       margin-top: 0;
 
+      b {font-weight: 600;}
+
       @include media('>phone') {
-        @include font-size(30px);
+        @include font-size(24px);
       }
 
       @include media('>tablet') {
-        @include font-size(36px);
+        @include font-size(30px);
         width: 50%;
       }
     } // h2
@@ -67,14 +83,46 @@ header {
     ul {
       @extend %list-in-disguise;
 
+      @include media('>tablet') {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+
       li {
-        display: inline-block;
+        line-height: 1em;
+        padding-top: 1em;
         text-transform: uppercase;
+
+        &:last-child {
+          margin-left: auto;
+
+          a {
+            background-color: $base;
+            border-bottom: 2px solid $dark-base;
+            border-radius: $base-border-radius;
+          } // a
+        } // &:last-child
+
+        &:first-child {
+        a {
+            @extend %image-replacement;
+            @include background-image("logo_mark");
+            background-repeat: no-repeat;
+            display: block;
+            height: 62px;
+            width: 53px;
+            margin-top: -2em;
+            background-position: center center;
+          }
+        }
 
         a,
         a:link,
         a:visited {
           color: $white;
+          padding: 1em;
           text-decoration: none;
         }
 
