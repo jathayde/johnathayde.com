@@ -11,16 +11,16 @@ h2.tinylabel {
 
 .home-block {
   margin: 0 auto;
-  padding: 1em;
+  padding: 1em 1em;
 
   @include media('>tablet') {
-    padding: 1em 3em;
+    padding: 1em 5em;
   }
 }
 
 #social_proof {
   text-align: center;
-  padding: 3em;
+  padding: 3em 2em;
 
   h2.tinylabel {
     letter-spacing: 0.2em;
@@ -28,9 +28,12 @@ h2.tinylabel {
 
   ul#brand_list {
     @extend %list-in-disguise;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+
+    @include media('>tablet') {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
 
     li {
       // Create 1x, 2x PNGs, and SVG of each asset, the bacgkround-image mixin
@@ -40,43 +43,57 @@ h2.tinylabel {
       @extend %image-replacement;
       background-repeat: no-repeat;
       background-position: center center;
-      background-size: contain;
       height: 41px; // Change to the height of the tallest logo.
+      width: 100%;
       margin: 0 2em;
+
+      @include media('>tablet') {
+        background-size: contain;
+      }
 
       &#powerfleet {
         @include background-image("brands/brand_powerfleet");
-        background-position-y: 5px;
-        // height: 35px;
-        width: 189px;
+        @include media('>tablet') {
+          background-position-y: 5px;
+          // height: 35px;
+          width: 189px;
+        }
       }
 
       &#cargosense {
         @include background-image("brands/brand_cargosense");
-        background-position-y: 15px;
-        // height: 16px;
-        width: 255px;
+        @include media('>tablet') {
+          background-position-y: 15px;
+          // height: 16px;
+          width: 255px;
+        }
       }
 
       &#livingsocial {
         @include background-image("brands/brand_livingsocial");
-        background-position-y: 0;
-        // height: 41px;
-        width: 108px;
+        @include media('>tablet') {
+          background-position-y: 0;
+          // height: 41px;
+          width: 108px;
+        }
       }
 
       &#guggenheim {
         @include background-image("brands/brand_guggenheim");
-        background-position-y: 15px;
-        // height: 17px;
-        width: 233px;
+        @include media('>tablet') {
+          background-position-y: 15px;
+          // height: 17px;
+          width: 233px;
+        }
       }
 
       &#procore {
         @include background-image("brands/brand_procore");
-        background-position-y: 11px;
-        // height: 23px;
-        width: 188px;
+        @include media('>tablet') {
+          background-position-y: 11px;
+          // height: 23px;
+          width: 188px;
+        }
       }
     }
   }
