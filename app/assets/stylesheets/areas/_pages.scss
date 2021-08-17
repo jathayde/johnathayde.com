@@ -1,0 +1,99 @@
+h2.tinylabel {
+  color: $gray-dark;
+  @include font-size(12px);
+  font-weight: 400;
+  text-transform: uppercase;
+
+  b {
+    font-weight: 600;
+  }
+}
+
+.home-block {
+  margin: 0 auto;
+  padding: 1em;
+
+  @include media('>tablet') {
+    padding: 1em 3em;
+  }
+}
+
+#social_proof {
+  text-align: center;
+  padding: 3em;
+
+  h2.tinylabel {
+    letter-spacing: 0.2em;
+  }
+
+  ul#brand_list {
+    @extend %list-in-disguise;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    li {
+      // Create 1x, 2x PNGs, and SVG of each asset, the bacgkround-image mixin
+      // will use the best one for the display device. Adjust background y
+      // position to align the images vertically.
+
+      @extend %image-replacement;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      height: 41px; // Change to the height of the tallest logo.
+      margin: 0 2em;
+
+      &#powerfleet {
+        @include background-image("brands/brand_powerfleet");
+        background-position-y: 5px;
+        // height: 35px;
+        width: 189px;
+      }
+
+      &#cargosense {
+        @include background-image("brands/brand_cargosense");
+        background-position-y: 15px;
+        // height: 16px;
+        width: 255px;
+      }
+
+      &#livingsocial {
+        @include background-image("brands/brand_livingsocial");
+        background-position-y: 0;
+        // height: 41px;
+        width: 108px;
+      }
+
+      &#guggenheim {
+        @include background-image("brands/brand_guggenheim");
+        background-position-y: 15px;
+        // height: 17px;
+        width: 233px;
+      }
+
+      &#procore {
+        @include background-image("brands/brand_procore");
+        background-position-y: 11px;
+        // height: 23px;
+        width: 188px;
+      }
+    }
+  }
+} // #social_proof
+
+#project_reel {
+
+} // #project_reel
+
+#featured_work {
+
+} // #featured_work
+
+#developerux {
+
+} // #developerux
+
+#mailing_contact {
+
+} // #mailing_contact
