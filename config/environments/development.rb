@@ -78,4 +78,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => '127.0.0.1', :port => 1025 }
   config.action_mailer.raise_delivery_errors = false
+
+  # Annotate view template paths in development only
+  config.action_view.annotate_rendered_view_with_filenames = true
 end
