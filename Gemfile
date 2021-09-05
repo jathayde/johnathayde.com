@@ -4,19 +4,20 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.7.4"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem "rails", "~> 6.1.4"
+gem "rails", "~> 6.1.4.1"
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem "puma", "~> 5.0"
 # Use SCSS for stylesheets
 gem "sass-rails", ">= 6"
+gem 'sassc', '2.1'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem "webpacker", "~> 5.0"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem "turbolinks", "~> 5"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem "jbuilder", "~> 2.7"
+gem 'jbuilder', '~> 2.10'
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 # Use Active Model has_secure_password
@@ -26,7 +27,7 @@ gem "redis", "~> 4.0"
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", ">= 1.4.4", require: false
+gem 'bootsnap', '>= 1.4.8', require: false
 
 gem "dotenv-rails", groups: [:development, :test], require: "dotenv/rails-now"
 gem 'friendly_id', '~> 5.4.0'
