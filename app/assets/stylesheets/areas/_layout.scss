@@ -134,3 +134,67 @@ header {
     } // ul
   } // nav#primary_nav
 } // header
+
+footer#page_footer {
+  background-color: $black;
+  color: $white;
+  margin: 0;
+  padding: 1em;
+
+  @include media('>tablet') {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 3em;
+  }
+
+  h2#footer_logo {
+    @extend %image-replacement;
+    @include background-image("footer_logo");
+    background-repeat: no-repeat;
+    display: block;
+    height: 105px;
+    width: 93px;
+    margin-top: -0.25em;
+    background-position: center center;
+  } // h2#footer_logo
+
+  nav {
+
+    @include media('>tablet') {
+      width: 33%;
+    }
+
+    ul {
+      @extend %list-in-disguise;
+
+      li {
+        line-height: 2em;
+      }
+    }
+
+    a,
+    a:link,
+    a:visited {
+      color: $white;
+      text-transform: uppercase;
+      text-decoration:none;
+    }
+
+    a:hover, a:active {
+      text-decoration: underline;
+    }
+
+    &#footer_nav {
+
+      @include media('>tablet') {
+        margin-left: 20%;
+      }
+    } // #footer_nav
+
+    &#social_links {
+
+    } // #social_links
+  } // nav
+
+} // footer#page_footer
