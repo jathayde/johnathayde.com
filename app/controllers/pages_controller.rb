@@ -4,4 +4,8 @@ class PagesController < ApplicationController
 
   def resume
   end
+
+  def placeholder
+    render layout: "placeholder"
+  end
 end

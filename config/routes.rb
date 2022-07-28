@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root to: "pages#index"
+  root to: "pages#placeholder"
 
-  get "contact", to: "contact#new"
-  get "resume", to: "pages#resume"
+  get "/home", to: "pages#index"
+  get "/contact", to: "contact#new"
+  get "/resume", to: "pages#resume"
 end

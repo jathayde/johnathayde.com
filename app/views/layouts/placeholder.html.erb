@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>John Athayde \\ Creative Technologist & Design Leader</title>
+
+    <%= display_meta_tags site: 'John Athayde',
+                          reverse: true,
+                          image_src: '/assets/favicons/favicon-192.png',
+                          keywords: %W[  ],
+                          canonical: request.original_url,
+                          og: {
+                            title:     "John Athayde",
+                            site_name: 'johnathayde.com',
+                            type:      'website',
+                            url:       request.original_url,
+                            image:     "/assets/favicons/favicon-192.png",
+                          },
+                          twitter: {
+                            card: 'summary',
+                            site: '@johnathayde'
+                          } %>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <!-- For IE 11, Chrome, Firefox, Safari, Opera -->
+    <% ['16', '32', '48', '62', '192'].each do |size| %>
+      <%= favicon_png_link_tag(size: size) %>
+    <% end %>
+
+    <!-- iOS Touch Icons -->
+    <% ['180'].each do |size| %>
+      <%= apple_touch_icon_link_tag(size: size) %>
+    <% end %>
+
+    <link rel="mask-icon" href="images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="author" href="/humans.txt" />
+
+    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/672732/7327232/css/fonts.css" />
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <% if content_for?(:head) %>
+      <%= yield :head %>
+    <% end %>
+  </head>
+
+  <body class="plaeholder">
+    <!--[if lt IE 8]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser.
+        Please <a href="http://browsehappy.com/">upgrade your browser</a>
+        to improve your experience.
+      </p>
+    <![endif]-->
+    <header id="masthead" role="banner">
+      <hgroup>
+        <h1>John Athayde</h1>
+        <h2>
+          is a <b>creative technologist</b> working at the intersection of <b>brand,
+          experience, motion, and audio</b> with over 20 years experience
+          <b>building creative teams</b> to launch <b>compelling brands</b> and
+          <b>effective products</b>.
+        </h2>
+      </hgroup>
+      </div></div>
+    </header>
+
+
+    <script defer data-domain="johnathayde.com" src="https://plausible.io/js/plausible.js"></script>
+
+  </body>
+</html>
