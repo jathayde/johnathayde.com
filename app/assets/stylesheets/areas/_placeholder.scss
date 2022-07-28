@@ -55,4 +55,41 @@ body.placeholder {
       width: 50%;
     }
   } // h2
+
+  ul.socials {
+    @extend %list-in-disguise;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+
+    li {
+      height: 80px;
+
+      a {
+        @extend %image-replacement;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        display: block;
+        height: 40px; // Change to the height of the tallest logo.
+        width: 40px;
+        margin: 0 2em;
+
+        &#linkedin {
+          @include background-image("socials/linkedin");
+        }
+
+        &#github {
+          @include background-image("socials/github");
+        }
+
+        &#twitter {
+          @include background-image("socials/twitter");
+        }
+      } // a
+
+    } // li
+  }
 } // body.placeholder
