@@ -53,7 +53,6 @@ gem "brakeman"
 # bundler-audit checks our dependencies for vulnerabilities
 gem "bundler-audit"
 
-gem "dotenv-rails", groups: [:development, :test], require: "dotenv/rails-now"
 gem 'friendly_id'
 gem "meta-tags"
 gem "recaptcha"
@@ -66,7 +65,7 @@ group :development, :test do
   # All runtime config comes from the UNIX environment
   # but we use dotenv to store that in files for
   # development and testing
-  gem "dotenv-rails"
+  gem "dotenv-rails", require: "dotenv/rails-now"
 
   # Testing using rspec
   gem "rspec-rails", "~> 5.0.0"
