@@ -1,0 +1,58 @@
+body.placeholder {
+  background-color: $gray-darkest;
+  background: $gray-darkest radial-gradient(circle, rgba(26,188,156,0.3) 0%, rgba(25,25,25,1) 100%);
+  text-align: center;
+  display: grid;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  place-items: center center;
+
+  hgroup {
+    display: block;
+
+    @include media('>tablet') {
+      margin: 7em 0 5em;
+    }
+  }
+
+  #home_mark {
+    height: 200px;
+  }
+
+  h1 {
+    color: $white;
+    font-weight: 900;
+    @include font-size(52px);
+    line-height: 1;
+    margin-bottom: 10px;
+
+    @include media('>phone') {
+      @include font-size(60px);
+    }
+
+    @include media('>tablet') {
+      @include font-size(72px);
+    }
+  } // h1
+
+  h2 {
+    color: $white;
+    font-weight: 300;
+    @include font-size(18px);
+    line-height: 1.4;
+    margin: 0 auto;
+    text-align: center;
+
+    b {font-weight: 600;}
+
+    @include media('>phone') {
+      @include font-size(24px);
+    }
+
+    @include media('>tablet') {
+      @include font-size(30px);
+      width: 50%;
+    }
+  } // h2
+} // body.placeholder

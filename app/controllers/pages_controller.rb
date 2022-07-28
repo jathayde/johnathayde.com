@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  layout 'placeholder', only: :placeholder
+
   def index
   end
 
@@ -6,6 +8,5 @@ class PagesController < ApplicationController
   end
 
   def placeholder
-    render layout: "placeholder"
   end
 end
