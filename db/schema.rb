@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_26_020715) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_03_210113) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_020715) do
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "talk_id"
+    t.bigint "recording_id"
+    t.index ["recording_id"], name: "index_appearances_on_recording_id"
+    t.index ["talk_id"], name: "index_appearances_on_talk_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -46,6 +50,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_020715) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "talk_id"
+    t.index ["talk_id"], name: "index_recordings_on_talk_id"
   end
 
+  create_table "talks", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "appearances", "recordings"
+  add_foreign_key "appearances", "talks"
+  add_foreign_key "recordings", "talks"
 end
