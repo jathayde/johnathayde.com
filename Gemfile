@@ -89,7 +89,7 @@ group :development do
   # gem "spring"
 
   gem 'annotate'
-  gem 'better_errors', github: 'BetterErrors/better_errors'
+  gem 'better_errors' #, github: 'BetterErrors/better_errors'
   gem 'binding_of_caller'
   gem 'heavens_door'
   gem 'letter_opener'
