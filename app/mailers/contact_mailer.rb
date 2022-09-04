@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ContactMailer < ApplicationMailer
-  default to: "john@athayde.com"
+  default to: 'john@athayde.com'
 
   def new_message(message)
     @message = message

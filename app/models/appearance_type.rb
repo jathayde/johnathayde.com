@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class AppearanceType < ApplicationRecord
   extend FriendlyId
-  friendly_id :slug, use: [:slugged, :finders]
+  friendly_id :slug, use: %i[slugged finders]
 
   has_many :appearances
 

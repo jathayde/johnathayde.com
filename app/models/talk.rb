@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Talk < ApplicationRecord
   extend FriendlyId
-  friendly_id :slug, use: [:slugged, :finders]
+  friendly_id :slug, use: %i[slugged finders]
 
   has_one_attached :cover_image
   has_one_attached :deck
@@ -16,6 +18,6 @@ class Talk < ApplicationRecord
   private
 
   def set_slug
-    self.slug = "#{title}".parameterize
+    self.slug = title.to_s.parameterize
   end
 end

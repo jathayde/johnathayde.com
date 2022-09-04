@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -14,96 +16,96 @@
 ###############################################################################
 # APPEARANCE TYPES
 
-AppearanceType.create!(id: 1, title: "Conference")
-AppearanceType.create!(id: 2, title: "Podcast")
-AppearanceType.create!(id: 3, title: "Workshop")
-AppearanceType.create!(id: 4, title: "Meetup")
-AppearanceType.create!(id: 5, title: "Other")
+AppearanceType.create!(id: 1, title: 'Conference')
+AppearanceType.create!(id: 2, title: 'Podcast')
+AppearanceType.create!(id: 3, title: 'Workshop')
+AppearanceType.create!(id: 4, title: 'Meetup')
+AppearanceType.create!(id: 5, title: 'Other')
 
 ###############################################################################
 # TALKS
 
 Talk.create!(
   id: 1,
-  title: "Dabble, Dabble, Toil & Kick Ass",
-  subtitle: "",
+  title: 'Dabble, Dabble, Toil & Kick Ass',
+  subtitle: '',
   description: "Zen masters taught it. Isaac Newton knew it. Scott Adams writes about it. Now you can know it, too We're talking, of course, about the manifold benefits of being a n00b (at something). And, of course, about all the good stuff that happens post-n00bishness: the excellent side effects of being good at multiple things, even if they're not related - heck, *especially* if they're not related. So many of humanity's important discoveries, innovations and beautiful leaps of logic have been made by people whose brains were leveled up by the cross-fertilization of multiple interests and disciplines. Nano-thin specialization is out, a broad understanding of life, the universe, and everything is in. It's time to synergize, baby. So, reach outside your comfort zone, be a beginner again, and you'll be smarter, sexier, better at you job... even more valuable. With the wisdom of the ages (and a little bit from modern pundits), we'll talk about how, why, when, and where you can go about it. You won't regret it."
 )
 
 Talk.create!(
   id: 2,
-  title: "Curing DIV-itis with Semantic Markup, CSS, and Presenters",
-  subtitle: "",
+  title: 'Curing DIV-itis with Semantic Markup, CSS, and Presenters',
+  subtitle: '',
   description: "Modern web apps are built with all sorts of tools, but the basics of Semantic, Valid HTML and CSS are still the foundation. In this talk, we'll look at how to use semantic markup and CSS to build a responsive, accessible, and maintainable web app. We'll also look at how to use presenters to make your views more readable and easier to test."
 )
 
 Talk.create!(
   id: 3,
-  title: "The Rails View: The Junk Drawer Grows Up",
-  subtitle: "",
+  title: 'The Rails View: The Junk Drawer Grows Up',
+  subtitle: '',
   description: "You like Ruby. You know how to write it and refactor it. Controllers and Models are Ruby: fantastic, superb! Views, on the other hand, while Ruby ? are also mixed with HTML, JavaScript (or CoffeeScript), and CSS (or SCSS). In this mixed environment it?s easy to drop your high code standards and turn the top of the Rails stack into a nasty, brittle mess just to get things done. How do you recover, or even better, avoid the trap in the first place? How can you get to the point where you treat your views like code you?re confident in?We'll cover 10 simple rules you can follow immediately to transform the way you write, think, and feel about Rails views. We'll also look at some cutting edge techniques with SCSS, SVG imagery, and more in some recent projects the speaker has been working on."
 )
 
 Talk.create!(
   id: 4,
-  title: "UX Eye for the Javascript Guy/Gal",
-  subtitle: "",
+  title: 'UX Eye for the Javascript Guy/Gal',
+  subtitle: '',
   description: "UX isn't just about the pretty. Learn solid techniques to improve your user's experience and make your apps awesome."
 )
 
 Talk.create!(
   id: 5,
-  title: "The Timeless Way of Building",
-  subtitle: "",
+  title: 'The Timeless Way of Building',
+  subtitle: '',
   description: "\"Design patterns\" is a common phrase that is often spoken in the course of design and development of web applications. But it's genesis is not from programming, but Architecture. They come from a trio of books in the 1970s by Christopher Alexander, the most famous of which is the middle book: \"A Pattern Language\". The issue arises that Pattern Languages, much like spoken languages, are most effective when the speaker is fluent. \n\nWe'll look at the origin of pattern languages (and later, pattern libraries) and why they can be dangerous and even detrimental tools in the hands of the inexperienced designer and developer. Through examples of bad grammar, poor idiomatic choices, and horrible experience flows (aka antipatterns), we'll explore \"the quality of a space that can't be named\" and see if we can create that in the products we create. We may even look at some architecture (buildings) as well. \n\nWhile this talk does show specific code and design examples, the concepts are high-level and Christopher Alexander\'s work has been applied to many different fields. "
 )
 
 Talk.create!(
   id: 6,
-  title: "How They Work Better Together",
-  subtitle: "Lean UX, Agile Development, and User-Centered Design",
+  title: 'How They Work Better Together',
+  subtitle: 'Lean UX, Agile Development, and User-Centered Design',
   description: "Design has often been cut off from the development side of the house, creating static images that are then handed off to developers to build. Invariably, this waterfall approach leads to unhappy designers and frustrated programmers, and often a product that misses the mark. Agile Development has solved many of the issues, but in many cases, designers still sit on the outside. \n\nWe'll look at integrating your design team (even if it's a team of one) into an agile development organization while still pushing user-centric design. We'll study successes and failures from both consultancies (InfoEther, Hyphenated People, Meticulous) and product companies both large and small (LivingSocial, CargoSense)."
 )
 
 Talk.create!(
   id: 7,
-  title: "UX for Developers",
-  subtitle: "",
+  title: 'UX for Developers',
+  subtitle: '',
   description: "The goal of this talk is to give developers five solid techniques and concepts that they can implement as soon as they return to work. We'll start with a very quick level set of what \"design\" is and why the standard \"designers hand off to developers\" workflow is a mess. We'll then move on to discussing problem analysis and definition, sketching/crazy eights/six-ups, prototyping, user testing, and finally components and living style guides."
 )
 
 Talk.create!(
   id: 8,
-  title: "Building a UX Team",
-  subtitle: "Strategies for Hiring & Retaining Good Designers",
+  title: 'Building a UX Team',
+  subtitle: 'Strategies for Hiring & Retaining Good Designers',
   description: "UX Teams are complex. They require a mix of skills and personalities that can be difficult to find and even more difficult to retain. We'll look at the various roles that make up a UX team and how to hire for them. We'll also look at how to retain your designers and keep them happy."
 )
 
 Talk.create!(
   id: 9,
-  title: "Bring Lean UX to Your Product and Engineering Cycles",
-  subtitle: "",
+  title: 'Bring Lean UX to Your Product and Engineering Cycles',
+  subtitle: '',
   description: "This Workshop will walk users through the tools and techniques for the high-level UX process on a project, equipping them with the tools to bring Lean UX to their own teams. We'll cover the basics of the Lean UX process, including how to define a problem, sketching, prototyping, user testing, and how to integrate UX into your Agile development process. We'll also cover how to build a UX team and how to hire and retain good designers."
 )
 
 Talk.create!(
   id: 10,
-  title: "Build Software Like Pixar Makes Movies",
-  subtitle: "",
+  title: 'Build Software Like Pixar Makes Movies',
+  subtitle: '',
   description: "Pixar is a creative powerhouse. They're responsible for reinventing Disney animation, and it all comes down to creative process. But most people don't realize is that Pixar is a hardware and software company that made movies to figure out what they could do with their tools.\n\nIn this talk we'll look at Pixar's history, process, and how we can apply that to building our own products with intensive user research, constant refactoring, and infectious collaboration. Learn about the benefits of hiring varied discipline individuals and teaching them their jobs, with experience from similar programs at LivingSocial Engineering."
 )
 
 Talk.create!(
   id: 11,
-  title: "Type is Design",
-  subtitle: "Fix Your UI with Better Typography and CSS",
+  title: 'Type is Design',
+  subtitle: 'Fix Your UI with Better Typography and CSS',
   description: "The written word is the medium through which most information exchanges hands in the tools we build. Digital letterforms can help or hinder the ability for people to communicate and understand. We'll work through some typographic principles and then apply them to the web with HTML and CSS for implementation. We'll look at some of the newer OpenType features and touch on the future of digital type, variable fonts, and more."
 )
 
 Talk.create!(
   id: 12,
-  title: "Building the LivingSocial Customer Support Tool",
-  subtitle: "",
+  title: 'Building the LivingSocial Customer Support Tool',
+  subtitle: '',
   description: "LivingSocial's Customer Support Tool is a case study in how a small product, ux, and front-end team was able to make major moves on the needle and the bottom line of the company."
 )
 
@@ -173,10 +175,10 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "The Rails View: The Junk Drawer Grows Up",
-  url: "https://www.confreaks.tv/videos/rubynation2012-the-rails-view-the-junk-drawer-grows-up",
+  title: 'The Rails View: The Junk Drawer Grows Up',
+  url: 'https://www.confreaks.tv/videos/rubynation2012-the-rails-view-the-junk-drawer-grows-up',
   appearance_id: 5,
-  recorded_on: "2012-03-24",
+  recorded_on: '2012-03-24',
   talk_id: 3
 )
 
@@ -193,10 +195,10 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "The Rails View: The Junk Drawer Grows Up",
-  url: "https://vimeo.com/55732690",
+  title: 'The Rails View: The Junk Drawer Grows Up',
+  url: 'https://vimeo.com/55732690',
   appearance_id: 6,
-  recorded_on: "2012-06-29",
+  recorded_on: '2012-06-29',
   talk_id: 3
 )
 
@@ -236,17 +238,17 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "Custom Framework/Styleguide Panel Part 1",
-  url: "https://www.youtube.com/watch?v=jeQm2Wrdlpc",
+  title: 'Custom Framework/Styleguide Panel Part 1',
+  url: 'https://www.youtube.com/watch?v=jeQm2Wrdlpc',
   appearance_id: 9,
-  recorded_on: "2013-10-13"
+  recorded_on: '2013-10-13'
 )
 
 Recording.create!(
-  title: "Custom Framework/Styleguide Panel Part 2",
-  url: "https://www.youtube.com/watch?v=k7gv56WYJKo",
+  title: 'Custom Framework/Styleguide Panel Part 2',
+  url: 'https://www.youtube.com/watch?v=k7gv56WYJKo',
   appearance_id: 9,
-  recorded_on: "2013-10-13"
+  recorded_on: '2013-10-13'
 )
 
 Appearance.create!(
@@ -262,9 +264,9 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "The Timeless Way of Building",
-  url: "https://www.youtube.com/watch?v=DJJbIjlLmLM",
-  recorded_on: "2014-03-20",
+  title: 'The Timeless Way of Building',
+  url: 'https://www.youtube.com/watch?v=DJJbIjlLmLM',
+  recorded_on: '2014-03-20',
   talk_id: 5,
   appearance_id: 10
 )
@@ -282,9 +284,9 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "How They Work Better Together: Lean UX, Agile Development, and User-Centered Design",
-  url: "https://www.youtube.com/watch?v=zdwnogUMtc4&list=PLE7tQUdRKcyZ5jfnbS_osIoWzK_FrwKz5&index=46",
-  recorded_on: "2014-04-22",
+  title: 'How They Work Better Together: Lean UX, Agile Development, and User-Centered Design',
+  url: 'https://www.youtube.com/watch?v=zdwnogUMtc4&list=PLE7tQUdRKcyZ5jfnbS_osIoWzK_FrwKz5&index=46',
+  recorded_on: '2014-04-22',
   talk_id: 6,
   appearance_id: 11
 )
@@ -326,9 +328,9 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "Chatting with Kevin Griffin about RevConf 2017",
-  url: "https://www.youtube.com/watch?v=BrT2zEwLCp4",
-  recorded_on: "2017-04-06",
+  title: 'Chatting with Kevin Griffin about RevConf 2017',
+  url: 'https://www.youtube.com/watch?v=BrT2zEwLCp4',
+  recorded_on: '2017-04-06',
   appearance_id: 14
 )
 
@@ -369,9 +371,9 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "UX for Developers",
-  url: "https://www.conferencecast.tv/talk-26728-rva-javascript-conf-2018-ux-for-developers-by-john-athayde",
-  recorded_on: "2018-11-02",
+  title: 'UX for Developers',
+  url: 'https://www.conferencecast.tv/talk-26728-rva-javascript-conf-2018-ux-for-developers-by-john-athayde',
+  recorded_on: '2018-11-02',
   talk_id: 7,
   appearance_id: 17
 )
@@ -389,9 +391,9 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "Build Software Like Pixar Makes Movies",
-  url: "https://www.conferencecast.tv/talk-25477-build-software-like-pixar-makes-movies-by-john-athayde-nationjs-frontrunners-react-2019#.talkPage-header",
-  recorded_on: "2019-12-06",
+  title: 'Build Software Like Pixar Makes Movies',
+  url: 'https://www.conferencecast.tv/talk-25477-build-software-like-pixar-makes-movies-by-john-athayde-nationjs-frontrunners-react-2019#.talkPage-header',
+  recorded_on: '2019-12-06',
   talk_id: 10,
   appearance_id: 18
 )
@@ -409,9 +411,9 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "Type is Design",
-  url: "https://www.conferencecast.tv/talk-44520-type-is-designfix-your-ui-with-better-typography-and-css-john-athayde",
-  recorded_on: "2021-04-13",
+  title: 'Type is Design',
+  url: 'https://www.conferencecast.tv/talk-44520-type-is-designfix-your-ui-with-better-typography-and-css-john-athayde',
+  recorded_on: '2021-04-13',
   talk_id: 11,
   appearance_id: 19
 )
@@ -429,9 +431,9 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "The Rails View: The Junk Drawer Grows Up",
-  url: "https://www.youtube.com/watch?v=vHfDegpZHRs",
-  recorded_on: "2013-04-15",
+  title: 'The Rails View: The Junk Drawer Grows Up',
+  url: 'https://www.youtube.com/watch?v=vHfDegpZHRs',
+  recorded_on: '2013-04-15',
   talk_id: 3,
   appearance_id: 20
 )
@@ -449,9 +451,9 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "Build Software Like Pixar Makes Movies",
-  url: "https://www.youtube.com/watch?v=rMzTpyTIi-0",
-  recorded_on: "2019-11-07",
+  title: 'Build Software Like Pixar Makes Movies',
+  url: 'https://www.youtube.com/watch?v=rMzTpyTIi-0',
+  recorded_on: '2019-11-07',
   talk_id: 10,
   appearance_id: 21
 )
@@ -469,9 +471,9 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "The Timeless Way of Building",
-  url: "https://www.youtube.com/watch?v=3AltRFXviK4",
-  recorded_on: "2013-08-09",
+  title: 'The Timeless Way of Building',
+  url: 'https://www.youtube.com/watch?v=3AltRFXviK4',
+  recorded_on: '2013-08-09',
   talk_id: 5,
   appearance_id: 22
 )
@@ -513,9 +515,9 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "UX for Developers",
-  url: "https://www.youtube.com/watch?v=eK2s5UklZi8&list=PLXn1Ow3sQMtKSt1vMy9Td_dqGUnGsfjg4&index=19",
-  recorded_on: "2020-09-26",
+  title: 'UX for Developers',
+  url: 'https://www.youtube.com/watch?v=eK2s5UklZi8&list=PLXn1Ow3sQMtKSt1vMy9Td_dqGUnGsfjg4&index=19',
+  recorded_on: '2020-09-26',
   talk_id: 7,
   appearance_id: 25
 )
@@ -544,9 +546,9 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "Design Tips for Programmers",
-  url: "https://www.buzzsprout.com/1878319/9478226-089-design-tips-for-programmers-with-john-athayde-vp-of-design-at-powerfleet.mp3",
-  recorded_on: "2021-03-25",
+  title: 'Design Tips for Programmers',
+  url: 'https://www.buzzsprout.com/1878319/9478226-089-design-tips-for-programmers-with-john-athayde-vp-of-design-at-powerfleet.mp3',
+  recorded_on: '2021-03-25',
   appearance_id: 27
 )
 
@@ -562,9 +564,9 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "Secret Sonics Podcast",
-  url: "https://api.spreaker.com/download/episode/32226500/secret_sonics_051_john_athayde.mp3?dl=true",
-  recorded_on: "2020-06-09",
+  title: 'Secret Sonics Podcast',
+  url: 'https://api.spreaker.com/download/episode/32226500/secret_sonics_051_john_athayde.mp3?dl=true',
+  recorded_on: '2020-06-09',
   appearance_id: 28
 )
 
@@ -617,9 +619,9 @@ Appearance.create!(
 )
 
 Recording.create!(
-  title: "Build Software Like Pixar Makes Movies",
-  url: "https://www.youtube.com/watch?v=CqvfTmxlmJk",
-  recorded_on: "2019-10-16",
+  title: 'Build Software Like Pixar Makes Movies',
+  url: 'https://www.youtube.com/watch?v=CqvfTmxlmJk',
+  recorded_on: '2019-10-16',
   appearance_id: 32,
   talk_id: 10
 )
@@ -635,7 +637,6 @@ Recording.create!(
 #   talk_id: 1,
 #   appearance_type_id: 1
 # )
-
 
 # UX Strategies Summit 2014 - UX talk
 # Scouting Hot FInds Podcast/Patchvault

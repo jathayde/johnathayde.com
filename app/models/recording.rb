@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Recording < ApplicationRecord
   extend FriendlyId
-  friendly_id :slug, use: [:slugged, :finders]
+  friendly_id :slug, use: %i[slugged finders]
 
   belongs_to :talk, optional: true
   belongs_to :appearance
@@ -16,6 +18,6 @@ class Recording < ApplicationRecord
   private
 
   def set_slug
-    self.slug = "#{title}".parameterize
+    self.slug = title.to_s.parameterize
   end
 end

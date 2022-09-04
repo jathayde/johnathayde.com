@@ -1,12 +1,13 @@
 # Needs to be rewritten: https://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations
 
-# encoding: utf-8
+# frozen_string_literal: true
+
 module ValidatesUrlFormatOf
-  IPv4_PART = /\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]/  # 0-255
+  IPv4_PART = /\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]/ # 0-255
 
   # First regexp doesn't work in Ruby 1.8 and second has a bug in 1.9.2:
   # https://github.com/henrik/validates_url_format_of/issues/issue/4/#comment_760674
-  ALNUM = "ä".match(/[[:alnum:]]/) ? /[[:alnum:]]/ : /[^\W_]/
+  ALNUM = 'ä'.match(/[[:alnum:]]/) ? /[[:alnum:]]/ : /[^\W_]/
 
   REGEXP = %r{
     \A
@@ -23,17 +24,16 @@ module ValidatesUrlFormatOf
   DEFAULT_MESSAGE_URL = 'does not appear to be valid'
 
   def validates_url_format_of(*attr_names)
-    options = { :allow_nil => false,
-                :allow_blank => false,
-                :with => REGEXP }
+    options = { allow_nil: false,
+                allow_blank: false,
+                with: REGEXP }
     options = options.merge(attr_names.pop) if attr_names.last.is_a?(Hash)
 
     attr_names.each do |attr_name|
       message = attr_name.to_s.match(/(_|\b)URL(_|\b)/i) ? DEFAULT_MESSAGE_URL : DEFAULT_MESSAGE
-      validates_format_of(attr_name, { :message => message }.merge(options))
+      validates_format_of(attr_name, { message: }.merge(options))
     end
   end
-
 end
 
 ActiveRecord::Base.extend(ValidatesUrlFormatOf)

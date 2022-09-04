@@ -1,16 +1,18 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.describe "Pages", type: :request do
-  describe "GET root index" do
-    it "returns http success" do
-      get "/"
+require 'rails_helper'
+
+RSpec.describe 'Pages', type: :request do
+  describe 'GET root index' do
+    it 'returns http success' do
+      get '/'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /resume" do
-    it "returns http success" do
-      get "/resume"
+  describe 'GET /resume' do
+    it 'returns http success' do
+      get '/resume'
       expect(response).to have_http_status(:success)
     end
   end

@@ -1,10 +1,14 @@
+# frozen_string_literal: true
+
 class Appearance < ApplicationRecord
   extend FriendlyId
-  friendly_id :slug, use: [:slugged, :finders]
+  friendly_id :slug, use: %i[slugged finders]
 
   belongs_to :appearance_type
-  has_many :recordings, dependent: :destroy
   belongs_to :talk, optional: true
+
+  has_many :recordings, dependent: :destroy
+  accepts_nested_attributes_for :recordings, allow_destroy: true
 
   before_validation :set_slug
 
@@ -17,20 +21,20 @@ class Appearance < ApplicationRecord
   # Use lambda because it only runs app on boot, Date.today needs to be
   # calculated whenever the scope is called instead. Also, with {} keep
   # on one line (ruby writing style)
-  scope :upcoming, lambda { where("appearances.date >= ?", Date.today) }
-  scope :past, lambda { where("appearances.date < ?", Date.today) }
+  scope :upcoming, -> { where('appearances.date >= ?', Date.today) }
+  scope :past, -> { where('appearances.date < ?', Date.today) }
 
   def year
-    date.strftime("%Y")
+    date.strftime('%Y')
   end
 
   def month
-    date.strftime("%m")
+    date.strftime('%m')
   end
 
   private
 
   def set_slug
-    self.slug = "#{event}".parameterize
+    self.slug = event.to_s.parameterize
   end
 end
