@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_03_210113) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_04_022054) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appearance_types", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "appearances", force: :cascade do |t|
     t.string "event", null: false
@@ -60,6 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_03_210113) do
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "subtitle"
   end
 
   add_foreign_key "appearances", "recordings"
