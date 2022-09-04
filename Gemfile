@@ -76,8 +76,9 @@ group :development, :test do
   gem 'prosopite'
   gem 'rspec-rails', '~> 5.0.0'
   gem "rubocop", require: false
-  gem "rubocop-rails"
-  gem "rubocop-rspec"
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
+  gem 'rubocop-discourse', require: false
   gem 'standard'
 end
 
