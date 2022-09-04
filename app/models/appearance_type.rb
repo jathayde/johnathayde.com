@@ -4,7 +4,7 @@ class AppearanceType < ApplicationRecord
   extend FriendlyId
   friendly_id :slug, use: %i[slugged finders]
 
-  has_many :appearances
+  has_many :appearances, dependent: :destroy
 
   before_validation :set_slug
 

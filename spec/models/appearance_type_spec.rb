@@ -8,5 +8,5 @@ RSpec.describe AppearanceType, type: :model do
   end
 
   # it "is invalid without an title"
-  it { should validate_presence_of(:title) }
+  it { is_expected.to validate_presence_of(:title) }
 end

@@ -18,11 +18,11 @@ class Appearance < ApplicationRecord
   validates :who,       presence: true
   validates :what,      presence: true
 
-  # Use lambda because it only runs app on boot, Date.today needs to be
+  # Use lambda because it only runs app on boot, Time.zone.today needs to be
   # calculated whenever the scope is called instead. Also, with {} keep
   # on one line (ruby writing style)
-  scope :upcoming, -> { where('appearances.date >= ?', Date.today) }
-  scope :past, -> { where('appearances.date < ?', Date.today) }
+  scope :upcoming, -> { where('appearances.date >= ?', Time.zone.today) }
+  scope :past, -> { where('appearances.date < ?', Time.zone.today) }
 
   def year
     date.strftime('%Y')

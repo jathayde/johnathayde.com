@@ -8,7 +8,7 @@ class Talk < ApplicationRecord
   has_one_attached :deck
 
   has_many :recordings, dependent: :destroy
-  has_many :appearances
+  has_many :appearances, dependent: :destroy
 
   before_validation :set_slug
 

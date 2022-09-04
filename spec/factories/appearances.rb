@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :appearance do
     event { 'MyString' }
-    date { Faker::Date.between(from: 2.days.ago, to: Date.today) }
+    date { Faker::Date.between(from: 2.days.ago, to: Time.zone.today) }
     location { 'MyString' }
     who { 'MyString' }
     what { 'MyString' }

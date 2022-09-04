@@ -1,1 +1,24 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
 inherit_from: .rubocop_todo.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - bin/*
+    - db/*
+    - db/migrate/*
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+RSpec/FactoryBot/SyntaxMethods:
+  Enabled: false
+
+Rails/CreateTableWithTimestamps:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false

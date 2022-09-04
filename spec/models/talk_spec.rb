@@ -8,14 +8,14 @@ RSpec.describe Talk, type: :model do
   end
 
   describe 'associations' do
-    it { should have_many(:recordings).dependent(:destroy) }
-    it { should have_many(:appearances) }
+    it { is_expected.to have_many(:recordings).dependent(:destroy) }
+    it { is_expected.to have_many(:appearances) }
   end
 
   describe 'validations' do
     # it "is invalid without an title"
-    it { should validate_presence_of(:title) }
+    it { is_expected.to validate_presence_of(:title) }
     # it "is invalid without a description"
-    it { should validate_presence_of(:description) }
+    it { is_expected.to validate_presence_of(:description) }
   end
 end
