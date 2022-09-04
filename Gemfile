@@ -75,6 +75,9 @@ group :development, :test do
   gem 'pg_query'
   gem 'prosopite'
   gem 'rspec-rails', '~> 5.0.0'
+  gem "rubocop", require: false
+  gem "rubocop-rails"
+  gem "rubocop-rspec"
   gem 'standard'
 end
 
@@ -89,7 +92,7 @@ group :development do
   # gem "spring"
 
   gem 'annotate'
-  gem 'better_errors' #, github: 'BetterErrors/better_errors'
+  gem 'better_errors'
   gem 'binding_of_caller'
   gem 'heavens_door'
   gem 'letter_opener'

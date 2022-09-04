@@ -23,6 +23,6 @@ bundle exec brakeman -q -o tmp/brakeman.html
 
 echo "[ bin/ci ] Analyzing Ruby gems for"
 echo "[ bin/ci ] security vulnerabilities"
-bundle exec bundle audit check --update
+bundle exec bundle-audit check --update
 
 echo "[ bin/ci ] Done"
