@@ -2,13 +2,17 @@ class Appearance < ApplicationRecord
   extend FriendlyId
   friendly_id :slug, use: [:slugged, :finders]
 
+  belongs_to :appearance_type
+  has_many :recordings, dependent: :destroy
+  belongs_to :talk, optional: true
+
+  before_validation :set_slug
+
   validates :event,     presence: true
   validates :date,      presence: true
   validates :location,  presence: true
   validates :who,       presence: true
   validates :what,      presence: true
-
-  before_validation :set_slug
 
   # Use lambda because it only runs app on boot, Date.today needs to be
   # calculated whenever the scope is called instead. Also, with {} keep

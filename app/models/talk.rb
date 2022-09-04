@@ -5,6 +5,9 @@ class Talk < ApplicationRecord
   has_one_attached :cover_image
   has_one_attached :deck
 
+  has_many :recordings, dependent: :destroy
+  has_many :appearances
+
   before_validation :set_slug
 
   validates :title,       presence: true

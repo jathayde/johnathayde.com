@@ -8,5 +8,6 @@ FactoryBot.define do
     notes { Faker::Lorem.paragraph }
     url { "MyString" }
     slug { "MyString" }
+    association :appearance_type
   end
 end

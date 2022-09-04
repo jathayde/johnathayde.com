@@ -2,9 +2,11 @@ class AppearanceType < ApplicationRecord
   extend FriendlyId
   friendly_id :slug, use: [:slugged, :finders]
 
-  validates :title, presence: true
+  has_many :appearances
 
   before_validation :set_slug
+
+  validates :title, presence: true
 
   private
 
