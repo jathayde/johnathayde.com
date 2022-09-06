@@ -55,6 +55,7 @@ gem 'brakeman'
 # bundler-audit checks our dependencies for vulnerabilities
 gem 'bundler-audit'
 
+gem 'devise'
 gem 'friendly_id'
 gem 'meta-tags'
 gem 'recaptcha'
