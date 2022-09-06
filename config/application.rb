@@ -70,8 +70,6 @@ module JohnathaydeCom
 
     # Email sent via SendGrid
     ActionMailer::Base.smtp_settings = {
-      # :user_name => 'meticulous',
-      # :password => 'y??Bf7xGtfmkaUTdFZPA8kzEFvN3auJw',
       user_name: "apikey",
       password: ENV["SENDGRID_API_KEY"],
       domain: "johnathayde.com",

@@ -125,7 +125,4 @@ Rails.application.configure do
 
   # Devise mail host
   config.action_mailer.default_url_options = { :host => 'www.johnathayde.com' }
-
-  # Sendgrid settings
-  ENV["SENDGRID_API_KEY"] = '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'
 end
