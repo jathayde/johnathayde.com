@@ -122,4 +122,10 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  # Devise mail host
+  config.action_mailer.default_url_options = { :host => 'www.johnathayde.com' }
+
+  # Sendgrid settings
+  ENV["SENDGRID_API_KEY"] = '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'
 end

@@ -17,30 +17,31 @@
 
 <%= form_for @message, :url => contact_path do |form| %>
   <fieldset class="fields">
-    <div class="field">
+  <ol>
+    <li class="field">
       <%= form.label :name %>
       <%= form.text_field :name %>
-    </div>
+    </li>
 
-    <div class="field">
+    <li class="field">
       <%= form.label :email %>
       <%= form.text_field :email %>
-    </div>
-    <div class="field">
+    </li>
+    <li class="field">
       <%= form.label :subject %>
       <%= form.text_field :subject %>
-    </div>
+    </li>
 
-    <div class="field">
+    <li class="field">
       <%= form.label :body %>
       <%= form.text_area :body, :rows => 10, :cols => 60 %>
-    </div>
+    </li>
 
     <%= recaptcha_v3(action: 'new', site_key: ENV['RECAPTCHA_SITE_KEY']) %>
-
+  </ol>
   </fieldset>
 
   <fieldset class="actions">
-    <%= form.submit "Send" %>
+    <%= form.submit "Send Your Message" %>
   </fieldset>
 <% end %>

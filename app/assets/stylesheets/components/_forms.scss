@@ -1,0 +1,148 @@
+// Form styles
+form {
+  margin-bottom: 2em;
+
+  ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      margin: 0 0 1em 0;
+      padding: 0;
+    }
+  }
+
+  label {
+    display: block;
+    font-family: $body-stack;
+    @include font-size(12px);
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+  } // label
+
+  fieldset {
+    background-color: $gray-lightest;
+    border-left: 1.5em solid $gray-darkest;
+    margin-bottom: 1em;
+    overflow: visible;
+    padding: 1em 1em 0.5em 1em;
+    position: relative;
+
+    &.issue-shape {
+      clear: both;
+    }
+
+    legend {
+      background: $gray-darkest;
+      color: $white;
+      font-family: $body-stack;
+      @include font-size(12px);
+      font-weight: bold;
+      position: absolute;
+        top: 6px;
+        left: -3px;
+      text-transform: uppercase;
+      -webkit-transform-origin: 0 0;
+      -moz-transform-origin:    0 0;
+      -ms-transform-origin:     0 0;
+      -o-transform-origin:      0 0;
+      transform-origin:         0 0;
+      -webkit-transform: rotate(90deg);
+      -moz-transform:    rotate(90deg);
+      -ms-transform:     rotate(90deg);
+      -o-transform:      rotate(90deg);
+      transform:         rotate(90deg);
+      z-index: 1200;
+    }
+
+    p.info {
+      font-size: 0.875em;
+      line-height: 2em;
+    }
+  }
+
+  span.hint {
+    display: block;
+    font-size: 0.825em;
+    font-style: italic;
+    color: #777;
+  }
+
+  input {
+    font-family: $body-stack;
+    @include font-size(18px);
+    font-weight: 300;
+    line-height: 1.5em;
+    padding: 0.5em;
+
+    &[type="checkbox"] {
+      clear: left;
+      margin: 0.25em 0.5em 0.25em 0;
+
+      & + label {
+        font-weight: normal;
+        line-height: 1.4em;
+        text-transform: capitalize;
+      }
+    }
+
+    &[type="text"],
+    &[type="url"] {
+      width: 40em;
+    } // input[type="text"]
+
+    &[type="email"],
+    &[type="password"] {
+      width: 20em;
+    } // input[type="email"]
+
+    &[type="number"] {
+       width: 8em;
+    }
+
+  } // input
+
+  select {
+    font-family: $body-stack;
+    @include font-size(18px);
+    font-weight: 300;
+    line-height: 1.5em;
+    padding: 0.5em 1em 0.5em 0.25em;
+  }
+
+  textarea {
+    font-family: $body-stack;
+    @include font-size(18px);
+    font-weight: 300;
+    line-height: 1.5em;
+    padding: 0.5em;
+    width: 40em;
+  }
+
+
+  .inline {
+    display: inline-block;
+    float: left;
+    margin-right: 1em;
+  }
+
+  .input {
+    margin-bottom: 1em;
+    overflow: hidden;
+  } // .input
+
+} // form
+
+.select2-container {
+  width: 250px;
+}
+
+ul.ui-autocomplete {
+  @extend %list-in-disguise;
+  background: $white;
+  border: 1px solid $gray-dark;
+  width: 300px;
+}
