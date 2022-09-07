@@ -60,6 +60,7 @@ gem 'friendly_id'
 gem 'meta-tags'
 gem 'recaptcha'
 gem 'simple-navigation'
+gem 'stamp'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

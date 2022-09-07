@@ -76,6 +76,9 @@
       </hgroup>
       </div></div>
     </header>
+    <% if content_for?(:social_proof)%>
+      <%= yield :social_proof %>
+    <% end %>
 
     <main>
       <%= yield %>

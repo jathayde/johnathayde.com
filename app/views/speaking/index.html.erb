@@ -1,0 +1,26 @@
+<h1>Speaking</h1>
+
+<h2>Upcoming Appearances</h2>
+<% if @appearances.empty? %>
+  <p>There are no announced appearances right now.</p>
+<% else %>
+<ol class="appearances">
+  <% @appearances.each do |appearance| %>
+  <li>
+    <h3><%= link_to appearance.event, "" %> <span>(<%= appearance.location %>)</span></h3>
+    <p><%= appearance.who %> <%= appearance.what %></p>
+  </li>
+  <% end %>
+  </ol>
+<% end %>
+
+<h2>Past Appearances</h2>
+<ol class="appearances">
+<% @past_appearances.each do |appearance| %>
+  <li>
+    <h3><%= link_to appearance.event, "" %> <span>(<%= appearance.location %>)</span></h3>
+    <p><%= appearance.who %> <%= appearance.what %></p>
+    <p class="date"><time datetime=""><%= appearance.date.stamp("04 May 2020") %></time></p>
+  </li>
+<% end %>
+</ol>

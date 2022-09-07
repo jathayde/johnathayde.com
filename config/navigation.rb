@@ -62,7 +62,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :resume, 'Resume/CV', ''
     primary.item :work, 'Work', ''
     primary.item :blog, 'Blog', ''
-    primary.item :speaking, 'Speaking', ''
+    primary.item :speaking, 'Speaking', speaking_index_path
     primary.item :music, 'Music', ''
     primary.item :contact, 'Say Hello', contact_url
 

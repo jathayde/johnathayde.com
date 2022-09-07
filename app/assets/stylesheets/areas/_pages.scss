@@ -119,3 +119,32 @@ body.contact {
 
 
 }
+
+// ----------------------------------------------------------------------------
+// SPEAKING PAGE
+
+ol.appearances {
+  @extend %list-in-disguise;
+
+  li {
+    margin-bottom: 0.5em;
+
+    h3 {
+      margin-bottom: 0.25em;
+
+      span {
+        font-weight: 400;
+        font-style: italic;
+      }
+    }
+
+    p {
+      margin: 0.25em 0;
+    }
+
+    time {
+      @include font-size(15px);
+      color: $gray-dark;
+    }
+  }
+}
