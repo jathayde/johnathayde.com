@@ -25,7 +25,8 @@ form {
 
   fieldset {
     background-color: $gray-lightest;
-    border-left: 1.5em solid $gray-darkest;
+    border: none;
+    border-radius: $base-border-radius;
     margin-bottom: 1em;
     overflow: visible;
     padding: 1em 1em 0.5em 1em;
@@ -36,26 +37,14 @@ form {
     }
 
     legend {
-      background: $gray-darkest;
-      color: $white;
-      font-family: $body-stack;
+      color: $gray-dark;
       @include font-size(12px);
-      font-weight: bold;
-      position: absolute;
-        top: 6px;
-        left: -3px;
+      font-weight: 400;
       text-transform: uppercase;
-      -webkit-transform-origin: 0 0;
-      -moz-transform-origin:    0 0;
-      -ms-transform-origin:     0 0;
-      -o-transform-origin:      0 0;
-      transform-origin:         0 0;
-      -webkit-transform: rotate(90deg);
-      -moz-transform:    rotate(90deg);
-      -ms-transform:     rotate(90deg);
-      -o-transform:      rotate(90deg);
-      transform:         rotate(90deg);
-      z-index: 1200;
+
+      b {
+        font-weight: 600;
+      }
     }
 
     p.info {
@@ -77,6 +66,10 @@ form {
     font-weight: 300;
     line-height: 1.5em;
     padding: 0.5em;
+
+    &:focus {
+      outline: 3px solid rgba($base, 0.5);
+    }
 
     &[type="checkbox"] {
       clear: left;
@@ -111,15 +104,25 @@ form {
     font-weight: 300;
     line-height: 1.5em;
     padding: 0.5em 1em 0.5em 0.25em;
+
+    &:focus {
+      outline: 3px solid rgba($base, 0.5);
+    }
   }
 
   textarea {
+    border: 1px solid $gray-lighter;
+    border-bottom: 1px solid $gray-light;
     font-family: $body-stack;
     @include font-size(18px);
     font-weight: 300;
     line-height: 1.5em;
     padding: 0.5em;
     width: 40em;
+
+    &:focus {
+      outline: 3px solid rgba($base, 0.5);
+    }
   }
 
 

@@ -135,6 +135,25 @@ header {
   } // nav#primary_nav
 } // header
 
+main {
+  width: 100%;
+
+  @include media('>tablet') {
+    max-width: 50em;
+    margin: 0 auto;
+  }
+
+  h1 {
+    @include font-size(36px);
+    font-weight: 200;
+    margin: 1em 0;
+
+    @include media('>tablet') {
+      @include font-size(56px);
+    }
+  }
+}
+
 footer#page_footer {
   background-color: $black;
   color: $white;
