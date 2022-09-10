@@ -674,6 +674,27 @@ Appearance.create!(
   talk_id: 11
 )
 
+Appearance.create!(
+  id: 34,
+  event: "Ruby Remote Conf 2015",
+  date: '2015-09-01',
+  location: 'Online',
+  who: 'John Athayde',
+  what: 'presenting "How They Work Better Together: Lean UX, Agile Development, and User-Centered Design"',
+  url: 'https://rubyremoteconf.com/',
+  appearance_type_id: 1,
+  talk_id: 6
+)
+
+Recording.create!(
+  title: 'How They Work Better Together: Lean UX, Agile Development, and User-Centered Design',
+  url: 'https://www.youtube.com/watch?v=1umoY357VZg',
+  recorded_on: '2015-09-01',
+  appearance_id: 34,
+  talk_id: 6
+)
+
+
 # Appearance.create!(
 #   id: 1,
 #   event: '',
