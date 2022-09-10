@@ -1,26 +1,51 @@
 <h1>Speaking</h1>
 
-<h2>Upcoming Appearances</h2>
-<% if @appearances.empty? %>
-  <p>There are no announced appearances right now.</p>
-<% else %>
-<ol class="appearances">
-  <% @appearances.each do |appearance| %>
-  <li>
-    <h3><%= link_to appearance.event, "" %> <span>(<%= appearance.location %>)</span></h3>
-    <p><%= appearance.who %> <%= appearance.what %></p>
-  </li>
-  <% end %>
-  </ol>
-<% end %>
+<section id="appearances">
+  <h2 class="tinylabel"><b>01</b> Appearances</h2>
 
-<h2>Past Appearances</h2>
-<ol class="appearances">
-<% @past_appearances.each do |appearance| %>
-  <li>
-    <h3><%= link_to appearance.event, "" %> <span>(<%= appearance.location %>)</span></h3>
-    <p><%= appearance.who %> <%= appearance.what %></p>
-    <p class="date"><time datetime=""><%= appearance.date.stamp("04 May 2020") %></time></p>
-  </li>
-<% end %>
-</ol>
+  <section id="upcoming">
+  <h2>Upcoming Appearances</h2>
+    <% if @appearances.empty? %>
+      <p>There are no announced appearances right now.</p>
+    <% else %>
+    <ol class="appearances">
+      <% @appearances.each do |appearance| %>
+      <li>
+        <h3><%= link_to appearance.event, "" %> <span>(<%= appearance.location %>)</span></h3>
+        <p><%= appearance.who %> <%= appearance.what %></p>
+        <p class="date"><time datetime=""><%= appearance.date.stamp("04 May 2020") %></time></p>
+      </li>
+      <% end %>
+      </ol>
+    <% end %>
+  </section>
+
+  <section id="past">
+  <h2>Past Appearances</h2>
+    <ol class="appearances">
+    <% @past_appearances.each do |appearance| %>
+      <li>
+        <h3><%= link_to appearance.event, "" %> <span>(<%= appearance.location %>)</span></h3>
+        <p><%= appearance.who %> <%= appearance.what %></p>
+        <p class="date"><time datetime=""><%= appearance.date.stamp("04 May 2020") %></time></p>
+      </li>
+    <% end %>
+    </ol>
+    <p><%= link_to "See all past appearances &raquo;".html_safe, "" %></p>
+  </section>
+</section>
+
+<section id="talks">
+  <h2 class="tinylabel"><b>02</b> Talks</h2>
+
+  <ul id="talk_list">
+  <h2>Talks</h2>
+  <% @talks.each do |talk| %>
+    <li id="<%= talk.slug %>">
+      <div class="cover-image"></div>
+      <h3><%= link_to talk.title , "" %><span><%= " (#{talk.subtitle})" if talk.subtitle.present? %></span></h3>
+    </li>
+  <% end %>
+  </ul>
+
+</section>

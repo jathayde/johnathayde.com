@@ -1,0 +1,37 @@
+.card {
+  // background-color: white;
+
+  &.rounded {
+    border-radius: $base-border-radius;
+    padding: 0.5em;
+  } // &.rounded
+
+  &.frosted {
+    @extend .rounded;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, .8);
+    box-shadow: 0 1px 12px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.3);
+
+    // blured background for those who can handle it
+    @supports #{'\((-webkit-backdrop-filter: none) or (backdrop-filter: none))'} {
+      & {
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        background-color: rgba(255,255,255,0.5);
+      }
+    } // @supports
+  }  // frosted
+
+  &.frosted-bright {
+    @extend .frosted;
+    background-color: rgba(255, 255, 255, .8);
+
+    @supports #{'\((-webkit-backdrop-filter: none) or (backdrop-filter: none))'} {
+      & {
+        background-color: rgba(255,255,255,0.7);
+      }
+    } // @supports
+  }
+}  // .card
