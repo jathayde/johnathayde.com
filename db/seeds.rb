@@ -29,84 +29,104 @@ Talk.create!(
   id: 1,
   title: 'Dabble, Dabble, Toil & Kick Ass',
   subtitle: '',
-  description: "Zen masters taught it. Isaac Newton knew it. Scott Adams writes about it. Now you can know it, too We're talking, of course, about the manifold benefits of being a n00b (at something). And, of course, about all the good stuff that happens post-n00bishness: the excellent side effects of being good at multiple things, even if they're not related - heck, *especially* if they're not related. So many of humanity's important discoveries, innovations and beautiful leaps of logic have been made by people whose brains were leveled up by the cross-fertilization of multiple interests and disciplines. Nano-thin specialization is out, a broad understanding of life, the universe, and everything is in. It's time to synergize, baby. So, reach outside your comfort zone, be a beginner again, and you'll be smarter, sexier, better at you job... even more valuable. With the wisdom of the ages (and a little bit from modern pundits), we'll talk about how, why, when, and where you can go about it. You won't regret it."
+  description: "Zen masters taught it. Isaac Newton knew it. Scott Adams writes about it. Now you can know it, too We're talking, of course, about the manifold benefits of being a n00b (at something). And, of course, about all the good stuff that happens post-n00bishness: the excellent side effects of being good at multiple things, even if they're not related - heck, *especially* if they're not related. So many of humanity's important discoveries, innovations and beautiful leaps of logic have been made by people whose brains were leveled up by the cross-fertilization of multiple interests and disciplines. Nano-thin specialization is out, a broad understanding of life, the universe, and everything is in. It's time to synergize, baby. So, reach outside your comfort zone, be a beginner again, and you'll be smarter, sexier, better at you job... even more valuable. With the wisdom of the ages (and a little bit from modern pundits), we'll talk about how, why, when, and where you can go about it. You won't regret it.",
+  speaker_deck_embed: '<script async class="speakerdeck-embed" data-id="4f70857b98186f0022033869" data-ratio="1.2994923857868" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Talk.create!(
   id: 2,
   title: 'Curing DIV-itis with Semantic Markup, CSS, and Presenters',
   subtitle: '',
-  description: "Modern web apps are built with all sorts of tools, but the basics of Semantic, Valid HTML and CSS are still the foundation. In this talk, we'll look at how to use semantic markup and CSS to build a responsive, accessible, and maintainable web app. We'll also look at how to use presenters to make your views more readable and easier to test."
+  description: "Modern web apps are built with all sorts of tools, but the basics of Semantic, Valid HTML and CSS are still the foundation. In this talk, we'll look at how to use semantic markup and CSS to build a responsive, accessible, and maintainable web app. We'll also look at how to use presenters to make your views more readable and easier to test.",
+  speaker_deck_embed: ''
 )
 
 Talk.create!(
   id: 3,
   title: 'The Rails View: The Junk Drawer Grows Up',
   subtitle: '',
-  description: "You like Ruby. You know how to write it and refactor it. Controllers and Models are Ruby: fantastic, superb! Views, on the other hand, while Ruby ? are also mixed with HTML, JavaScript (or CoffeeScript), and CSS (or SCSS). In this mixed environment it?s easy to drop your high code standards and turn the top of the Rails stack into a nasty, brittle mess just to get things done. How do you recover, or even better, avoid the trap in the first place? How can you get to the point where you treat your views like code you?re confident in?We'll cover 10 simple rules you can follow immediately to transform the way you write, think, and feel about Rails views. We'll also look at some cutting edge techniques with SCSS, SVG imagery, and more in some recent projects the speaker has been working on."
+  description: "You like Ruby. You know how to write it and refactor it. Controllers and Models are Ruby: fantastic, superb! Views, on the other hand, while Ruby ? are also mixed with HTML, JavaScript (or CoffeeScript), and CSS (or SCSS). In this mixed environment it?s easy to drop your high code standards and turn the top of the Rails stack into a nasty, brittle mess just to get things done. How do you recover, or even better, avoid the trap in the first place? How can you get to the point where you treat your views like code you?re confident in?We'll cover 10 simple rules you can follow immediately to transform the way you write, think, and feel about Rails views. We'll also look at some cutting edge techniques with SCSS, SVG imagery, and more in some recent projects the speaker has been working on.",
+  speaker_deck_embed: '<script async class="speakerdeck-embed" data-id="4f7085d098186f07b5004e4f" data-ratio="1.2994923857868" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Talk.create!(
   id: 4,
   title: 'UX Eye for the Javascript Guy/Gal',
   subtitle: '',
-  description: "UX isn't just about the pretty. Learn solid techniques to improve your user's experience and make your apps awesome."
+  description: "UX isn't just about the pretty. Learn solid techniques to improve your user's experience and make your apps awesome.",
+  speaker_deck_embed: '<script async class="speakerdeck-embed" data-id="8dd91af01431013124194623091db79e" data-ratio="1.2994923857868" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Talk.create!(
   id: 5,
   title: 'The Timeless Way of Building',
   subtitle: '',
-  description: "\"Design patterns\" is a common phrase that is often spoken in the course of design and development of web applications. But it's genesis is not from programming, but Architecture. They come from a trio of books in the 1970s by Christopher Alexander, the most famous of which is the middle book: \"A Pattern Language\". The issue arises that Pattern Languages, much like spoken languages, are most effective when the speaker is fluent. \n\nWe'll look at the origin of pattern languages (and later, pattern libraries) and why they can be dangerous and even detrimental tools in the hands of the inexperienced designer and developer. Through examples of bad grammar, poor idiomatic choices, and horrible experience flows (aka antipatterns), we'll explore \"the quality of a space that can't be named\" and see if we can create that in the products we create. We may even look at some architecture (buildings) as well. \n\nWhile this talk does show specific code and design examples, the concepts are high-level and Christopher Alexander\'s work has been applied to many different fields. "
+  description: "\"Design patterns\" is a common phrase that is often spoken in the course of design and development of web applications. But it's genesis is not from programming, but Architecture. They come from a trio of books in the 1970s by Christopher Alexander, the most famous of which is the middle book: \"A Pattern Language\". The issue arises that Pattern Languages, much like spoken languages, are most effective when the speaker is fluent. \n\nWe'll look at the origin of pattern languages (and later, pattern libraries) and why they can be dangerous and even detrimental tools in the hands of the inexperienced designer and developer. Through examples of bad grammar, poor idiomatic choices, and horrible experience flows (aka antipatterns), we'll explore \"the quality of a space that can't be named\" and see if we can create that in the products we create. We may even look at some architecture (buildings) as well. \n\nWhile this talk does show specific code and design examples, the concepts are high-level and Christopher Alexander\'s work has been applied to many different fields. ",
+  speaker_deck_embed: '<script async class="speakerdeck-embed" data-id="c76a3eeddda4450a876bb3a7e5d14693" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Talk.create!(
   id: 6,
   title: 'How They Work Better Together',
   subtitle: 'Lean UX, Agile Development, and User-Centered Design',
-  description: "Design has often been cut off from the development side of the house, creating static images that are then handed off to developers to build. Invariably, this waterfall approach leads to unhappy designers and frustrated programmers, and often a product that misses the mark. Agile Development has solved many of the issues, but in many cases, designers still sit on the outside. \n\nWe'll look at integrating your design team (even if it's a team of one) into an agile development organization while still pushing user-centric design. We'll study successes and failures from both consultancies (InfoEther, Hyphenated People, Meticulous) and product companies both large and small (LivingSocial, CargoSense)."
+  description: "Design has often been cut off from the development side of the house, creating static images that are then handed off to developers to build. Invariably, this waterfall approach leads to unhappy designers and frustrated programmers, and often a product that misses the mark. Agile Development has solved many of the issues, but in many cases, designers still sit on the outside. \n\nWe'll look at integrating your design team (even if it's a team of one) into an agile development organization while still pushing user-centric design. We'll study successes and failures from both consultancies (InfoEther, Hyphenated People, Meticulous) and product companies both large and small (LivingSocial, CargoSense).",
+  speaker_deck_embed: '<script async class="speakerdeck-embed" data-id="1e5aa9c0ae47013156964eab6e1d3af5" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Talk.create!(
   id: 7,
   title: 'UX for Developers',
   subtitle: '',
-  description: "The goal of this talk is to give developers five solid techniques and concepts that they can implement as soon as they return to work. We'll start with a very quick level set of what \"design\" is and why the standard \"designers hand off to developers\" workflow is a mess. We'll then move on to discussing problem analysis and definition, sketching/crazy eights/six-ups, prototyping, user testing, and finally components and living style guides."
+  description: "The goal of this talk is to give developers five solid techniques and concepts that they can implement as soon as they return to work. We'll start with a very quick level set of what \"design\" is and why the standard \"designers hand off to developers\" workflow is a mess. We'll then move on to discussing problem analysis and definition, sketching/crazy eights/six-ups, prototyping, user testing, and finally components and living style guides.",
+  speaker_deck_embed: '<script async class="speakerdeck-embed" data-id="612670ca94cd40f3a29925a7fe212fa7" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Talk.create!(
   id: 8,
   title: 'Building a UX Team',
   subtitle: 'Strategies for Hiring & Retaining Good Designers',
-  description: "UX Teams are complex. They require a mix of skills and personalities that can be difficult to find and even more difficult to retain. We'll look at the various roles that make up a UX team and how to hire for them. We'll also look at how to retain your designers and keep them happy."
+  description: "UX Teams are complex. They require a mix of skills and personalities that can be difficult to find and even more difficult to retain. We'll look at the various roles that make up a UX team and how to hire for them. We'll also look at how to retain your designers and keep them happy.",
+  speaker_deck_embed: '<script async class="speakerdeck-embed" data-id="3bc73b22204e410dbc59667e532f0b4d" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Talk.create!(
   id: 9,
   title: 'Bring Lean UX to Your Product and Engineering Cycles',
   subtitle: '',
-  description: "This Workshop will walk users through the tools and techniques for the high-level UX process on a project, equipping them with the tools to bring Lean UX to their own teams. We'll cover the basics of the Lean UX process, including how to define a problem, sketching, prototyping, user testing, and how to integrate UX into your Agile development process. We'll also cover how to build a UX team and how to hire and retain good designers."
+  description: "This Workshop will walk users through the tools and techniques for the high-level UX process on a project, equipping them with the tools to bring Lean UX to their own teams. We'll cover the basics of the Lean UX process, including how to define a problem, sketching, prototyping, user testing, and how to integrate UX into your Agile development process. We'll also cover how to build a UX team and how to hire and retain good designers.",
+  speaker_deck_embed: '<script async class="speakerdeck-embed" data-id="5cba37237b4440a98074dab316f2425c" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Talk.create!(
   id: 10,
   title: 'Build Software Like Pixar Makes Movies',
   subtitle: '',
-  description: "Pixar is a creative powerhouse. They're responsible for reinventing Disney animation, and it all comes down to creative process. But most people don't realize is that Pixar is a hardware and software company that made movies to figure out what they could do with their tools.\n\nIn this talk we'll look at Pixar's history, process, and how we can apply that to building our own products with intensive user research, constant refactoring, and infectious collaboration. Learn about the benefits of hiring varied discipline individuals and teaching them their jobs, with experience from similar programs at LivingSocial Engineering."
+  description: "Pixar is a creative powerhouse. They're responsible for reinventing Disney animation, and it all comes down to creative process. But most people don't realize is that Pixar is a hardware and software company that made movies to figure out what they could do with their tools.\n\nIn this talk we'll look at Pixar's history, process, and how we can apply that to building our own products with intensive user research, constant refactoring, and infectious collaboration. Learn about the benefits of hiring varied discipline individuals and teaching them their jobs, with experience from similar programs at LivingSocial Engineering.",
+  speaker_deck_embed: ''
 )
 
 Talk.create!(
   id: 11,
   title: 'Type is Design',
   subtitle: 'Fix Your UI with Better Typography and CSS',
-  description: "The written word is the medium through which most information exchanges hands in the tools we build. Digital letterforms can help or hinder the ability for people to communicate and understand. We'll work through some typographic principles and then apply them to the web with HTML and CSS for implementation. We'll look at some of the newer OpenType features and touch on the future of digital type, variable fonts, and more."
+  description: "The written word is the medium through which most information exchanges hands in the tools we build. Digital letterforms can help or hinder the ability for people to communicate and understand. We'll work through some typographic principles and then apply them to the web with HTML and CSS for implementation. We'll look at some of the newer OpenType features and touch on the future of digital type, variable fonts, and more.",
+  speaker_deck_embed: ""
 )
 
 Talk.create!(
   id: 12,
   title: 'Building the LivingSocial Customer Support Tool',
   subtitle: '',
-  description: "LivingSocial's Customer Support Tool is a case study in how a small product, ux, and front-end team was able to make major moves on the needle and the bottom line of the company."
+  description: "LivingSocial's Customer Support Tool is a case study in how a small product, ux, and front-end team was able to make major moves on the needle and the bottom line of the company.",
+  speaker_deck_embed: '<script async class="speakerdeck-embed" data-id="602063738c134159a4589eb33523d914" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
+)
+
+Talk.create!(
+  id: 13,
+  title: 'APIs Need Ux Too',
+  subtitle: '',
+  description: "We've all been there: Attempting to work with a textual interface to a product or service and the responses come back with no clear error, or what we might change to get a better response. The built-in help is non-existent. We end up banging our head against the keyboard and getting fed up. It doesn't have to be this way. UX is not only “the pretty” or how something looks, but it is in fact about how things work. We'll look at some good and bad API interfaces (and command line tools) and talk about the best practices we can implement in our own products to help our end users have a better experience.",
+  speaker_deck_embed: ''
 )
 
 ###############################################################################
@@ -171,7 +191,8 @@ Appearance.create!(
   what: 'presenting "The Rails View: The Junk Drawer Grows Up"',
   url: 'http://www.rubynation.org',
   talk_id: 3,
-  appearance_type_id: 1
+  appearance_type_id: 1,
+  speaker_deck_override: '<script async class="speakerdeck-embed" data-id="4f7085d098186f07b5004e4f" data-ratio="1.2994923857868" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Recording.create!(
@@ -191,7 +212,8 @@ Appearance.create!(
   what: 'presenting on The Rails View',
   url: 'http://www.scottishrubyconference.com',
   talk_id: 3,
-  appearance_type_id: 1
+  appearance_type_id: 1,
+  speaker_deck_override: '<script async class="speakerdeck-embed" data-id="4fed98c7bf9228001f02459f" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Recording.create!(
@@ -224,6 +246,7 @@ Appearance.create!(
   url: 'http://www.nationjs.com',
   talk_id: 4,
   appearance_type_id: 1
+  # speaker_deck_override: '<script async class="speakerdeck-embed" data-id="8dd91af01431013124194623091db79e" data-ratio="1.2994923857868" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Appearance.create!(
@@ -260,7 +283,8 @@ Appearance.create!(
   what: 'presenting "The Timeless Way of Building"',
   url: '',
   talk_id: 5,
-  appearance_type_id: 1
+  appearance_type_id: 1,
+  speaker_deck_override: '<script async class="speakerdeck-embed" data-id="b0d5ebb09362013128a74261e6fe4add" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Recording.create!(
@@ -280,7 +304,8 @@ Appearance.create!(
   what: 'presenting "How They Work Better Together: Lean UX, Agile Development, and User-Centered Design"',
   url: 'http://www.railsconf.com/',
   talk_id: 6,
-  appearance_type_id: 1
+  appearance_type_id: 1,
+  speaker_deck_override: '<script async class="speakerdeck-embed" data-id="1e5aa9c0ae47013156964eab6e1d3af5" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Recording.create!(
@@ -300,7 +325,8 @@ Appearance.create!(
   what: 'presenting "How They Work Better Together: Lean UX, Agile Development, and User-Centered Design"',
   url: '',
   talk_id: 6,
-  appearance_type_id: 1
+  appearance_type_id: 1,
+  speaker_deck_override: '<script async class="speakerdeck-embed" data-id="1a025cfb9a6141738f15548a2301b4d6" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Appearance.create!(
@@ -325,6 +351,7 @@ Appearance.create!(
   url: 'http://www.revolutionconf.com/',
   talk_id: 5,
   appearance_type_id: 1
+  # speaker_deck_override: '<script async class="speakerdeck-embed" data-id="c76a3eeddda4450a876bb3a7e5d14693" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Recording.create!(
@@ -343,7 +370,8 @@ Appearance.create!(
   what: 'presenting "The Timeless Way of Building"',
   url: '',
   talk_id: 5,
-  appearance_type_id: 1
+  appearance_type_id: 1,
+  speaker_deck_override: '<script async class="speakerdeck-embed" data-id="5c0a4690b8210130b40c022eac0b5e7d" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Appearance.create!(
@@ -352,10 +380,11 @@ Appearance.create!(
   date: '2018-05-17',
   location: 'Virgina Beach, Virginia, USA',
   who: 'John Athayde',
-  what: 'presenting "UX for Developers"',
+  what: 'presenting "Bring Lean UX to Your Product and Engineering Cycles"',
   url: 'http://www.revolutionconf.com/',
   talk_id: 7,
-  appearance_type_id: 1
+  appearance_type_id: 1,
+  speaker_deck_override: '<script async class="speakerdeck-embed" data-id="4085e1f3a3f74639a93a6a7324d3509e" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Appearance.create!(
@@ -367,7 +396,8 @@ Appearance.create!(
   what: 'presenting "UX for Developers"',
   url: 'https://www.rvajavascript.com/',
   talk_id: 7,
-  appearance_type_id: 1
+  appearance_type_id: 1,
+  speaker_deck_override: '<script async class="speakerdeck-embed" data-id="612670ca94cd40f3a29925a7fe212fa7" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Recording.create!(
@@ -387,7 +417,8 @@ Appearance.create!(
   what: 'presenting "Build Software Like Pixar Makes Movies"',
   url: '',
   talk_id: 10,
-  appearance_type_id: 1
+  appearance_type_id: 1,
+  speaker_deck_override: '<script async class="speakerdeck-embed" data-id="432a05ee3d324297b6c6522660cb0833" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Recording.create!(
@@ -447,7 +478,8 @@ Appearance.create!(
   what: 'presenting "Build Software Like Pixar Makes Movies"',
   url: '',
   talk_id: 10,
-  appearance_type_id: 1
+  appearance_type_id: 1,
+  speaker_deck_override: '<script async class="speakerdeck-embed" data-id="c81deb8314cf4ee1a7e29e145b707a93" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Recording.create!(
@@ -500,6 +532,7 @@ Appearance.create!(
   url: '',
   talk_id: 12,
   appearance_type_id: 1
+  # speaker_deck_override: '<script async class="speakerdeck-embed" data-id="602063738c134159a4589eb33523d914" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Appearance.create!(
@@ -511,7 +544,8 @@ Appearance.create!(
   what: 'presenting "UX for Developers"',
   url: '',
   talk_id: 7,
-  appearance_type_id: 1
+  appearance_type_id: 1,
+  speaker_deck_override: '<script async class="speakerdeck-embed" data-id="a78144beeecb4a26834d82a2c67352f8" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Recording.create!(
@@ -591,7 +625,8 @@ Appearance.create!(
   what: 'presenting "The Rails View: The Junk Drawer Grows Up"',
   url: 'http://www.meetup.com/raleighrb/events/96974032/',
   talk_id: 3,
-  appearance_type_id: 4
+  appearance_type_id: 4,
+  speaker_deck_override: '<script async class="speakerdeck-embed" data-id="c4d3cb803c420130e7b722000a1e877c" data-ratio="1.2994923857868" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Appearance.create!(
@@ -603,7 +638,8 @@ Appearance.create!(
   what: 'presenting "The Rails View: The Junk Drawer Grows Up"',
   url: '',
   talk_id: 3,
-  appearance_type_id: 4
+  appearance_type_id: 4,
+  speaker_deck_override: '<script async class="speakerdeck-embed" data-id="a1705be010b701303464123138132f69" data-ratio="1.2994923857868" src="//speakerdeck.com/assets/embed.js"></script>'
 )
 
 Appearance.create!(
@@ -624,6 +660,18 @@ Recording.create!(
   recorded_on: '2019-10-16',
   appearance_id: 32,
   talk_id: 10
+)
+
+Appearance.create!(
+  id: 33,
+  event: "RVAJS 2022",
+  date: '2022-11-17',
+  location: 'Science Museum of Virginia; Richmond, Virginia, USA',
+  who: 'John Athayde',
+  what: 'presenting "APIs Need UX Too"',
+  url: 'https://rvatech.com/rvatech-events/rvajs/',
+  appearance_type_id: 1,
+  talk_id: 11
 )
 
 # Appearance.create!(

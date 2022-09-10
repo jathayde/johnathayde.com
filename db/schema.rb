@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_06_034214) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_08_203737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_034214) do
     t.bigint "talk_id"
     t.bigint "recording_id"
     t.bigint "appearance_type_id", null: false
+    t.string "speaker_deck_override"
     t.index ["appearance_type_id"], name: "index_appearances_on_appearance_type_id"
     t.index ["recording_id"], name: "index_appearances_on_recording_id"
     t.index ["talk_id"], name: "index_appearances_on_talk_id"
@@ -72,6 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_034214) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "subtitle"
+    t.string "speaker_deck_embed"
   end
 
   create_table "users", force: :cascade do |t|
