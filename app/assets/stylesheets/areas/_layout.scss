@@ -5,6 +5,11 @@ body {
   padding: 0;
 }
 
+a,
+a:link {
+  color: $base;
+}
+
 header {
   background: $gray-darkest;
   margin-top: 0;
@@ -121,6 +126,7 @@ header {
         a,
         a:link,
         a:visited {
+          text-shadow: 0 1px 2px rgba(0,0,0,0.75);
           color: $white;
           padding: 1em;
           text-decoration: none;
@@ -211,9 +217,42 @@ footer#page_footer {
       }
     } // #footer_nav
 
-    &#social_links {
+    ul.socials {
+      @extend %list-in-disguise;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2em;
 
-    } // #social_links
+      li {
+        height: 80px;
+
+        a {
+          @extend %image-replacement;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: contain;
+          display: block;
+          height: 40px; // Change to the height of the tallest logo.
+          width: 40px;
+          margin: 0 1em;
+
+          &#linkedin {
+            @include background-image("socials/linkedin");
+          }
+
+          &#github {
+            @include background-image("socials/github");
+          }
+
+          &#twitter {
+            @include background-image("socials/twitter");
+          }
+        } // a
+
+      } // li
+    }
   } // nav
 
 } // footer#page_footer
