@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Appearances</h1>
+
+<section id="appearances">
+  <h2 class="tinylabel"><b>01</b> All Appearances</h2>
+
+  <ol class="appearances" id="speaking_appearances">
+    <% @speaking_appearances.each do |speaking_appearance| %>
+      <%= render speaking_appearance %>
+    <% end %>
+  </ol>
+
+<% if current_user %>
+<%= link_to "New appearance", new_speaking_appearance_path %>
+<% end %>

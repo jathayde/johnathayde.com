@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   root to: 'pages#placeholder'
 
   get '/home', to: 'pages#index'
-  get 'contact', to: 'contact#new', as: 'contact'
-  post 'contact', to: 'contact#create'
+  get '/contact', to: 'contact#new', as: 'contact'
+  post '/contact', to: 'contact#create'
   get '/resume', to: 'pages#resume'
 
-  resources :speaking, only: %i[index] do
+  get '/speaking', to: 'speaking#index'
+  namespace :speaking do
     resources :appearances do
       resources :recordings
     end

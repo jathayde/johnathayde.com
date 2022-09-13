@@ -11,7 +11,7 @@
     <ol class="appearances">
       <% @appearances.each do |appearance| %>
       <li>
-        <h3><%= link_to appearance.event, "" %> <span>(<%= appearance.location %>)</span></h3>
+        <h3><%= link_to appearance.event, speaking_appearance_path(appearance) %> <span>(<%= appearance.location %>)</span></h3>
         <p><%= appearance.who %> <%= appearance.what %></p>
         <p class="date"><time datetime=""><%= appearance.date.stamp("04 May 2020") %></time></p>
       </li>
@@ -25,13 +25,13 @@
     <ol class="appearances">
     <% @past_appearances.each do |appearance| %>
       <li>
-        <h3><%= link_to appearance.event, "" %> <span>(<%= appearance.location %>)</span></h3>
+        <h3><%= link_to appearance.event, speaking_appearance_path(appearance) %> <span>(<%= appearance.location %>)</span></h3>
         <p><%= appearance.who %> <%= appearance.what %></p>
         <p class="date"><time datetime=""><%= appearance.date.stamp("04 May 2020") %></time></p>
       </li>
     <% end %>
     </ol>
-    <p><%= link_to "See all past appearances &raquo;".html_safe, "" %></p>
+    <p><%= link_to "See all past appearances &raquo;".html_safe, speaking_appearances_path %></p>
   </section>
 </section>
 

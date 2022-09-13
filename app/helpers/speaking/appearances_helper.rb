@@ -1,0 +1,2 @@
+module Speaking::AppearancesHelper
+end

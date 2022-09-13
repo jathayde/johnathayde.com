@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+<p class="breadcrumbs">Speaking » <%= link_to "Appearances", speaking_appearances_path %> »</p>
+<h1>
+  <%= @speaking_appearance.event %>
+</h1>
+<p class="location"><%= @speaking_appearance.location %></p>
+<p><%= @speaking_appearance.who %> <%= @speaking_appearance.what %></p>
+<p class="date"><time datetime=""><%= @speaking_appearance.date.stamp("04 May 2020") %></time></p>
+
+<% if @speaking_appearance.recordings %>
+  <h2>Recordings</h2>
+  <ul class="recordings">
+    <% @speaking_appearance.recordings.each do |recording| %>
+      <li>
+        <h3><%= link_to recording.title, recording.url %></h3>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+
+<% if current_user %>
+  <%= link_to "Edit this appearance", edit_speaking_appearance_path(@speaking_appearance) %>
+
+  <%#= button_to "Destroy this appearance", @speaking_appearance, method: :delete %>
+<% end %>
