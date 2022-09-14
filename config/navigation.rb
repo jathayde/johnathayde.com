@@ -59,11 +59,11 @@ SimpleNavigation::Configuration.run do |navigation|
     #                            against the current URI.  You may also use a proc, or the symbol <tt>:subpath</tt>.
     #
     primary.item :home, '', root_path
-    primary.item :resume, 'Resume/CV', ''
-    primary.item :work, 'Work', ''
+    primary.item :resume, 'Resume/CV', '/resume'
+    primary.item :work, 'Work', '/work'
     # primary.item :blog, 'Blog', ''
     primary.item :speaking, 'Speaking', '/speaking'
-    primary.item :music, 'Music', ''
+    primary.item :music, 'Music', '/music'
     primary.item :contact, 'Say Hello', contact_url
 
     # Add an item which has a sub navigation (same params, but with block)
