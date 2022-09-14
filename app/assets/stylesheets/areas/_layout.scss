@@ -1,3 +1,8 @@
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: $base-font-family;
   line-height: $base-line-height;
@@ -90,6 +95,7 @@ header {
   nav#primary_nav {
     font-family: $nav-font-family;
     font-weight: $nav-font-weight;
+    padding-top: 1em;
 
     ul {
       @extend %list-in-disguise;
