@@ -239,3 +239,20 @@ section#talks {
     }
   }
 }
+
+body.work {
+  p.callout {
+    @include font-size(18px);
+    line-height: 1.4em;
+  }
+
+  ol#cs_list {
+    @extend %list-in-disguise;
+
+    li {
+      @extend .card.frosted;
+      display: block;
+      margin-bottom: 1em;
+    }
+  }
+}

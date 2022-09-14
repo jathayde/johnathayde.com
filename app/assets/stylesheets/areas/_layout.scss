@@ -184,7 +184,7 @@ footer#page_footer {
   background-color: $black;
   color: $white;
   margin: 0;
-  padding: 1em;
+  padding: 3em 2em;
 
   @include media('>tablet') {
     display: flex;
