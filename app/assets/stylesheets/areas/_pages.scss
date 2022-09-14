@@ -20,7 +20,11 @@ h2.tinylabel {
 
 #social_proof {
   text-align: center;
-  padding: 3em 2em;
+  padding: 3em 0;
+  
+  @include media('>tablet') {
+    padding: 3em 2em;
+  }
 
   h2.tinylabel {
     letter-spacing: 0.2em;
@@ -28,6 +32,7 @@ h2.tinylabel {
 
   ul#brand_list {
     @extend %list-in-disguise;
+    width: 100%;
 
     @include media('>tablet') {
       display: flex;
@@ -44,7 +49,6 @@ h2.tinylabel {
       background-repeat: no-repeat;
       background-position: center center;
       height: 41px; // Change to the height of the tallest logo.
-      width: 100%;
       margin: 0 2em;
 
       @include media('>tablet') {
@@ -194,7 +198,7 @@ section#talks {
     li {
       @extend .card.frosted;
       margin-bottom: 2em;
-      flex-basis: 50%;
+      flex-basis: 90%;
       text-align: center;
       @include font-size(15px);
 

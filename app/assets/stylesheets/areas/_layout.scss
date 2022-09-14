@@ -1,3 +1,8 @@
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: $base-font-family;
   line-height: $base-line-height;
@@ -33,6 +38,11 @@ header {
       padding: 1em;
 
       @include media('>tablet') {
+        margin: -1em -3em;
+        padding: 1em 3em;
+      }
+
+      @include media('>desktop') {
         background-color: transparent;
       }
     }
@@ -51,6 +61,7 @@ header {
       @include font-size(52px);
       line-height: 1;
       margin-bottom: 10px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 
       @include media('>phone') {
         @include font-size(60px);
@@ -84,6 +95,7 @@ header {
   nav#primary_nav {
     font-family: $nav-font-family;
     font-weight: $nav-font-weight;
+    padding-top: 1em;
 
     ul {
       @extend %list-in-disguise;
@@ -102,6 +114,12 @@ header {
 
         &:last-child {
           margin-left: auto;
+
+          margin-top: 1em;
+
+          @include media('>tablet') {
+            margin-top: 0;
+          }
 
           a {
             background-color: $base;
@@ -142,11 +160,13 @@ header {
 } // header
 
 main {
+  padding: 1em;
   width: 100%;
 
   @include media('>tablet') {
     max-width: 50em;
     margin: 0 auto;
+    padding: 0;
   }
 
   h1 {
