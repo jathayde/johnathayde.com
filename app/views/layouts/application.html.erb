@@ -76,9 +76,13 @@
       </hgroup>
       </div></div>
     </header>
+    <% if content_for?(:work_header)%>
+      <%= yield :work_header %>
+    <% end -%>
+
     <% if content_for?(:social_proof)%>
       <%= yield :social_proof %>
-    <% end %>
+    <% end -%>
 
     <main>
       <%= yield %>

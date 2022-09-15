@@ -21,7 +21,7 @@ h2.tinylabel {
 #social_proof {
   text-align: center;
   padding: 3em 0;
-  
+
   @include media('>tablet') {
     padding: 3em 2em;
   }
@@ -241,6 +241,32 @@ section#talks {
 }
 
 body.work {
+
+  // ----------------------------------------------------------------------------
+  // HEADER CHANGES
+
+  header#masthead {
+    hgroup { display: none; }
+  }
+
+  // ----------------------------------------------------------------------------
+
+  h1 {
+    line-height: 0.7em;
+
+    span {
+      color: $gray-dark;
+      display: block;
+      @include font-size(16px);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+
+  .team ul {
+    @extend %list-in-disguise;
+  }
+
   p.callout {
     @include font-size(18px);
     line-height: 1.4em;

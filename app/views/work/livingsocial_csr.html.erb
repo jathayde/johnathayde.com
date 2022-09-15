@@ -1,47 +1,81 @@
-LivingSocial CSR Case Study
-BLUF
-[to be written]
+<% set_meta_tags title: "Resume/CV",
+                 og: {
+                   title: "John Athayde | Resume/CV",
+                 } %>
 
-The Team
-Ben Getson, Product Management
-John Athayde: UX, Visual Design, CSS
-Lynn Wallenstein: HTML/CSS/Rails, UX
-Tom Copeland: Engineering
-Dave Bock: Engineering
-Pete Campbell: Engineering
+<% content_for :work_header do %>
+  <section class="work-header" id="ls_head">
+    <h1>
+      <span>Case Study »</span>
+      LivingSocial CSR System
+    </h1>
+  </section>
+<% end %>
 
-LivingSocial was a daily deals company that experienced exponential growth in the early 2010s. As with many fast-growing startups, customer service issues popped up due to elements of the product offering that were unknown or didn't scale as well as the team would have liked.
+<section class="bluf">
+  <h2 class="tinylabel"><b>01</b> BLUF</h2>
+  [to be written]
+</section>
 
-By 2012, we experienced expectation mismatches between customers and merchants, issues where merchants did not always abide by the terms of the agreement, and some customers who abused the system.
+<section class="team">
+  <h2 class="tinylabel"><b>02</b> The Team</h2>
+  <ul>
+    <li><b>Ben Getson</b>: Product Management</li>
+    <li><b>John Athayde</b>: UX, Visual Design, CSS</li>
+    <li><b>Lynn Wallenstein</b>: HTML/CSS/Rails, UX</li>
+    <li><b>Tom Copeland</b>: Engineering</li>
+    <li><b>Dave Bock</b>: Engineering</li>
+    <li><b>Pete Campbell</b>: Engineering</li>
+  </ul>
+</section>
 
-As a recently created internal tools team, helping customer support was one of our first tasks. Through interviews and shadowing of CSRs (Customer Support Representatives), we discovered a variety of issues:
+<section class="long-form">
+  <h2 class="tinylabel"><b>03</b> The Details</h2>
 
-Low KPIs and SLAs:
-Agent average SLA was 20%,
-One in five calls hung up before a representative could even answer the phone, and
-Consumer cases took a long time, and sometimes multiple calls, to close.
-CSRs entered all data into two systems: A Ruby on Rails CRUD interface to our admin area and Salesforce (case management).
-Due to that, CSRs spent more time documenting the call than the call itself.
-Many one-off issues required an engineer to make edits in the production database manually.
-Poor SOPs around rebates caused a lot of confusion about what a CSR could offer a customer on a call and led to uneven outcomes for similar issues.
+  <p>
+    LivingSocial was a daily deals company that experienced exponential growth in the early 2010s. As with many fast-growing startups, customer service issues popped up due to elements of the product offering that were unknown or didn't scale as well as the team would have liked.
+  </p>
+  <p>
+    By 2012, we experienced expectation mismatches between customers and merchants, issues where merchants did not always abide by the terms of the agreement, and some customers who abused the system.
+  </p>
+  <p>
+    As a recently created internal tools team, helping customer support was one of our first tasks. Through interviews and shadowing of CSRs (Customer Support Representatives), we discovered a variety of issues:
+  </p>
+
+  <ul>
+    <li>Low KPIs and SLAs: Agent average SLA was 20%,</li>
+    <li>One in five calls hung up before a representative could even answer the phone,</li>
+    <li>Consumer cases took a long time, and sometimes multiple calls, to close,</li>
+    <li>CSRs entered all data into two systems: A Ruby on Rails CRUD interface to our admin area and Salesforce (case management).</li>
+    <li>Due to that, CSRs spent more time documenting the call than the call itself.</li>
+    <li>Many one-off issues required an engineer to make edits in the production database manually.</li>
+    <li>Poor SOPs around rebates caused a lot of confusion about what a CSR could offer a customer on a call and led to uneven outcomes for similar issues.</li>
+  </ul>
 
 [Screens of initial double entry]
-
-CSRs would communicate through AIM, Salesforce Chatter, and in person, so many details about cases would not end up in the system of record, and this could lead to handoff issues if someone else picked up an open ticket.
-
-We used a Service Safari to discover issues in the platform. Almost every employee also was a customer, and we started collecting problems identified by employees whose deals didn't quite work out as expected.
-
-We began by interviewing managers and line support representatives and following up with extensive and regular shadowing of CSRs on both phone calls and email support cases. These developed into medium-weight personas for our primary groups in the support organization.
+  <p>
+    CSRs would communicate through AIM, Salesforce Chatter, and in person, so many details about cases would not end up in the system of record, and this could lead to handoff issues if someone else picked up an open ticket.
+  </p>
+  <p>
+    We used a Service Safari to discover issues in the platform. Almost every employee also was a customer, and we started collecting problems identified by employees whose deals didn't quite work out as expected.
+  </p>
+  <p>
+    We began by interviewing managers and line support representatives and following up with extensive and regular shadowing of CSRs on both phone calls and email support cases. These developed into medium-weight personas for our primary groups in the support organization.
+  </p>
 
 [IMAGE OF PERSONA]
-
-We used the AT-ONE framework to analyze the overall service and look for improvements. AT-ONE stands for "Actors, Touchpoints, Offering, Need, and Experiences."
-
-A primary challenge was that we had to roll out the new interactions for a subset of CSRs while maintaining the old system. Engineering selected Salesforce as the database of record, and engineers had to write a library for the new Ruby/Backbone app to talk to it.
+  <p>
+    We used the AT-ONE framework to analyze the overall service and look for improvements. AT-ONE stands for "Actors, Touchpoints, Offering, Need, and Experiences."
+  </p>
+  <p>
+    A primary challenge was that we had to roll out the new interactions for a subset of CSRs while maintaining the old system. Engineering selected Salesforce as the database of record, and engineers had to write a library for the new Ruby/Backbone app to talk to it.
+  </p>
 
 [IMAGE OF SKETCH]
 
-We used hand sketching followed by high-fidelity comps to fix individual, minor problems in the existing interface while we worked towards a new holistic system. Some examples :
+  <p>
+    We used hand sketching followed by high-fidelity comps to fix individual, minor problems in the existing interface while we worked towards a new holistic system. Some examples:
+  </p>
 
 [SUBSCRIPTOINS]
 
@@ -55,22 +89,40 @@ We used hand sketching followed by high-fidelity comps to fix individual, minor 
 
 [FLOW FOR A REFUND]
 
-During this process, we identified several items that we brought to the Consumer design & engineering team and collaborated on those improvements:
+  <p>
+    During this process, we identified several items that we brought to the Consumer design & engineering team and collaborated on those improvements:
+  </p>
 
-We improved the deal's fine print, shifting to bullet points for improved legibility and making phrasing more explicit.
-The consumer team redesigned the voucher itself to improve clarity for the purchaser.
-Consumer engineering built an entire self-service portal to fast-track typical support reasons and provide immediate resolution [IMAGE]
-We changed microcopy in the global navigation from "My Account" to "My Vouchers" [IMAGE]
-The Deal Quality & Programming team took feedback about various merchants and altered offerings to reduce customer frustration.
+  <ul>
+    <li>We improved the deal's fine print, shifting to bullet points for improved legibility and making phrasing more explicit.</li>
+    <li>The consumer team redesigned the voucher itself to improve clarity for the purchaser.</li>
+    <li>Consumer engineering built an entire self-service portal to fast-track typical support reasons and provide immediate resolution [IMAGE]</li>
+    <li>We changed microcopy in the global navigation from "My Account" to "My Vouchers" [IMAGE]</li>
+    <li>The Deal Quality & Programming team took feedback about various merchants and altered offerings to reduce customer frustration.</li>
+  </ul>
 
-After launch, we  measured the following improvements:
+  <p>
+    After launch, we  measured the following improvements:
+  </p>
 
-Agent SLA improved from 20% to 90%
-The call abandonment rate dropped from 20% to 4%
-We reduced the time for a CSR to complete a consumer case by 20%
+  <ul>
+    <li>Agent SLA improved from 20% to 90%</li>
+    <li>The call abandonment rate dropped from 20% to 4%</li>
+    <li>We reduced the time for a CSR to complete a consumer case by 20%</li>
+  </ul>
 
-The design elements created for this became the backbone of the style guide/design system ("Wilde") that powered 30 different internal tools with a UX/Front-end team of four people I led as a player-coach.
-
-Here are the final screen designs:
+  <p>
+    The design elements created for this became the backbone of the style guide/design system ("Wilde") that powered 30 different internal tools with a UX/Front-end team of four people I led as a player-coach.
+  </p>
+  <p>
+    Here are the final screen designs:
+  </p>
 
 [IMAGES!]
+
+</section>
+
+<section class="tools-used">
+  <h2 class="tinylabel"><b>04</b> Tools Used</h2>
+  [to be written]
+</section>
