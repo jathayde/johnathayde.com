@@ -272,8 +272,27 @@ body.work {
     line-height: 1.4em;
   }
 
+  section.tools-used {
+    margin-bottom: 4em;
+  }
+
+  ul.tags {
+    @extend %list-in-disguise;
+
+    li {
+      color: $gray-darker;
+      display: inline-block;
+      background-color: $gray-lighter;
+      border-radius: $base-border-radius;
+      margin-right: 0.5em;
+      margin-bottom: 0.5em;
+      padding: 0.25em 0.5em;
+    }
+  }
+
   ol#cs_list {
     @extend %list-in-disguise;
+    margin-bottom: 3em;
 
     li {
       @extend .card.frosted;
