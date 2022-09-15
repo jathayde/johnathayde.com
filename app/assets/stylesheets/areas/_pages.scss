@@ -277,8 +277,105 @@ body.work {
 
     li {
       @extend .card.frosted;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
       display: block;
       margin-bottom: 1em;
+      padding-top: 56.25%; /* 16:9 or widescreen aspect ratio */
+      position: relative;
+
+      @include media('>tablet') {
+        margin-bottom: 2em;
+      }
+
+      > a.whole-linker {
+        // Links the entire "card" to the page for easier tap navigation
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: -5px;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      h3, p {
+        color: white;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+      }
+
+      // Setting background images and text layout for each card
+      &#livingsocial_csr {
+        background-image: asset-url("work/livingsocial_csr/ls-cover.jpg");
+
+        h3 {
+          top: 100px;
+          @include font-size(16px);
+
+          @include media('>tablet') {
+            @include font-size(24px);
+            top: 60%;
+          }
+        }
+
+        p {
+          top: 155px;
+          line-height: 1.2em;
+          @include font-size(12px);
+          width: 80%;
+          margin-left: 10%;
+
+          @include media('>tablet') {
+            @include font-size(18px);
+            top: 70%;
+          }
+        }
+      }
+
+      &#navanti_pulse {
+        background-image: asset-url("work/navanti_pulse/navanti-cover.jpg");
+
+        h3 {
+          visibility: hidden;
+        }
+
+        p {
+          top: 155px;
+          line-height: 1.2em;
+          @include font-size(12px);
+          width: 80%;
+          margin-left: 10%;
+
+          @include media('>tablet') {
+            @include font-size(18px);
+            top: 70%;
+          }
+        }
+      }
+
+      &#procore {
+        background-image: asset-url("work/procore/procore-cover.jpg");
+
+        h3 {
+          visibility: hidden;
+        }
+
+        p {
+          color: $gray-darkest;
+          top: 155px;
+          line-height: 1.2em;
+          @include font-size(12px);
+          width: 80%;
+          margin-left: 10%;
+
+          @include media('>tablet') {
+            @include font-size(18px);
+            top: 70%;
+          }
+        }}
     }
   }
 }
