@@ -249,7 +249,55 @@ body.work {
     hgroup { display: none; }
   }
 
+  .work-header {
+    background-color: $gray-darker;
+    box-shadow: inset 0 0 10px 1px rgba(0,0,0,0.5);
+    padding: 6em 1em 1em 1em;
+    width: 100%;
+
+    @include media('>desktop') {
+      padding: 10em 5em 1em 5em;
+    }
+
+    h1 {
+      color: $white;
+    }
+
+    &#ls_head {
+      background-image: asset-url("work/livingsocial_csr/ls-header-background-dark.jpg");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &#navanti_head {}
+
+    &#procore_head {}
+    
+  }
   // ----------------------------------------------------------------------------
+
+  figure {
+    max-width: 100%;
+    padding: 0;
+    margin: 2em 0;
+    width: 100%;
+
+    @include media('>desktop') {
+      margin: 3em -5em;
+      max-width: calc(100% + 10em);
+      width: calc(100% + 10em);
+    }
+
+    img {
+      width: 100%;
+    }
+
+    figcaption p {
+      font-style: italic;
+      text-align: center;
+    }
+  }
 
   h1 {
     line-height: 0.7em;
