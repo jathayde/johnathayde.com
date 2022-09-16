@@ -445,4 +445,22 @@ body.work {
         }}
     }
   }
+
+  ul.outcomes {
+    border-radius: $base-border-radius;
+    background-color: rgba($base, 0.2);
+    border: 1px solid $base;
+    padding: 1em 1em 1em 1.75em;
+  }
+
+  img#q_logo {
+    float: right;
+    width: 100px;
+    max-width: 50%;
+    margin-left: 1em;
+
+    @include media('>tablet') {
+      width: 200px;
+    }
+  }
 }

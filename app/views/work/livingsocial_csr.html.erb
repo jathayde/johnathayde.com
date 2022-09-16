@@ -30,8 +30,8 @@
 </section>
 
 <section class="long-form">
+  <%= image_tag "work/livingsocial_csr/q_logo.png", alt: "Logo for Q app", id: "q_logo" %>
   <h2 class="tinylabel"><b>03</b> The Details</h2>
-
   <p>
     LivingSocial was a daily deals company that experienced exponential growth in the early 2010s. As with many fast-growing startups, customer service issues popped up due to elements of the product offering that were unknown or didn't scale as well as the team would have liked.
   </p>
@@ -71,7 +71,6 @@
     We began by interviewing managers and line support representatives and following up with extensive and regular shadowing of CSRs on both phone calls and email support cases. These developed into medium-weight personas for our primary groups in the support organization.
   </p>
 
-[IMAGE OF PERSONA]
   <p>
     We used the AT-ONE framework to analyze the overall service and look for improvements. AT-ONE stands for "Actors, Touchpoints, Offering, Need, and Experiences."
   </p>
@@ -79,23 +78,26 @@
     A primary challenge was that we had to roll out the new interactions for a subset of CSRs while maintaining the old system. Engineering selected Salesforce as the database of record, and engineers had to write a library for the new Ruby/Backbone app to talk to it.
   </p>
 
-[IMAGE OF SKETCH]
-
   <p>
     We used hand sketching followed by high-fidelity comps to fix individual, minor problems in the existing interface while we worked towards a new holistic system. Some examples:
   </p>
 
-[SUBSCRIPTOINS]
-
-[USER OVERVIEW]
-
-[USER CREDIT CARDS]
-
-[USER/VOUCHER DEAL DETAIL]
-
-[QUICK SEARCH]
-
-[FLOW FOR A REFUND]
+    <figure>
+    <%= image_tag "work/livingsocial_csr/port-ls-deal-page-new-blocks.jpg", loading: :lazy, alt: "Image showing various new elements in the old user interface of the Deals admin" %>
+    <figcaption>
+      <p>
+        Elements such as subscription management, user overview, user creditcards, voucher detail, and more were all introduced into the old interface before the new product was complete. 
+      </p>
+    </figcaption>
+  </figure>
+  <figure>
+    <%= image_tag "work/livingsocial_csr/refund-flow-in-admin.jpg", loading: :lazy, alt: "New refund flow in admin" %>
+    <figcaption>
+      <p>
+        The new refund workflow in the old admin area. This was the first major "new look" block that really took over the page and hinted at the new "Q" app coming. 
+      </p>
+    </figcaption>
+  </figure>
 
   <p>
     During this process, we identified several items that we brought to the Consumer design & engineering team and collaborated on those improvements:
@@ -104,16 +106,25 @@
   <ul>
     <li>We improved the deal's fine print, shifting to bullet points for improved legibility and making phrasing more explicit.</li>
     <li>The consumer team redesigned the voucher itself to improve clarity for the purchaser.</li>
-    <li>Consumer engineering built an entire self-service portal to fast-track typical support reasons and provide immediate resolution [IMAGE]</li>
-    <li>We changed microcopy in the global navigation from "My Account" to "My Vouchers" [IMAGE]</li>
+    <li>Consumer engineering built an entire self-service portal to fast-track typical support reasons and provide immediate resolution</li>
+    <li>We changed microcopy in the global navigation from "My Account" to "My Vouchers"</li>
     <li>The Deal Quality & Programming team took feedback about various merchants and altered offerings to reduce customer frustration.</li>
   </ul>
+
+  <figure>
+    <%= image_tag "work/livingsocial_csr/refund-flow-in-admin.jpg", loading: :lazy, alt: "New refund flow in admin" %>
+    <figcaption>
+      <p>
+        The new refund workflow in the old admin area. This was the first major "new look" block that really took over the page and hinted at the new "Q" app coming. 
+      </p>
+    </figcaption>
+  </figure>
 
   <p>
     After launch, we  measured the following improvements:
   </p>
 
-  <ul>
+  <ul class="outcomes">
     <li>Agent SLA improved from 20% to 90%</li>
     <li>The call abandonment rate dropped from 20% to 4%</li>
     <li>We reduced the time for a CSR to complete a consumer case by 20%</li>
@@ -126,7 +137,46 @@
     Here are the final screen designs:
   </p>
 
-[IMAGES!]
+  <figure>
+    <%= image_tag "work/livingsocial_csr/csr_final_dual.jpg", loading: :lazy, alt: "The dual screen setup most CSRs would use" %>
+    <figcaption>
+      <p>
+        Teh dual screen setup most CSRs would be seeing during regular interactions.
+      </p>
+    </figcaption>
+  </figure>
+  <figure>
+    <%= image_tag "work/livingsocial_csr/csr_final_left_0.jpg", loading: :lazy, alt: "New primary screen (left side)" %>
+    <figcaption>
+      <p>
+        New primary screen (left monitor).
+      </p>
+    </figcaption>
+  </figure>
+  <figure>
+    <%= image_tag "work/livingsocial_csr/csr_final_right_transactions.jpg", loading: :lazy, alt: "New primary screen (right side)" %>
+    <figcaption>
+      <p>
+        New primary transactions view for a customer (right monitor).
+      </p>
+    </figcaption>
+  </figure>
+  <figure>
+    <%= image_tag "work/livingsocial_csr/csr_final_right_creditcards.jpg", loading: :lazy, alt: "New credit card screen (right side)" %>
+    <figcaption>
+      <p>
+        New credit card view for a customer (right monitor).
+      </p>
+    </figcaption>
+  </figure>
+  <figure>
+    <%= image_tag "work/livingsocial_csr/csr_final_right_subscriptoins.jpg", loading: :lazy, alt: "New primary screen (right side)" %>
+    <figcaption>
+      <p>
+        New subscriptions view for a customer (right monitor).
+      </p>
+    </figcaption>
+  </figure>
 
 </section>
 
