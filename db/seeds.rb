@@ -694,6 +694,18 @@ Recording.create!(
   talk_id: 6
 )
 
+Appearance.create!(
+  id: 35,
+  event: "Frontrunners 2022",
+  date: '2022-12-08',
+  location: 'GMU\'s Van Metre Hall, Arlington, Virginia, USA',
+  who: 'John Athayde',
+  what: 'presenting "APIs Need UX Too"',
+  url: 'https://frontrunners.tech',
+  appearance_type_id: 1,
+  talk_id: 11
+)
+
 
 # Appearance.create!(
 #   id: 1,
