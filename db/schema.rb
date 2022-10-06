@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_08_203737) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_06_002631) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +62,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_08_203737) do
     t.datetime "updated_at", null: false
     t.bigint "talk_id"
     t.bigint "appearance_id", null: false
+    t.boolean "embedded", default: false
+    t.string "embed_host"
+    t.text "embed_code"
     t.index ["appearance_id"], name: "index_recordings_on_appearance_id"
     t.index ["talk_id"], name: "index_recordings_on_talk_id"
   end
