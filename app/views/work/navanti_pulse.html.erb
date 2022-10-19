@@ -3,10 +3,16 @@
                    title: "John Athayde | Resume/CV",
                  } %>
 
-<h1>
-  <span>Case Study »</span>
-  Navanti Pulse/OpenSeas
-</h1>
+
+
+<% content_for :work_header do %>
+  <section class="work-header" id="navanti_head">
+    <h1>
+      <span>Case Study »</span>
+      Navanti Pulse/OpenSeas (2011-2015)
+    </h1>
+  </section>
+<% end %>
 
 <section class="bluf">
   <h2 class="tinylabel"><b>01</b> BLUF</h2>
@@ -14,17 +20,8 @@
 </section>
 
 <section class="team">
-  <h2 class="tinylabel"><b>02</b> The Team</h2>
-  <ul>
-    <li><b>Andrew Black</b>: CEO</li>
-    <li><b>Joe M.</b>: Director, Navanti Labs</li>
-    <li><b>John Athayde</b>: UX, Visual Design, HTML/SCSS, Engineering coordination</li>
-    <li><b>Kiere El-Shafe</b>: Navanti Head of Engineering (joined towards the end of the project)</li>
-    <li><b>Don Denoncourt</b>: Engineering (CorgiBytes)</li>
-    <li><b>Catalina De La Cuesta</b>: Engineering (CorgiBytes)</li>
-    <li><b>Vlad Fedorov</b>: Engineering (CorgiBytes)</li>
-    <li><b>Nickie McCabe</b>: Engineering (CorgiBytes)</li>
-  </ul>
+  <h2 class="tinylabel"><b>02</b> My Role</h2>
+  <p>UX, Visual Design, HTML/SCSS, Engineering coordination</p>
 </section>
 
 <section class="long-form">
@@ -56,7 +53,9 @@
   <p>
     I helped Navanti engage CorgiBytes as an engineering team to take over the work and get the app production-ready. In parallel, we started shadowing and working with the staff to define a new paradigm for content delivery to support their customers. As part of this process, I deep-dived into the intelligence cycle, OSINT (open-source intelligence) techniques, and taxonomies around geospatial data representations. Due to security requirements, only Navanti staff was allowed to interact with the end users directly.
   </p>
-[Photo of Intelligence research books?]
+
+  <%# [TODO: Photo of Intelligence research books?] %>
+
   <p>
     We developed personas for use as we discussed new flows and concepts around workflow and developed a new concept of the product ecosystem inside Navanti, which we called the <b>Navanti Analyst Suite</b>.
   </p>

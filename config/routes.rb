@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# == Route Map
+#
+
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#placeholder'
@@ -23,4 +26,5 @@ Rails.application.routes.draw do
   get '/work/livingsocial-csr', to: 'work#livingsocial_csr'
   get '/work/navanti-pulse', to: 'work#navanti_pulse'
   get '/work/procore', to: 'work#procore'
+  get '/work/powerfleet-chassis', to: 'work#powerfleet_chassis'
 end

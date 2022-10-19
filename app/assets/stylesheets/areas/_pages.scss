@@ -448,7 +448,30 @@ body.work {
             @include font-size(18px);
             top: 70%;
           }
-        }}
+        }
+      }
+
+      &#powerfleet_chassis {
+        background-image: asset-url("work/powerfleet_chassis/pf_chassis_cover.jpg");
+
+        h3 {
+          visibility: hidden;
+        }
+
+        p {
+          color: $white;
+          top: 155px;
+          line-height: 1.2em;
+          @include font-size(12px);
+          width: 60%;
+          margin-left: 27%;
+
+          @include media('>tablet') {
+            @include font-size(18px);
+            top: 70%;
+          }
+        }
+      }
     }
   }
 

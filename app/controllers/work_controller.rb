@@ -8,6 +8,9 @@ class WorkController < ApplicationController
   def navanti_pulse
   end
 
+  def powerfleet_chassis
+  end
+
   def procore
   end
 end
