@@ -3,35 +3,158 @@
                    title: "John Athayde | Work: Procore",
                  } %>
 
-<h1>
-  <span>Case Study »</span>
-  Procore
-</h1>
-
+<% content_for :work_header do %>
+  <section class="work-header" id="navanti_head">
+    <h1>
+      <span>Case Study »</span>
+      Procore (2015-2016)
+    </h1>
+  </section>
+<% end %>
 <section class="bluf">
   <h2 class="tinylabel"><b>01</b> BLUF</h2>
   [to be written]
 </section>
 
 <section class="team">
-  <h2 class="tinylabel"><b>02</b> The Team</h2>
-  <ul>
-    <li><b>Brandon Terry</b>: SVP Product</li>
-    <li><b>John Athayde</b>: UX, Visual Design</li>
-    <li><b>Josh Newland</b>: Product Management</li>
-    <li><b>Jana McClure</b>: Product Management</li>
-  </ul>
+  <h2 class="tinylabel"><b>02</b> My Role</h2>
+  <p>UX, Visual Design, Training, Team Building</p>
 </section>
 
 <section class="long-form">
   <h2 class="tinylabel"><b>03</b> The Details</h2>
 
-  <p>Case Study coming soon</p>
+  <h3>An invitation</h3>
+
+  <p>Sam Crigman, Procore's Head of Engineering (current CTO), approached me after <%= link_to "my talk at RailsConf in Chicago about Developers and Designers working better together.", "https://www.youtube.com/watch?v=zdwnogUMtc4" %> I was invited to Procore's Carpenteria (near Santa Barbara), California headquarters, to present the talk to their engineering and product team and then lead a day of hands-on workshops teaching UX discovery techniques.</p>
+
+  <p>That two-day event led to an ongoing engagement with the company in which we achieved a series of outcomes:</p>
+  <ul>
+    <li>We prioritized user experience as a practice with management;</li>
+    <li>I helped build out a UX team; </li>
+    <li>I collaborated & devised a new brand-based look and feel for the app framework; and </li>
+    <li>I built a full suite of prototypes/mocks for two of their best-in-class construction management software modules.</li>
+  </ul>
+
+  <h3>The Problem</h3>
+
+  <p>After my initial help training the team on implementing UX analysis in their everyday work, the company approached me to help them reimagine some product modules, starting with Change Management. The application had a UI heavily derivative of Basecamp at the time, there were not many well-established patterns for interaction, and there was no brand cohesion.</p>
+
+  <h3>Change Management Module</h3>
+
+  <p>The first module we tackled was Change Management. This module involved working through and identifying the complex flows that might occur while working on a project. Some of these would also invoke other issues around non-reimbursement, so it was critical to capture this in full detail. </p>
+
+  <p>These screens were worked out in sketch wireframe and then created as high-fidelity mockups in Photoshop for implementation direction.</p>
+
+  <p>We initially used the old navigation paradigm, but it became clear that this was untenable for the future platform direction.</p>
+
+  <figure>
+    <%= image_tag "work/procore/procore_change_mgmt.jpg", loading: :lazy, alt: "Change Mangement screens" %>
+    <figcaption>
+      <p>
+        Various screens of the change management flow for owners an contractors.
+      </p>
+    </figcaption>
+  </figure>
+
+  <h3>A New Navigation</h3>
+
+  <p>I pulled in the brand design team to determine how we could bring the Procore brand's look and feel (warm colors with a primary orange) into the product. We explored a series of navigation ideas with myself, the brand design lead, and some of the other designers on staff. </p>
+
+  <p>This overall frame had to solve for multiple states on over a dozen modules. We used virtual card sorting to collect these into logical groups and then determined how those groups and child items would surface based on the user's role in the system.</p>
+
+  <figure>
+    <%= image_tag "work/procore/procore_nav_evolution.jpg", loading: :lazy, alt: "Navigation evolution" %>
+    <figcaption>
+      <p>
+        Evolution of grouped navigation, including a nav tray option that was not pursued. Future mockups leveraged the third version.
+      </p>
+    </figcaption>
+  </figure>
+
+  <h3>The Screen That Sold UX</h3>
+
+  <p>Initial work on the first module was proceeding well when Brandon Terry (VP of Product) asked me to present with him to the executive team about a future for UX at Procore. We showed various slides discussing details but ended with this mockup/vision board that put a flag in the ground and set Procore on the path to its modern UX team and look/feel. </p>
+
+  <p>We used one of the more complex screens from Change Management and updated the navigation with the new elements for the pitch.</p>
+
+  <figure>
+    <%= image_tag "work/procore/procore_screen_sold_ux.jpg", loading: :lazy, alt: "Wireframe and mockup of the presentation screen" %>
+    <figcaption>
+      <p>
+        Wireframe and mockup of the presentation screen
+      </p>
+    </figcaption>
+  </figure>
+
+  <h3>Submittals Module</h3>
+
+  <p>Submittals were traditionally extensive collections of paper files stored in the architect's office in dozens of binders. The prime and sub-contractors involved in the project also maintain copies, creating a massive amount of paper waste and also a difficulty maintaining a single source of truth for the project.</p>
+
+  <p>The module redesign I created with Josh Newland (product manager) built on the previous financials module work and allows for very complex, role-based workflow creation and modification.</p>
+
+  <figure>
+    <%= image_tag "work/procore/procore_submittals.jpg", loading: :lazy, alt: "Key screens from the Submittals module" %>
+    <figcaption>
+      <p>
+        Key screens from the Submittals module.
+      </p>
+    </figcaption>
+  </figure>
+
+  <h3>A Better First-Time Experience</h3>
+
+  <p>People often imagine dashboards as completed items with all the data, but our first experiences with them are as empty canvases waiting for action. Without direction, these can become blockers for many users. We took a look at how we could improve the first-time experience and provide some non-blocking training to the users of Procore's Submittals module.</p>
+
+  <figure>
+    <%= image_tag "work/procore/procore_submittals_fte.jpg", loading: :lazy, alt: "Full dashboard with data (L) and equivalent dashboard when first loaded (R)" %>
+    <figcaption>
+      <p>
+        Full dashboard with data (L) and equivalent dashboard when first loaded (R)
+      </p>
+    </figcaption>
+  </figure>
+
+  <h3>Getting it all clear</h3>
+
+  <p>The module ended up having over 80 different screens and states mocked up to walk end users through in a prototype. These screens included document review/approvals and management of the submittal for the architect, contractor, and sub-contractors. </p>
+
+  <figure>
+    <%= image_tag "work/procore/procore_submittals2.jpg", loading: :lazy, alt: "Key screens from the Submittals module" %>
+    <figcaption>
+      <p>
+        Overview of various screens from the Submittals module.
+      </p>
+    </figcaption>
+  </figure>
+
+
+  <h3>Outcomes</h3>
+
+  <p>I helped hire two senior UX designers, handed off the strategy work to the new head of Design (Raf), and helped establish UX as a primary function in the organization. After almost 18 months of collaboration, I rolled off the project.</p>
+
+  <p>Procore was the first Architecture/Engineering/Construction (AEC) space Unicorn (a valuation of over 1B USD) and went public in 2021. </p>
+
+  </section>
+
+<section class="tools-used">
+  <h2 class="tinylabel"><b>04</b> Testimonial</h2>
+
+<blockquote>
+  <%= image_tag "work/procore/brandon_terry.jpg", loading: :lazy, alt: "Wireframe and mockup of the presentation screen", class: "headshot-quote" %>
+  <p>I have nothing but positive things to say about working with John and his design consultancy, Meticulous. John worked with Procore for roughly a year in varying capacities - first as a UX thought leader, teaching our organization about user experience design, then second as a consultant/contractor doing design work for strategic projects. </p>
+
+  <p>As a thought leader in UX, John helped transition our organization from being one that had limited understanding of UX design as a discipline, to one that now has a UX team of 15, with dedicated UX designers in every scrum team, thus treating UX as a primary function. That organizational shift would not have been possible without John's leadership, depth of knowledge about UX, and willingness to work with our organization on our specific needs. </p>
+
+  <p>As a designer, John was nothing less than astounding. John led and participated in product discovery and usability calls to craft designs for some of our most strategic projects. His work was progressive and inspiring, working with existing paradigms where need be and striving to improving paradigms where he thought it was needed. He coached other designers on our team and developed their skills, teaching us all quite a bit about design along the way.</p>
+
+  <p class="quotable"> &mdash;Brandon Terry, Procore VP Product,  Nov 2015</p>
+</blockquote>
 
 </section>
 
 <section class="tools-used">
-  <h2 class="tinylabel"><b>04</b> Tools Used</h2>
+  <h2 class="tinylabel"><b>05</b> Tools Used</h2>
   <ul class="tags">
     <li>Sketch</li>
     <li>Photoshop</li>

@@ -240,6 +240,9 @@ section#talks {
   }
 }
 
+// ----------------------------------------------------------------------------
+// WORK PAGE
+
 body.work {
 
   // ----------------------------------------------------------------------------
@@ -283,6 +286,32 @@ body.work {
   }
   // ----------------------------------------------------------------------------
 
+  blockquote {
+    border-left: 5px solid $base;
+    font-style: italic;
+    padding-left: 1em;
+    position: relative;
+
+    &::before {
+      content: "“";
+      color: $gray-lighter;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      @include font-size(144px);
+      position: absolute;
+      left: -0.25em;
+      top: 0.25em;
+      z-index: -1;
+    }
+
+    .headshot-quote {
+      border-radius: 50%;
+      border: 1px solid $gray-light;
+      position: absolute;
+      left: -150px;
+      margin: 0 1em 1em 0;
+      width: 120px;
+    }
+  }
   figure {
     max-width: 100%;
     padding: 0;
