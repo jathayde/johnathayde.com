@@ -9,7 +9,7 @@ form {
 
     li {
       list-style-type: none;
-      margin: 0 0 1em 0;
+      margin: 0 0 1.5em 0;
       padding: 0;
     }
   }
@@ -17,14 +17,14 @@ form {
   label {
     display: block;
     font-family: $body-stack;
-    @include font-size(12px);
-    font-weight: bold;
+    @include font-size(15px);
+    font-weight: 400;
     margin-bottom: 0.5em;
-    text-transform: uppercase;
+    text-transform: capitalize;
   } // label
 
   fieldset {
-    background-color: $gray-lightest;
+    // background-color: $gray-lightest;
     border: none;
     border-radius: $base-border-radius;
     margin-bottom: 1em;
@@ -94,6 +94,15 @@ form {
 
     &[type="number"] {
        width: 8em;
+    }
+
+    &[type="submit"] {
+      background-color: $base;
+      border: none;
+      border-bottom: 2px solid $dark-base;
+      border-radius: $base-border-radius;
+      color: $white;
+      padding: 0.5em 1em;
     }
 
   } // input
