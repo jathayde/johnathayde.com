@@ -1,11 +1,15 @@
 h2.tinylabel {
   color: $gray-dark;
-  @include font-size(12px);
+  @include font-size(13px);
   font-weight: 400;
+  margin-top: 3.5em;
+  position: relative;
   text-transform: uppercase;
 
   b {
     font-weight: 600;
+    position: absolute;
+    left: -2em;
   }
 }
 
@@ -250,6 +254,12 @@ body.work {
 
   header#masthead {
     hgroup { display: none; }
+  }
+
+  ul {
+    li {
+      margin-bottom: 1em;
+    }
   }
 
   .work-header {
