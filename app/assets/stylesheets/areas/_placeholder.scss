@@ -22,17 +22,18 @@ body.placeholder {
 
   h1 {
     color: $white;
-    font-weight: 900;
+    font-family: $quarto;
+    font-weight: 400;
     @include font-size(52px);
     line-height: 1;
-    margin-bottom: 10px;
+    margin-bottom: 0.25em;
 
     @include media('>phone') {
       @include font-size(60px);
     }
 
     @include media('>tablet') {
-      @include font-size(72px);
+      @include font-size(96px);
     }
   } // h1
 

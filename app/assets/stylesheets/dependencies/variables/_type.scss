@@ -12,10 +12,18 @@ $gothamnarrow: "Gotham Narrow A", "Gotham Narrow B";
 // font-style: normal / italic;
 // font-weight: 200, 400, 700, 900; // Light, Regular, Bold, Ultra
 
+$idealsans: "Ideal Sans SSm A", "Ideal Sans SSm B";
+// font-style: normal / italic;
+// font-weight: 400 / 700;
+
+$quarto: "Quarto A", "Quarto B";
+// font-style: normal / italic;
+// font-weight: 400 / 700;
+
 //  Font Stacks
 // ----------------------------------------------------------------------------
 
-$body-stack: $gothamnarrow, Avenir, "Helvetica Neue", Helvetica, "Arial Narrow", sans-serif;
+$body-stack: $idealsans, Avenir, "Helvetica Neue", Helvetica, "Arial Narrow", sans-serif;
 $legal-stack: Georgia, "Times New Roman", Times, serif;
 $code-stack: Menlo, Monaco, Consolas, "Courier New", monospace;
 $monospace-stack: Monaco, "Liberation Mono", Courier, monospace;
