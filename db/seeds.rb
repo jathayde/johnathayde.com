@@ -129,6 +129,14 @@ Talk.create!(
   speaker_deck_embed: ''
 )
 
+Talk.create!(
+  id: 14,
+  title: 'Design Systems from Zero to One',
+  subtitle: '',
+  description: "Starting a design system can be daunting, especially on a more extensive app or family of applications. How do you start, and then how do you implement the plan? What are the pitfalls of common approaches and off-the-shelf setups? We'll dive into how to start your team on the path of bringing a design system to your organization. We'll identify steps you can take today to move the ball forward, and finally, we'll discuss some of the pitfalls and concerns to watch for as you move towards a unified experience.",
+  speaker_deck_embed: ''
+)
+
 ###############################################################################
 # APPEARANCES & RECORDINGS
 # The Sandbox screening schedule and VH1 award for nancies.org
@@ -574,7 +582,7 @@ Appearance.create!(
   date: '2021-03-25',
   location: 'Online',
   who: 'John Athayde & Jason Swett',
-  what: 'Discussing "Design Tips for Programmers"',
+  what: 'discussing "Design Tips for Programmers"',
   url: 'https://www.codewithjason.com/podcast/9478226-089-design-tips-for-programmers-with-john-athayde-vp-of-design-at-powerfleet/',
   appearance_type_id: 2
 )
@@ -592,7 +600,7 @@ Appearance.create!(
   date: '2020-06-09',
   location: 'Online',
   who: 'John Athayde & Ben Wallick',
-  what: 'Discussing the Rotoscope record and audio production process',
+  what: 'discussing the Rotoscope record and audio production process',
   url: 'https://www.spreaker.com/user/benwallick/secret-sonics-051-john-athayde',
   appearance_type_id: 2
 )
@@ -648,7 +656,7 @@ Appearance.create!(
   date: '2019-10-16',
   location: 'Online',
   who: 'John Athayde & Kevin Griffin',
-  what: 'Discussing "Build Software Like Pixar Makes Movies"',
+  what: 'discussing "Build Software Like Pixar Makes Movies"',
   url: '',
   appearance_type_id: 2,
   talk_id: 10
@@ -671,7 +679,7 @@ Appearance.create!(
   what: 'presenting "APIs Need UX Too"',
   url: 'https://rvatech.com/rvatech-events/rvajs/',
   appearance_type_id: 1,
-  talk_id: 11
+  talk_id: 13
 )
 
 Appearance.create!(
@@ -700,10 +708,22 @@ Appearance.create!(
   date: '2022-12-08',
   location: 'GMU\'s Van Metre Hall, Arlington, Virginia, USA',
   who: 'John Athayde',
-  what: 'presenting "APIs Need UX Too"',
+  what: 'presenting "Design Systems from Zero to One"',
   url: 'https://frontrunners.tech',
   appearance_type_id: 1,
-  talk_id: 11
+  talk_id: 14
+)
+
+Appearance.create!(
+  id: 36,
+  event: "Product Thinking Podcast Ep. 91",
+  date: '2022-10-26',
+  location: 'Online',
+  who: 'John Athayde & Melissa Perri',
+  what: 'discussing Investing in Internal Tools & Design Systems',
+  url: 'https://produxlabs.com/product-thinking-blog/episode-91-john-athayde',
+  appearance_type_id: 2,
+  talk_id: ''
 )
 
 
