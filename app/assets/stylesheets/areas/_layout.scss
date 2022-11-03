@@ -4,10 +4,14 @@
 }
 
 body {
+  display: flex;
+  flex-direction:column;
+  align-items: flex-start;
   font-family: $base-font-family;
   line-height: $base-line-height;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
 a,
@@ -19,6 +23,7 @@ header {
   background: $gray-darkest;
   margin-top: 0;
   padding: 1em;
+  width: 100%;
 
   @include media('>tablet') {
     padding: 1em 3em;
@@ -162,6 +167,7 @@ header {
 } // header
 
 main {
+  flex-grow: 1;
   padding: 1em;
   width: 100%;
 
@@ -188,6 +194,7 @@ footer#page_footer {
   color: $white;
   margin: 0;
   padding: 3em 2em;
+  width: 100%;
 
   @include media('>tablet') {
     display: flex;
