@@ -264,6 +264,8 @@ body.work {
 
   .work-header {
     background-color: $gray-darker;
+    background-repeat: no-repeat;
+    background-size: cover;
     box-shadow: inset 0 0 10px 1px rgba(0,0,0,0.5);
     padding: 6em 1em 1em 1em;
     width: 100%;
@@ -285,14 +287,21 @@ body.work {
     &#ls_head {
       background-image: asset-url("work/livingsocial_csr/ls-header-background-dark.jpg");
       background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
     }
 
-    &#navanti_head {}
+    &#navanti_head {
+      background-image: asset-url("work/navanti_pulse/page-cover.jpg");
+      background-position: center center;
+    }
 
-    &#procore_head {}
+    &#procore_head {
+      background-image: asset-url("work/procore/page-cover.jpg");
+      background-position: center center;}
 
+    &#powerfleet_head {
+      background-image: asset-url("work/powerfleet_chassis/page-cover.jpg");
+      background-position: center center;
+    }
   }
   // ----------------------------------------------------------------------------
 
@@ -353,6 +362,7 @@ body.work {
       @include font-size(16px);
       font-weight: 400;
       text-transform: uppercase;
+      margin-bottom: 0.5em;
     }
   }
 
