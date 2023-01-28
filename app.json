@@ -1,0 +1,11 @@
+{
+    "name": "johnathayde.com",
+    "description": "John Athayde personal website",
+    "keywords": [
+    ],
+    "scripts": {
+      "dokku": {
+        "postdeploy": "bundle exec rake db:migrate"
+      }
+    }
+  }
