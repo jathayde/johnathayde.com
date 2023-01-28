@@ -705,7 +705,7 @@ Recording.create!(
 Appearance.create!(
   id: 35,
   event: "Frontrunners 2022",
-  date: '2022-12-08',
+  date: '2023-03-10',
   location: 'GMU\'s Van Metre Hall, Arlington, Virginia, USA',
   who: 'John Athayde',
   what: 'presenting "Design Systems from Zero to One"',

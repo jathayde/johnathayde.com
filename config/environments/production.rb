@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+ # frozen_string_literal: true
 
 require 'active_support/core_ext/integer/time'
 
@@ -7,6 +7,7 @@ Rails.application.configure do
 
   config.hosts << 'johnathayde.com'
   config.hosts << 'www.johnathayde.com'
+  config.hosts << 'staging.johnathayde.com'
 
   # Code is not reloaded between requests.
   config.cache_classes = true
