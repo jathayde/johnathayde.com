@@ -27,7 +27,7 @@ SitemapGenerator::Sitemap.create do
   add '/music', :changefreq => 'monthly'
   add '/speaking', :changefreq => 'monthly'
 
-  Appearance.each do |appearance|
+  Appearance.all.each do |appearance|
     add "/speaking/appearances/#{appearance.id}", :changefreq => 'monthly'
 
     appearance.recordings.each do |recording|
@@ -35,7 +35,7 @@ SitemapGenerator::Sitemap.create do
     end
   end
 
-  Talk.each do |talk|
+  Talk.all.each do |talk|
     add "/speaking/talks/#{talk.id}", :changefreq => 'monthly'
   end
 
