@@ -56,10 +56,12 @@ gem 'brakeman'
 gem 'bundler-audit'
 
 gem 'devise'
+gem 'fog-aws'
 gem 'friendly_id'
 gem 'meta-tags'
 gem 'recaptcha'
 gem 'simple-navigation'
+gem 'sitemap_generator'
 gem 'stamp'
 
 group :development, :test do
