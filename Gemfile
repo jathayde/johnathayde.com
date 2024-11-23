@@ -3,18 +3,19 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.2'
+ruby '3.3.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 7.0.5.1'
+gem 'rails', '~> 7.2'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 1.1'
+gem 'pg', '~> 1.5', '>= 1.5.8'
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem 'puma', '~> 5.0'
+gem "puma", "~> 6.4"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
@@ -29,7 +30,7 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
+gem 'redis'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -55,6 +56,7 @@ gem 'brakeman'
 # bundler-audit checks our dependencies for vulnerabilities
 gem 'bundler-audit'
 
+gem 'acts-as-taggable-on'
 gem 'devise'
 gem 'fog-aws'
 gem 'friendly_id'
@@ -71,14 +73,14 @@ group :development, :test do
   # All runtime config comes from the UNIX environment
   # but we use dotenv to store that in files for
   # development and testing
-  gem 'dotenv-rails', require: 'dotenv/rails-now'
+  gem 'dotenv-rails', require: 'dotenv/load'
 
   # Testing using rspec
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pg_query'
   gem 'prosopite'
-  gem 'rspec-rails', '~> 5.0.0'
+  gem 'rspec-rails'
   gem "rubocop", require: false
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
