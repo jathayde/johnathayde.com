@@ -282,7 +282,7 @@ namespace :db do
         puts "Database restore completed successfully."
       else
         puts "WARNING: Database restore may have encountered issues. Exit code: #{$?.exitstatus}"
-        
+
         # For custom format dumps, try with --clean --if-exists options if the first attempt failed
         if file_type.include?('PostgreSQL custom format') && !result
           puts "Trying alternative restore command..."
@@ -290,7 +290,18 @@ namespace :db do
           puts result ? "Second attempt successful!" : "Second attempt also failed."
         end
       end
-      
+
+      # Strip PostGIS from the restored database.
+      # Production has PostGIS installed (inherited from the Dokku image), but
+      # this app has no geospatial features. Leaving PostGIS in place causes
+      # schema:dump to emit enable_extension "postgis" and a spatial_ref_sys
+      # table dump, which then breaks schema:load on a fresh test database
+      # (the purge step can't drop spatial_ref_sys while the extension exists).
+      # Drop the extension here so the restored dev DB matches the app's
+      # actual extension requirements.
+      puts "\nStripping PostGIS extension (no geospatial usage in this app)..."
+      system("psql -d #{db_name} -c 'DROP EXTENSION IF EXISTS postgis CASCADE;'")
+
       # Run migrations to ensure schema is up to date
       puts "\nRunning migrations..."
       Rake::Task["db:migrate"].invoke
