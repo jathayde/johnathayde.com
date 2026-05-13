@@ -65,6 +65,22 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Admin HTTP basic auth — set fixed credentials for the test env and
+  # expose a helper that returns headers to pass on protected requests.
+  ENV["ADMIN_USERNAME"] ||= "test_admin"
+  ENV["ADMIN_PASSWORD"] ||= "test_password"
+
+  config.include(Module.new do
+    def admin_auth_headers
+      {
+        "HTTP_AUTHORIZATION" =>
+          ActionController::HttpAuthentication::Basic.encode_credentials(
+            ENV.fetch("ADMIN_USERNAME"), ENV.fetch("ADMIN_PASSWORD")
+          )
+      }
+    end
+  end, type: :request)
 end
 
 Shoulda::Matchers.configure do |config|

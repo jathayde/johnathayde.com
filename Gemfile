@@ -58,7 +58,6 @@ gem 'bundler-audit'
 
 gem 'acts-as-taggable-on'
 gem 'aws-sdk-s3'
-gem 'devise', '~> 5.0'
 gem 'fog-aws'
 gem 'friendly_id'
 gem 'meta-tags'
