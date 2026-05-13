@@ -1,0 +1,201 @@
+#resume {
+  max-width: 50em;
+  padding: 2em 1em;
+  font-family: $base-font-family;
+  color: $gray-darkest;
+
+  @include media('>tablet') {
+    padding: 3em 2em;
+  }
+
+  // ---- Header ----
+  .resume-header {
+    background: $white;
+    // Zero the horizontal padding inherited from the broad `header {}`
+    // selector in _layout.scss so the name block left-aligns with the
+    // rest of the resume sections below.
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 1.5em;
+    margin-bottom: 2em;
+
+    h1 {
+      color: $base;
+      font-weight: 900;
+      @include font-size(36px);
+      line-height: 1;
+      margin: 0 0 0.2em;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+
+      @include media('>tablet') {
+        @include font-size(48px);
+      }
+    }
+  }
+
+  .resume-title {
+    @include font-size(18px);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $gray-dark;
+    margin: 0 0 1em;
+  }
+
+  .resume-contact {
+    @extend %list-in-disguise;
+    @include font-size(14px);
+    color: $gray-dark;
+    margin: 0 0 1em;
+    line-height: 1.6;
+
+    li {
+      display: block;
+
+      @include media('>tablet') {
+        display: inline;
+
+        &::after {
+          content: "  \00b7  ";
+          color: $gray-light;
+        }
+
+        &:last-child::after {
+          content: "";
+        }
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid $gray-light;
+
+      &:hover {
+        color: $base;
+        border-bottom-color: $base;
+      }
+    }
+  }
+
+  .resume-download {
+    margin: 0;
+  }
+
+  .resume-pdf-link {
+    display: inline-block;
+    padding: 0.6em 1.25em;
+    background-color: $base;
+    color: $white;
+    text-decoration: none;
+    border-radius: $base-border-radius;
+    font-weight: 600;
+    @include font-size(14px);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover,
+    &:active {
+      background-color: $dark-base;
+      color: $white;
+    }
+  }
+
+  // ---- Sections ----
+  .resume-section {
+    margin-bottom: 2.5em;
+
+    > h2 {
+      @include font-size(22px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: $base;
+      border-bottom: 2px solid $base;
+      padding-bottom: 0.25em;
+      margin: 0 0 1em;
+    }
+
+    > p,
+    > ul {
+      @include font-size(15px);
+      line-height: 1.55;
+    }
+
+    > ul {
+      padding-left: 1.25em;
+
+      li {
+        margin-bottom: 0.4em;
+      }
+    }
+  }
+
+  // ---- Positions / role blocks ----
+  .resume-position {
+    margin-bottom: 1.75em;
+
+    h3 {
+      @include font-size(17px);
+      font-weight: 700;
+      margin: 0;
+      color: $gray-darkest;
+    }
+
+    .resume-company {
+      @include font-size(15px);
+      font-weight: 600;
+      color: $gray-darkest;
+      margin: 0.1em 0 0;
+    }
+
+    .resume-dates {
+      @include font-size(13px);
+      font-style: italic;
+      color: $gray-dark;
+      margin: 0.1em 0 0.6em;
+    }
+
+    > p {
+      @include font-size(15px);
+      line-height: 1.55;
+      margin: 0.1em 0;
+    }
+
+    > ul {
+      @include font-size(15px);
+      line-height: 1.55;
+      padding-left: 1.25em;
+      margin: 0.5em 0 0;
+
+      li {
+        margin-bottom: 0.35em;
+      }
+    }
+  }
+
+  // ---- Print ----
+  @media print {
+    max-width: none;
+    padding: 0;
+    color: #000;
+
+    .resume-pdf-link,
+    .resume-download {
+      display: none;
+    }
+
+    .resume-section > h2 {
+      color: #000;
+      border-bottom-color: #000;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: none;
+    }
+  }
+}

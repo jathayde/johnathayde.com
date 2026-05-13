@@ -64,6 +64,17 @@
       <div class="backdrop"><div class="nest">
       <nav id="primary_nav" role="navigation">
         <%= render_navigation %>
+        <ul id="header_socials" class="socials socials-small" aria-label="Social media">
+          <li>
+            <%= link_to "LinkedIn", "https://www.linkedin.com/in/johnathayde", id: "linkedin" %>
+          </li>
+          <li>
+            <%= link_to "X", "https://x.com/johnathayde", id: "x" %>
+          </li>
+          <li>
+            <%= link_to "Github", "https://github.com/jathayde", id: "github" %>
+          </li>
+        </ul>
       </nav>
       <hgroup>
         <h1>John Athayde</h1>
@@ -95,7 +106,6 @@
         <ul>
           <li><%= link_to "Resume/CV", "" %></li>
           <li><%= link_to "Work", "" %></li>
-          <li><%= link_to "Blog", "" %></li>
           <li><%= link_to "Speaking", "" %></li>
           <li><%= link_to "Music", "" %></li>
         </ul>
@@ -107,7 +117,7 @@
             <%= link_to "LinkedIn", "https://www.linkedin.com/in/johnathayde", id: "linkedin" %>
           </li>
           <li>
-            <%= link_to "Twitter", "https://twitter.com/johnathayde", id: "twitter" %>
+            <%= link_to "X", "https://x.com/johnathayde", id: "x" %>
           </li>
           <li>
             <%= link_to "Github", "https://github.com/jathayde", id: "github" %>

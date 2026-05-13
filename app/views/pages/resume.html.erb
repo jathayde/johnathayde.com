@@ -3,5 +3,167 @@
                    title: "John Athayde | Resume/CV",
                  } %>
 
-<h1>Resume</h1>
-<p>Local version coming soon. For now, you can <%= link_to "download the PDF", "" %> or <%= link_to "visit my LinkedIn profile", "https://www.linkedin.com/in/johnathayde/" %></p>
+<article id="resume">
+  <header class="resume-header">
+    <h1>John Athayde</h1>
+    <p class="resume-title">Creative Technologist</p>
+
+    <ul class="resume-contact">
+      <li>3775 Stony Point Road, Charlottesville, VA 22911</li>
+      <li>202.285.3544</li>
+      <li><%= mail_to "john@athayde.com" %></li>
+      <li><%= link_to "linkedin.com/in/johnathayde", "https://www.linkedin.com/in/johnathayde" %></li>
+    </ul>
+
+    <p class="resume-download">
+      <%= link_to "Download as PDF", "/john-athayde-resume.pdf", class: "resume-pdf-link" %>
+    </p>
+  </header>
+
+  <section class="resume-section">
+    <h2>Summary</h2>
+    <p>John is a design team leader, strategist, and individual contributor, walking between visual and user experience design, music, print design, architecture, visual effects/film, and software engineering. He:</p>
+    <ul>
+      <li>Helps create consensus among senior leadership, and then leads design teams to meet business objectives;</li>
+      <li>Designs and executes on deliverables from sketch to shipped code;</li>
+      <li>Builds teams of resources to handle complex scopes and tight deliverable timelines;</li>
+      <li>Excels at design in all major media channels as an individual contributor and manager;</li>
+      <li>Speaks regularly on UX and front-end development topics;</li>
+      <li>Once opened for Coldplay as a semi-professional musician;</li>
+      <li>Lives with his wife and four children on their permaculture farm outside Charlottesville, Virginia.</li>
+    </ul>
+  </section>
+
+  <section class="resume-section">
+    <h2>Experience</h2>
+
+    <article class="resume-position">
+      <h3>Owner</h3>
+      <p class="resume-company">Meticulous, LLC</p>
+      <p class="resume-dates"><time>Sep 1997 &ndash; Present</time></p>
+      <ul>
+        <li>Co-founder and sole operator (since 2009) of this multi-disciplinary design firm.</li>
+        <li>Product Design, Marcom Web, Print, Development (Rails, Wordpress), Film, and Audio production/post.</li>
+        <li>Clients include: The Rails Foundation, Driven Brands, Guggenheim Securities, Lifetime Networks, Procore, Ruby Central, The Academy for Educational Development, Xirgo, RTKL Associates, Inc., and more.</li>
+        <li>Released an animated short, &ldquo;The Sandbox&rdquo;, in 2005.</li>
+      </ul>
+    </article>
+
+    <article class="resume-position">
+      <h3>VP of Design</h3>
+      <p class="resume-company">PowerFleet, Inc (formerly I.D. Systems, Inc.)</p>
+      <p class="resume-dates"><time>Feb 2019 &ndash; Aug 2022</time></p>
+      <ul>
+        <li>As a team of one, rebranded company in Oct 2019: a complete overhaul of all materials including web, print, video, experiential (trade shows), brand guidelines, and relaunching the company on NASDAQ &mdash; all during a corporate acquisition which doubled company revenue and quadrupled company staffing worldwide.</li>
+        <li>Reskinned existing platform and created guidelines for international subsidiaries to update their software modules.</li>
+        <li>Led reimagination of new data-brain platform, including research, information architecture, strategy, user flows, wireframes, visual design, testing, and design system implementation.</li>
+        <li>Created clickable prototypes and vaporware video demos to pitch and test with customers.</li>
+        <li>Brand management and updates across all three primary brands; spin-down of old brands from pre-2019 M&amp;A activity.</li>
+        <li>Print, web, UX (mobile &amp; web), video post, 3D, IR, product, product marketing, and general marketing work.</li>
+        <li>Sourced and managed outside resources in order to minimize headcount while executing on deliverables.</li>
+      </ul>
+    </article>
+
+    <article class="resume-position">
+      <h3>VP Design</h3>
+      <p class="resume-company">CargoSense, Inc.</p>
+      <p class="resume-dates"><time>Dec 2013 &ndash; Feb 2019</time></p>
+      <ul>
+        <li>Ran all design and UX for the firm as a team of one: marketing materials, video/audio, web interface, mobile app interfaces, and application design and implementation.</li>
+        <li>Collaborative design with CTO and CEO on product flows.</li>
+        <li>Supervised and directed external providers for some creative needs.</li>
+        <li>Built design system with engineers for use in React and Elixir-based platform.</li>
+        <li>Established and maintained brand guidelines across the company&rsquo;s multiple product offerings.</li>
+      </ul>
+    </article>
+
+    <article class="resume-position">
+      <h3>Lead, Internal Tools UI/UX</h3>
+      <p class="resume-company">LivingSocial</p>
+      <p class="resume-dates"><time>Feb 2011 &ndash; Dec 2013</time></p>
+      <ul>
+        <li>Led design and front-end development for the Internal Tools engineering division.</li>
+        <li>Managed one UX generalist and two front-end developers.</li>
+        <li>Enhanced workflows for various groups (customer support, deal quality and programming, sales) that improved metrics and KPIs across the board.</li>
+      </ul>
+    </article>
+
+    <article class="resume-position">
+      <h3>UI/UX/Design Lead</h3>
+      <p class="resume-company">InfoEther</p>
+      <p class="resume-dates"><time>Oct 2008 &ndash; Mar 2011</time></p>
+      <ul>
+        <li>Acquired by LivingSocial in March 2011.</li>
+        <li>Sole UX/Design resource and primary front-end developer (HTML/CSS) for Ruby on Rails consultancy.</li>
+        <li>Gathered requirements from customers and turned them into designs and artifacts for engineers to build.</li>
+        <li>Implemented interfaces in the Ruby on Rails stack.</li>
+        <li>Created a precursor design system, &ldquo;Wilde,&rdquo; that powered the user interface of over 30 services written in Rails, Scala, and more.</li>
+        <li>Designed print and web marketing materials for the company in conjunction with management.</li>
+        <li>Worked on product development and vision with team for various internal products.</li>
+      </ul>
+    </article>
+
+    <article class="resume-position">
+      <h3>Partner</h3>
+      <p class="resume-company">Hyphenated People</p>
+      <p class="resume-dates"><time>Aug 2007 &ndash; Oct 2008</time></p>
+      <ul>
+        <li>Ran high-end UX and UI consultancy with Amy Hoy.</li>
+        <li>Clients include Bear Stearns, Wine Library/Gary Vaynerchuk, Peracon, Grab Networks/Voxant, and more.</li>
+      </ul>
+    </article>
+
+    <article class="resume-position">
+      <h3>Creative Director</h3>
+      <p class="resume-company">InPhonic Inc</p>
+      <p class="resume-dates"><time>Nov 2005 &ndash; Sep 2007</time></p>
+      <ul>
+        <li>Built out creative and microsites team from 4 to 15 over two years.</li>
+        <li>Managed over 100 jobs per month through team pipeline.</li>
+        <li>Directed work that improved ad performance on large media buys (MSN.com home page, etc.).</li>
+        <li>Redesigned Wirefly.com property in conjunction with EightShapes (UX).</li>
+      </ul>
+    </article>
+
+    <article class="resume-position">
+      <h3>Senior Web Developer</h3>
+      <p class="resume-company">InPhonic Inc</p>
+      <p class="resume-dates"><time>Nov 2004 &ndash; Nov 2005</time></p>
+      <ul>
+        <li>Created numerous microsites and marketing channels that stood outside of the engineering platform.</li>
+        <li>Branded, built, and maintained properties, transitioning to team members after move to Creative Director.</li>
+      </ul>
+    </article>
+
+    <article class="resume-position">
+      <h3>Manager &mdash; Liquid Media Division, Washington DC</h3>
+      <p class="resume-company">RTKL Associates Inc</p>
+      <p class="resume-dates"><time>Jun 2000 &ndash; Nov 2001</time></p>
+      <ul>
+        <li>Ran procurement and project management of 3D rendering, animation, and multimedia for DC office.</li>
+        <li>Coordinated with teams in LA and London for staffing and pipelines.</li>
+        <li>Key projects include US Capitol Visitors Center, Pentagon reconstruction/Phoenix Project, US Capitol Security Perimeter, and National Trust for Historic Preservation website.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="resume-section">
+    <h2>Education</h2>
+
+    <article class="resume-position">
+      <h3>Catholic University of America</h3>
+      <p>Master of Architecture, January 2001</p>
+      <p>Bachelor of Science in Architecture, June 2000</p>
+    </article>
+
+    <article class="resume-position">
+      <h3>Permaculture Research Institute</h3>
+      <p>Permaculture Design Certificate, 2014</p>
+    </article>
+  </section>
+
+  <section class="resume-section">
+    <h2>Publications</h2>
+    <p><em><%= link_to "The Rails View", "https://pragprog.com/titles/warv/the-rails-view/" %></em>. 2013. Co-authored with Bruce Williams. Published by The Pragmatic Programmers.</p>
+  </section>
+</article>

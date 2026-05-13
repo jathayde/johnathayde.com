@@ -53,6 +53,9 @@
   </head>
 
   <body class="placeholder">
+      <nav id="placeholder_nav" role="navigation">
+        <%= render_navigation %>
+      </nav>
       <hgroup>
         <%= image_tag "logo_mark.svg", id: "home_mark" %>
         <h1>John Athayde</h1>
@@ -67,7 +70,7 @@
             <%= link_to "LinkedIn", "https://www.linkedin.com/in/johnathayde", id: "linkedin" %>
           </li>
           <li>
-            <%= link_to "Twitter", "https://twitter.com/johnathayde", id: "twitter" %>
+            <%= link_to "X", "https://x.com/johnathayde", id: "x" %>
           </li>
           <li>
             <%= link_to "Github", "https://github.com/jathayde", id: "github" %>

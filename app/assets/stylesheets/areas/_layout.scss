@@ -23,6 +23,7 @@ header {
   background: $gray-darkest;
   margin-top: 0;
   padding: 1em;
+  position: relative;
   width: 100%;
 
   @include media('>tablet') {
@@ -101,6 +102,7 @@ header {
     font-family: $nav-font-family;
     font-weight: $nav-font-weight;
     padding-top: 1em;
+    position: relative;
 
     ul {
       @extend %list-in-disguise;
@@ -163,6 +165,56 @@ header {
         }
       } // li
     } // ul
+
+    ul#header_socials {
+      @extend %list-in-disguise;
+      display: none;
+
+      @include media('>tablet') {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.75em;
+        position: absolute;
+        top: 50%;
+        right: 11em;
+        transform: translateY(-50%);
+        z-index: 2;
+      }
+
+      li {
+        padding: 0;
+        // Defeat the nav's logo treatment that targets li:first-child
+        // (height: 62px / width: 53px / margin-top: -1.25em) — without
+        // this the first social icon (LinkedIn) gets pulled ~20px up.
+        margin-top: 0;
+
+        a {
+          @extend %image-replacement;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: contain;
+          display: block;
+          height: 20px;
+          width: 20px;
+          margin-top: 0;
+          padding: 0;
+          text-shadow: none;
+
+          &#linkedin {
+            @include background-image("socials/linkedin");
+          }
+
+          &#github {
+            @include background-image("socials/github");
+          }
+
+          &#x {
+            @include background-image("socials/x");
+          }
+        }
+      }
+    } // ul#header_socials
   } // nav#primary_nav
 } // header
 
@@ -276,8 +328,8 @@ footer#page_footer {
             @include background-image("socials/github");
           }
 
-          &#twitter {
-            @include background-image("socials/twitter");
+          &#x {
+            @include background-image("socials/x");
           }
         } // a
 
