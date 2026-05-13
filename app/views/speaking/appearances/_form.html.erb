@@ -1,4 +1,4 @@
-<%= form_with(model: speaking_appearance) do |form| %>
+<%= form_with(model: [:speaking, speaking_appearance]) do |form| %>
   <% if speaking_appearance.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(speaking_appearance.errors.count, "error") %> prohibited this speaking_appearance from being saved:</h2>

@@ -14,7 +14,7 @@ require 'rails_helper'
 
 RSpec.describe "/speaking/appearances", type: :request do
   
-  # Speaking::Appearance. As you add validations to Speaking::Appearance, be sure to
+  # Appearance. As you add validations to Appearance, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -26,7 +26,7 @@ RSpec.describe "/speaking/appearances", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      Speaking::Appearance.create! valid_attributes
+      Appearance.create! valid_attributes
       get speaking_appearances_url
       expect(response).to be_successful
     end
@@ -34,7 +34,7 @@ RSpec.describe "/speaking/appearances", type: :request do
 
   describe "GET /show" do
     it "renders a successful response" do
-      appearance = Speaking::Appearance.create! valid_attributes
+      appearance = Appearance.create! valid_attributes
       get speaking_appearance_url(speaking_appearance)
       expect(response).to be_successful
     end
@@ -49,7 +49,7 @@ RSpec.describe "/speaking/appearances", type: :request do
 
   describe "GET /edit" do
     it "render a successful response" do
-      appearance = Speaking::Appearance.create! valid_attributes
+      appearance = Appearance.create! valid_attributes
       get edit_speaking_appearance_url(speaking_appearance)
       expect(response).to be_successful
     end
@@ -57,10 +57,10 @@ RSpec.describe "/speaking/appearances", type: :request do
 
   describe "POST /create" do
     context "with valid parameters" do
-      it "creates a new Speaking::Appearance" do
+      it "creates a new Appearance" do
         expect {
           post speaking_appearances_url, params: { speaking_appearance: valid_attributes }
-        }.to change(Speaking::Appearance, :count).by(1)
+        }.to change(Appearance, :count).by(1)
       end
 
       it "redirects to the created speaking_appearance" do
@@ -70,10 +70,10 @@ RSpec.describe "/speaking/appearances", type: :request do
     end
 
     context "with invalid parameters" do
-      it "does not create a new Speaking::Appearance" do
+      it "does not create a new Appearance" do
         expect {
           post speaking_appearances_url, params: { speaking_appearance: invalid_attributes }
-        }.to change(Speaking::Appearance, :count).by(0)
+        }.to change(Appearance, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
@@ -90,14 +90,14 @@ RSpec.describe "/speaking/appearances", type: :request do
       }
 
       it "updates the requested speaking_appearance" do
-        appearance = Speaking::Appearance.create! valid_attributes
+        appearance = Appearance.create! valid_attributes
         patch speaking_appearance_url(speaking_appearance), params: { speaking_appearance: new_attributes }
         appearance.reload
         skip("Add assertions for updated state")
       end
 
       it "redirects to the speaking_appearance" do
-        appearance = Speaking::Appearance.create! valid_attributes
+        appearance = Appearance.create! valid_attributes
         patch speaking_appearance_url(speaking_appearance), params: { speaking_appearance: new_attributes }
         appearance.reload
         expect(response).to redirect_to(speaking_appearance_url(appearance))
@@ -106,7 +106,7 @@ RSpec.describe "/speaking/appearances", type: :request do
 
     context "with invalid parameters" do
       it "renders a successful response (i.e. to display the 'edit' template)" do
-        appearance = Speaking::Appearance.create! valid_attributes
+        appearance = Appearance.create! valid_attributes
         patch speaking_appearance_url(speaking_appearance), params: { speaking_appearance: invalid_attributes }
         expect(response).to be_successful
       end
@@ -115,14 +115,14 @@ RSpec.describe "/speaking/appearances", type: :request do
 
   describe "DELETE /destroy" do
     it "destroys the requested speaking_appearance" do
-      appearance = Speaking::Appearance.create! valid_attributes
+      appearance = Appearance.create! valid_attributes
       expect {
         delete speaking_appearance_url(speaking_appearance)
-      }.to change(Speaking::Appearance, :count).by(-1)
+      }.to change(Appearance, :count).by(-1)
     end
 
     it "redirects to the speaking_appearances list" do
-      appearance = Speaking::Appearance.create! valid_attributes
+      appearance = Appearance.create! valid_attributes
       delete speaking_appearance_url(speaking_appearance)
       expect(response).to redirect_to(speaking_appearances_url)
     end

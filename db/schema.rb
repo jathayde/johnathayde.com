@@ -13,7 +13,6 @@
 ActiveRecord::Schema[7.2].define(version: 2024_11_23_032829) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgis"
 
   create_table "appearance_types", force: :cascade do |t|
     t.string "title", null: false
@@ -89,14 +88,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_23_032829) do
     t.text "embed_code"
     t.index ["appearance_id"], name: "index_recordings_on_appearance_id"
     t.index ["talk_id"], name: "index_recordings_on_talk_id"
-  end
-
-  create_table "spatial_ref_sys", primary_key: "srid", id: :integer, default: nil, force: :cascade do |t|
-    t.string "auth_name", limit: 256
-    t.integer "auth_srid"
-    t.string "srtext", limit: 2048
-    t.string "proj4text", limit: 2048
-    t.check_constraint "srid > 0 AND srid <= 998999", name: "spatial_ref_sys_srid_check"
   end
 
   create_table "taggings", force: :cascade do |t|

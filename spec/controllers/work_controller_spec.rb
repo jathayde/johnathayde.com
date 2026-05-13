@@ -9,16 +9,16 @@ RSpec.describe WorkController, type: :controller do
     end
   end
 
-  describe "GET #livingsocial-csr" do
+  describe "GET #livingsocial_csr" do
     it "returns http success" do
-      get :livingsocial-csr
+      get :livingsocial_csr
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET #navanti-pulse" do
+  describe "GET #navanti_pulse" do
     it "returns http success" do
-      get :navanti-pulse
+      get :navanti_pulse
       expect(response).to have_http_status(:success)
     end
   end
