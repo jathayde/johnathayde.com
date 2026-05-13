@@ -1,5 +1,22 @@
 <li id="<%= dom_id appearance %>">
-  <h3><%= link_to appearance.event, speaking_appearance_path(appearance) %> <span>(<%= appearance.location %>)</span></h3>
+  <h3>
+    <%= link_to appearance.event, speaking_appearance_path(appearance) %>
+    <span class="location">(<%= appearance.location %>)</span>
+    <% if appearance.appearance_type %>
+      <span class="badge"><%= appearance.appearance_type.title %></span>
+    <% end %>
+  </h3>
   <p><%= appearance.who %> <%= appearance.what %></p>
-  <p class="date"><time datetime=""><%= appearance.date.stamp("04 May 2020") %></time></p>
+  <p class="meta">
+    <time datetime="<%= appearance.date.iso8601 %>">
+      <%= appearance.date.stamp("04 May 2020") %>
+    </time>
+    <% if appearance.url.present? %>
+      &middot;
+      <%= link_to "Event page", appearance.url, target: "_blank", rel: "noopener" %>
+    <% end %>
+    <% if appearance.talk %>
+      &middot; <span class="talk-title"><%= appearance.talk.title %></span>
+    <% end %>
+  </p>
 </li>

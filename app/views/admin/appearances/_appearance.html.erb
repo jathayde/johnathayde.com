@@ -1,0 +1,21 @@
+<tr id="<%= dom_id appearance %>">
+  <td>
+    <%= link_to appearance.event, admin_appearance_path(appearance) %>
+    <% if appearance.appearance_type %>
+      <span class="badge"><%= appearance.appearance_type.title %></span>
+    <% end %>
+  </td>
+  <td><%= appearance.location %></td>
+  <td>
+    <time datetime="<%= appearance.date.iso8601 %>">
+      <%= appearance.date.stamp("04 May 2020") %>
+    </time>
+  </td>
+  <td><%= appearance.talk&.title %></td>
+  <td><%= appearance.recordings.size %></td>
+  <td>
+    <%= link_to "Edit", edit_admin_appearance_path(appearance) %>
+    &middot;
+    <%= link_to "View public", speaking_appearance_path(appearance) %>
+  </td>
+</tr>

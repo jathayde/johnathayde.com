@@ -1,0 +1,11 @@
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Appearances", admin_appearances_path %> »
+  <%= link_to @appearance.event, admin_appearance_path(@appearance) %> »
+</p>
+
+<h1>New recording for <%= @appearance.event %></h1>
+
+<%= render "form", recording: @recording %>
+
+<p><%= link_to "Back to appearance", admin_appearance_path(@appearance) %></p>

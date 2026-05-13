@@ -1,0 +1,41 @@
+<% set_meta_tags title: (@article.page_title.presence || @article.title),
+                 description: @article.meta_description,
+                 og: {
+                   title:       @article.og_title.presence       || @article.title,
+                   description: @article.og_description.presence || @article.meta_description,
+                   image:       @article.og_image.presence
+                 },
+                 twitter: {
+                   title:       @article.twitter_title.presence       || @article.title,
+                   description: @article.twitter_description.presence || @article.meta_description,
+                   image:       @article.twitter_image.presence
+                 } %>
+
+<p class="breadcrumbs"><%= link_to "Articles", articles_path %> »</p>
+
+<article id="<%= dom_id @article %>">
+  <header>
+    <h1><%= @article.title %></h1>
+    <% if @article.subtitle.present? %>
+      <p class="subtitle"><%= @article.subtitle %></p>
+    <% end %>
+    <p class="meta">
+      <% if @article.published_at %>
+        <time datetime="<%= @article.published_at.iso8601 %>">
+          <%= @article.published_at.to_date.stamp("04 May 2020") %>
+        </time>
+      <% end %>
+      <% if @article.author.present? %>
+        &middot; <%= @article.author %>
+      <% end %>
+    </p>
+  </header>
+
+  <%= simple_format @article.body, class: "article-body" %>
+</article>
+
+<% if admin? %>
+  <p class="admin-actions">
+    <%= link_to "Edit in admin", edit_admin_article_path(@article) %>
+  </p>
+<% end %>

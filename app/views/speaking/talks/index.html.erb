@@ -1,0 +1,11 @@
+<p class="breadcrumbs"><%= link_to "Speaking", speaking_path %> » Talks</p>
+
+<h1>Talks</h1>
+
+<section id="talks">
+  <ol class="talks">
+    <% @talks.each do |talk| %>
+      <%= render talk %>
+    <% end %>
+  </ol>
+</section>

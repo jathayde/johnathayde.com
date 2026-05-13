@@ -1,0 +1,16 @@
+<li id="<%= dom_id article %>">
+  <h3><%= link_to article.title, article_path(article) %></h3>
+  <% if article.subtitle.present? %>
+    <p class="article-subtitle"><%= article.subtitle %></p>
+  <% end %>
+  <p class="meta">
+    <% if article.published_at %>
+      <time datetime="<%= article.published_at.iso8601 %>">
+        <%= article.published_at.to_date.stamp("04 May 2020") %>
+      </time>
+    <% end %>
+    <% if article.author.present? %>
+      &middot; <%= article.author %>
+    <% end %>
+  </p>
+</li>

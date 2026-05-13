@@ -1,0 +1,12 @@
+<li id="<%= dom_id talk %>">
+  <h3><%= link_to talk.title, speaking_talk_path(talk) %></h3>
+  <% if talk.subtitle.present? %>
+    <p class="talk-subtitle"><%= talk.subtitle %></p>
+  <% end %>
+  <p class="meta">
+    <%= pluralize talk.appearances.size, "appearance" %>
+    <% if talk.speaker_deck_embed.present? %>
+      &middot; has slides
+    <% end %>
+  </p>
+</li>

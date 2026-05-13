@@ -1,0 +1,10 @@
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Articles", admin_articles_path %> »
+</p>
+
+<h1>New article</h1>
+
+<%= render "form", article: @article %>
+
+<p><%= link_to "Back to articles", admin_articles_path %></p>

@@ -1,0 +1,58 @@
+<% if notice %><p class="flash-notice"><%= notice %></p><% end %>
+
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Appearances", admin_appearances_path %> »
+</p>
+
+<h1><%= @appearance.event %></h1>
+
+<% if @appearance.appearance_type %>
+  <p><span class="badge"><%= @appearance.appearance_type.title %></span></p>
+<% end %>
+
+<dl class="admin-detail">
+  <dt>Location</dt>            <dd><%= @appearance.location %></dd>
+  <dt>Who</dt>                 <dd><%= @appearance.who %></dd>
+  <dt>What</dt>                <dd><%= @appearance.what %></dd>
+  <dt>Date</dt>                <dd><time datetime="<%= @appearance.date.iso8601 %>"><%= @appearance.date.stamp("04 May 2020") %></time></dd>
+  <% if @appearance.url.present? %>
+    <dt>Event URL</dt>         <dd><%= link_to @appearance.url, @appearance.url, target: "_blank", rel: "noopener" %></dd>
+  <% end %>
+  <% if @appearance.talk %>
+    <dt>Talk</dt>              <dd><%= link_to @appearance.talk.title, admin_talk_path(@appearance.talk) %></dd>
+  <% end %>
+  <% if @appearance.notes.present? %>
+    <dt>Notes</dt>             <dd><%= simple_format @appearance.notes %></dd>
+  <% end %>
+</dl>
+
+<section class="recordings">
+  <h2>Recordings</h2>
+  <% if @appearance.recordings.any? %>
+    <ul>
+      <% @appearance.recordings.each do |recording| %>
+        <li>
+          <%= link_to recording.title, recording.url, target: "_blank", rel: "noopener" %>
+          &middot;
+          <%= link_to "edit", edit_admin_appearance_recording_path(@appearance, recording) %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No recordings yet.</p>
+  <% end %>
+  <p>
+    <%= link_to "Add a recording", new_admin_appearance_recording_path(@appearance) %>
+  </p>
+</section>
+
+<p class="admin-actions">
+  <%= link_to "Edit", edit_admin_appearance_path(@appearance) %>
+  &middot;
+  <%= button_to "Delete", admin_appearance_path(@appearance), method: :delete,
+                data: { turbo_confirm: "Delete this appearance? Its recordings will also be deleted." },
+                class: "linklike" %>
+  &middot;
+  <%= link_to "View public", speaking_appearance_path(@appearance) %>
+</p>

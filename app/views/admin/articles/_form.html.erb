@@ -1,0 +1,105 @@
+<%= form_with(model: [:admin, article]) do |form| %>
+  <% if article.errors.any? %>
+    <div class="form-errors">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <ul>
+        <% article.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Content</legend>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, required: true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :subtitle %>
+      <%= form.text_field :subtitle %>
+    </div>
+
+    <div class="field">
+      <%= form.label :author %>
+      <%= form.text_field :author %>
+    </div>
+
+    <div class="field">
+      <%= form.label :body %>
+      <%= form.text_area :body, rows: 16, required: true %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Publishing</legend>
+
+    <div class="field">
+      <%= form.label :published_at, "Publish at (leave blank for draft)" %>
+      <%= form.datetime_local_field :published_at %>
+    </div>
+
+    <div class="field">
+      <%= form.label :hidden_on_index do %>
+        <%= form.check_box :hidden_on_index %>
+        Hide from articles index (but keep reachable by URL)
+      <% end %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>SEO & Social</legend>
+
+    <div class="field">
+      <%= form.label :page_title %>
+      <%= form.text_field :page_title, required: true %>
+      <p class="hint">Used as the &lt;title&gt; tag.</p>
+    </div>
+
+    <div class="field">
+      <%= form.label :meta_description %>
+      <%= form.text_area :meta_description, rows: 2, maxlength: 155, required: true %>
+      <p class="hint">Max 155 characters.</p>
+    </div>
+
+    <div class="field">
+      <%= form.label :img_source, "Header image URL" %>
+      <%= form.url_field :img_source %>
+    </div>
+
+    <h3>OpenGraph (optional overrides)</h3>
+    <div class="field">
+      <%= form.label :og_title %>
+      <%= form.text_field :og_title %>
+    </div>
+    <div class="field">
+      <%= form.label :og_description %>
+      <%= form.text_area :og_description, rows: 2 %>
+    </div>
+    <div class="field">
+      <%= form.label :og_image, "OG image URL" %>
+      <%= form.url_field :og_image %>
+    </div>
+
+    <h3>Twitter / X (optional overrides)</h3>
+    <div class="field">
+      <%= form.label :twitter_title %>
+      <%= form.text_field :twitter_title %>
+    </div>
+    <div class="field">
+      <%= form.label :twitter_description %>
+      <%= form.text_area :twitter_description, rows: 2 %>
+    </div>
+    <div class="field">
+      <%= form.label :twitter_image, "Twitter image URL" %>
+      <%= form.url_field :twitter_image %>
+    </div>
+  </fieldset>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

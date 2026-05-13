@@ -1,0 +1,27 @@
+<%= form_with(model: [:admin, appearance_type]) do |form| %>
+  <% if appearance_type.errors.any? %>
+    <div class="form-errors">
+      <h2><%= pluralize(appearance_type.errors.count, "error") %> prohibited this from being saved:</h2>
+      <ul>
+        <% appearance_type.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :slug %>
+    <%= form.text_field :slug %>
+    <p class="hint">Leave blank to auto-generate from title.</p>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

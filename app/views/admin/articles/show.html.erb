@@ -1,0 +1,48 @@
+<% if notice %><p class="flash-notice"><%= notice %></p><% end %>
+
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Articles", admin_articles_path %> »
+</p>
+
+<h1><%= @article.title %></h1>
+
+<p>
+  <% if @article.published? %>
+    <span class="badge published">Published</span>
+  <% else %>
+    <span class="badge unpublished">Draft</span>
+  <% end %>
+  <% if @article.hidden_on_index %>
+    <span class="badge unpublished">Hidden from index</span>
+  <% end %>
+</p>
+
+<dl class="admin-detail">
+  <% if @article.subtitle.present? %>
+    <dt>Subtitle</dt>          <dd><%= @article.subtitle %></dd>
+  <% end %>
+  <% if @article.author.present? %>
+    <dt>Author</dt>            <dd><%= @article.author %></dd>
+  <% end %>
+  <% if @article.published_at %>
+    <dt>Publish date</dt>      <dd><time datetime="<%= @article.published_at.iso8601 %>"><%= @article.published_at.to_date.stamp("04 May 2020") %></time></dd>
+  <% end %>
+  <dt>Page title</dt>          <dd><%= @article.page_title %></dd>
+  <dt>Meta description</dt>    <dd><%= @article.meta_description %></dd>
+</dl>
+
+<h2>Body</h2>
+<%= simple_format @article.body, class: "article-body" %>
+
+<p class="admin-actions">
+  <%= link_to "Edit", edit_admin_article_path(@article) %>
+  &middot;
+  <%= button_to "Delete", admin_article_path(@article), method: :delete,
+                data: { turbo_confirm: "Delete this article?" },
+                class: "linklike" %>
+  <% if @article.published? %>
+    &middot;
+    <%= link_to "View public", article_path(@article) %>
+  <% end %>
+</p>

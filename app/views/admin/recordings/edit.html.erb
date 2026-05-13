@@ -1,0 +1,18 @@
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Appearances", admin_appearances_path %> »
+  <%= link_to @appearance.event, admin_appearance_path(@appearance) %> »
+</p>
+
+<h1>Edit recording: <%= @recording.title %></h1>
+
+<%= render "form", recording: @recording %>
+
+<p>
+  <%= button_to "Delete this recording", admin_appearance_recording_path(@appearance, @recording),
+                method: :delete,
+                data: { turbo_confirm: "Delete this recording?" },
+                class: "linklike" %>
+  &middot;
+  <%= link_to "Back to appearance", admin_appearance_path(@appearance) %>
+</p>

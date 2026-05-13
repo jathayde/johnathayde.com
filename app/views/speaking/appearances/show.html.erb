@@ -1,27 +1,63 @@
-<p style="color: green"><%= notice %></p>
-<p class="breadcrumbs">Speaking » <%= link_to "Appearances", speaking_appearances_path %> »</p>
-<h1>
-  <%= @speaking_appearance.event %>
-</h1>
-<p class="location"><%= @speaking_appearance.location %></p>
-<p><%= @speaking_appearance.who %> <%= @speaking_appearance.what %></p>
-<p class="date"><time datetime=""><%= @speaking_appearance.date.stamp("04 May 2020") %></time></p>
+<p class="breadcrumbs">Speaking » <%= link_to "Appearances", speaking_appearances_path %></p>
 
-<% if @speaking_appearance.recordings %>
-  <h2>Recordings</h2>
-  <ul class="recordings">
-    <% @speaking_appearance.recordings.each do |recording| %>
-      <li>
-        <h3><%= link_to recording.title, recording.url %></h3>
-      </li>
-    <% end %>
-  </ul>
+<% type = @speaking_appearance.appearance_type %>
+<% talk = @speaking_appearance.talk %>
+
+<h1><%= @speaking_appearance.event %></h1>
+
+<% if type %>
+  <p class="appearance-type"><span class="badge"><%= type.title %></span></p>
 <% end %>
 
+<p class="location"><%= @speaking_appearance.location %></p>
+<p><%= @speaking_appearance.who %> <%= @speaking_appearance.what %></p>
+<p class="date">
+  <time datetime="<%= @speaking_appearance.date.iso8601 %>">
+    <%= @speaking_appearance.date.stamp("04 May 2020") %>
+  </time>
+</p>
 
+<% if @speaking_appearance.url.present? %>
+  <p class="event-link">
+    <%= link_to "View event page", @speaking_appearance.url, target: "_blank", rel: "noopener" %>
+  </p>
+<% end %>
 
-<% if current_user %>
-  <%= link_to "Edit this appearance", edit_speaking_appearance_path(@speaking_appearance) %>
+<% if talk %>
+  <section class="talk">
+    <h2>Talk: <%= talk.title %></h2>
+    <% if talk.subtitle.present? %>
+      <p class="talk-subtitle"><%= talk.subtitle %></p>
+    <% end %>
+    <% if talk.description.present? %>
+      <%= simple_format talk.description, class: "talk-description" %>
+    <% end %>
+  </section>
+<% end %>
 
-  <%#= button_to "Destroy this appearance", @speaking_appearance, method: :delete %>
+<% speaker_deck = @speaking_appearance.speaker_deck_override.presence || talk&.speaker_deck_embed %>
+<% if speaker_deck.present? %>
+  <section class="speaker-deck">
+    <h2>Slides</h2>
+    <%= raw speaker_deck %>
+  </section>
+<% end %>
+
+<% if @speaking_appearance.recordings.any? %>
+  <section class="recordings">
+    <h2>Recordings</h2>
+    <ul>
+      <% @speaking_appearance.recordings.each do |recording| %>
+        <li>
+          <h3><%= link_to recording.title, recording.url, target: "_blank", rel: "noopener" %></h3>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
+<% if admin? %>
+  <p class="admin-actions">
+    <%= link_to "Edit in admin", edit_admin_appearance_path(@speaking_appearance) %>
+  </p>
 <% end %>

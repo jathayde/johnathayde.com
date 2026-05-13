@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-# == Route Map
-#
-
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'pages#placeholder'
 
   get '/home', to: 'pages#index'
@@ -14,12 +10,24 @@ Rails.application.routes.draw do
 
   get '/music', to: 'music#index'
 
+  # ---- Public read-only ----
   get '/speaking', to: 'speaking#index'
   namespace :speaking do
+    resources :appearances, only: %i[index show]
+    resources :talks,       only: %i[index show]
+  end
+
+  resources :articles, only: %i[index show]
+
+  # ---- Admin CRUD (HTTP basic auth, admin layout) ----
+  get '/admin', to: 'admin#index', as: 'admin'
+  namespace :admin do
+    resources :appearance_types
     resources :appearances do
       resources :recordings
     end
     resources :talks
+    resources :articles
   end
 
   get '/work', to: 'work#index'

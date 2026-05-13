@@ -1,0 +1,15 @@
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Talks", admin_talks_path %> »
+  <%= link_to @talk.title, admin_talk_path(@talk) %> »
+</p>
+
+<h1>Edit talk</h1>
+
+<%= render "form", talk: @talk %>
+
+<p>
+  <%= link_to "Back to this talk", admin_talk_path(@talk) %>
+  &middot;
+  <%= link_to "Back to talks", admin_talks_path %>
+</p>

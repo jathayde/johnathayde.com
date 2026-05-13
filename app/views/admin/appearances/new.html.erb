@@ -1,0 +1,10 @@
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Appearances", admin_appearances_path %> »
+</p>
+
+<h1>New appearance</h1>
+
+<%= render "form", appearance: @appearance %>
+
+<p><%= link_to "Back to appearances", admin_appearances_path %></p>

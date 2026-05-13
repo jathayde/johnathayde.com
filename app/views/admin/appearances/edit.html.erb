@@ -1,0 +1,15 @@
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Appearances", admin_appearances_path %> »
+  <%= link_to @appearance.event, admin_appearance_path(@appearance) %> »
+</p>
+
+<h1>Edit appearance</h1>
+
+<%= render "form", appearance: @appearance %>
+
+<p>
+  <%= link_to "Back to this appearance", admin_appearance_path(@appearance) %>
+  &middot;
+  <%= link_to "Back to appearances", admin_appearances_path %>
+</p>

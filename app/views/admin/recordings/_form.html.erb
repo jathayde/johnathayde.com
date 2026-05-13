@@ -1,0 +1,56 @@
+<%= form_with(model: [:admin, @appearance, recording]) do |form| %>
+  <% if recording.errors.any? %>
+    <div class="form-errors">
+      <h2><%= pluralize(recording.errors.count, "error") %> prohibited this recording from being saved:</h2>
+      <ul>
+        <% recording.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.url_field :url, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :recorded_on %>
+    <%= form.date_field :recorded_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :talk_id, "Talk (optional)" %>
+    <%= form.collection_select :talk_id, Talk.order(:title), :id, :title, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :embedded, "Has embed?" %>
+    <%= form.check_box :embedded %>
+  </div>
+
+  <div class="field">
+    <%= form.label :embed_host, "Embed host (e.g. youtube, speakerdeck)" %>
+    <%= form.text_field :embed_host %>
+  </div>
+
+  <div class="field">
+    <%= form.label :embed_code, "Embed code (raw HTML)" %>
+    <%= form.text_area :embed_code, rows: 4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, rows: 4 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

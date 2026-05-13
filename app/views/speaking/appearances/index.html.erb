@@ -1,16 +1,26 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Appearances</h1>
 
-<section id="appearances">
-  <h2 class="tinylabel"><b>01</b> All Appearances</h2>
-
-  <ol class="appearances" id="speaking_appearances">
-    <% @speaking_appearances.each do |speaking_appearance| %>
-      <%= render speaking_appearance %>
-    <% end %>
-  </ol>
-
-<% if current_user %>
-<%= link_to "New appearance", new_speaking_appearance_path %>
+<% if @upcoming_appearances.any? %>
+  <section id="upcoming-appearances" class="appearances-group">
+    <h2 class="tinylabel"><b>01</b> Upcoming</h2>
+    <ol class="appearances">
+      <%= render @upcoming_appearances %>
+    </ol>
+  </section>
 <% end %>
+
+<section id="past-appearances" class="appearances-group">
+  <h2 class="tinylabel">
+    <b><%= @upcoming_appearances.any? ? "02" : "01" %></b>
+    Past
+  </h2>
+
+  <% @past_appearances_by_year.each do |year, appearances| %>
+    <section class="appearances-year" id="year-<%= year %>">
+      <h3 class="year-heading"><%= year %></h3>
+      <ol class="appearances">
+        <%= render appearances %>
+      </ol>
+    </section>
+  <% end %>
+</section>

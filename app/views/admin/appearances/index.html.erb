@@ -1,0 +1,45 @@
+<% if notice %><p class="flash-notice"><%= notice %></p><% end %>
+
+<p class="breadcrumbs"><%= link_to "Admin", admin_path %> » Appearances</p>
+
+<h1>Appearances</h1>
+
+<p class="admin-actions">
+  <%= link_to "New appearance", new_admin_appearance_path %>
+</p>
+
+<% if @upcoming_appearances.any? %>
+  <h2>Upcoming</h2>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Location</th>
+        <th>Date</th>
+        <th>Talk</th>
+        <th>Recordings</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @upcoming_appearances %>
+    </tbody>
+  </table>
+<% end %>
+
+<h2>Past</h2>
+<table class="admin-table">
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Location</th>
+      <th>Date</th>
+      <th>Talk</th>
+      <th>Recordings</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @past_appearances %>
+  </tbody>
+</table>

@@ -1,0 +1,15 @@
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Articles", admin_articles_path %> »
+  <%= link_to @article.title, admin_article_path(@article) %> »
+</p>
+
+<h1>Edit article</h1>
+
+<%= render "form", article: @article %>
+
+<p>
+  <%= link_to "Back to article", admin_article_path(@article) %>
+  &middot;
+  <%= link_to "Back to articles", admin_articles_path %>
+</p>

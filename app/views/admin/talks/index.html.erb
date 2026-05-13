@@ -1,0 +1,34 @@
+<% if notice %><p class="flash-notice"><%= notice %></p><% end %>
+
+<p class="breadcrumbs"><%= link_to "Admin", admin_path %> » Talks</p>
+
+<h1>Talks</h1>
+
+<p class="admin-actions">
+  <%= link_to "New talk", new_admin_talk_path %>
+</p>
+
+<table class="admin-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Appearances</th>
+      <th>Slides?</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @talks.each do |talk| %>
+      <tr id="<%= dom_id talk %>">
+        <td><%= link_to talk.title, admin_talk_path(talk) %></td>
+        <td><%= talk.appearances.size %></td>
+        <td><%= talk.speaker_deck_embed.present? ? "✓" : "—" %></td>
+        <td>
+          <%= link_to "Edit", edit_admin_talk_path(talk) %>
+          &middot;
+          <%= link_to "View public", speaking_talk_path(talk) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

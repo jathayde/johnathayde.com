@@ -1,0 +1,67 @@
+<%= form_with(model: [:admin, appearance]) do |form| %>
+  <% if appearance.errors.any? %>
+    <div class="form-errors">
+      <h2><%= pluralize(appearance.errors.count, "error") %> prohibited this appearance from being saved:</h2>
+      <ul>
+        <% appearance.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :event %>
+    <%= form.text_field :event, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_field :date, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :who %>
+    <%= form.text_field :who, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :what %>
+    <%= form.text_field :what, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :appearance_type_id, "Type" %>
+    <%= form.collection_select :appearance_type_id, AppearanceType.order(:title), :id, :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :talk_id, "Talk (optional)" %>
+    <%= form.collection_select :talk_id, Talk.order(:title), :id, :title, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url, "Event page URL" %>
+    <%= form.url_field :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, rows: 4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :speaker_deck_override, "Speaker Deck override embed" %>
+    <%= form.text_area :speaker_deck_override, rows: 3,
+                       placeholder: 'Optional: overrides the talk default for this specific appearance' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

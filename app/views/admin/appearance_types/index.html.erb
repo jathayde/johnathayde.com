@@ -1,0 +1,39 @@
+<% if notice %><p class="flash-notice"><%= notice %></p><% end %>
+<% if alert %><p class="flash-alert"><%= alert %></p><% end %>
+
+<p class="breadcrumbs"><%= link_to "Admin", admin_path %> » Appearance Types</p>
+
+<h1>Appearance Types</h1>
+
+<table class="admin-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Slug</th>
+      <th>In use</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @appearance_types.each do |type| %>
+      <tr>
+        <td><%= type.title %></td>
+        <td><code><%= type.slug %></code></td>
+        <td><%= pluralize type.appearances.size, "appearance" %></td>
+        <td>
+          <%= link_to "Edit", edit_admin_appearance_type_path(type) %>
+          <% if type.appearances.empty? %>
+            &middot;
+            <%= button_to "Delete", admin_appearance_type_path(type), method: :delete,
+                          data: { turbo_confirm: "Delete #{type.title}?" },
+                          class: "linklike" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p class="admin-actions">
+  <%= link_to "New appearance type", new_admin_appearance_type_path %>
+</p>

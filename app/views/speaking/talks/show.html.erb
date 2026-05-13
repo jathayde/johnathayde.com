@@ -1,0 +1,44 @@
+<p class="breadcrumbs">
+  <%= link_to "Speaking", speaking_path %> »
+  <%= link_to "Talks", speaking_talks_path %> »
+</p>
+
+<h1><%= @talk.title %></h1>
+
+<% if @talk.subtitle.present? %>
+  <p class="subtitle"><%= @talk.subtitle %></p>
+<% end %>
+
+<%= simple_format @talk.description, class: "talk-description" %>
+
+<% if @talk.speaker_deck_embed.present? %>
+  <section class="speaker-deck">
+    <h2>Slides</h2>
+    <%= raw @talk.speaker_deck_embed %>
+  </section>
+<% end %>
+
+<% if @appearances.any? %>
+  <section class="appearances">
+    <h2>Appearances</h2>
+    <ol>
+      <% @appearances.each do |appearance| %>
+        <li>
+          <%= link_to appearance.event, speaking_appearance_path(appearance) %>
+          <span class="meta">
+            (<%= appearance.location %>,
+            <time datetime="<%= appearance.date.iso8601 %>">
+              <%= appearance.date.stamp("04 May 2020") %>
+            </time>)
+          </span>
+        </li>
+      <% end %>
+    </ol>
+  </section>
+<% end %>
+
+<% if admin? %>
+  <p class="admin-actions">
+    <%= link_to "Edit in admin", edit_admin_talk_path(@talk) %>
+  </p>
+<% end %>

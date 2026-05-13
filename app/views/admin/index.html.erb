@@ -1,0 +1,74 @@
+<% set_meta_tags title: "Admin",
+                 og: { title: "Admin" } %>
+
+<section id="admin_dashboard">
+  <h1>Admin</h1>
+  <p class="signed-in-as">
+    Signed in as admin via HTTP basic auth.
+    To sign out, quit the browser or clear site data — basic auth has no
+    server-side session.
+  </p>
+
+  <ul class="admin-resources">
+    <li>
+      <h2><%= link_to "Appearances", admin_appearances_path %></h2>
+      <p class="count">
+        <strong><%= @stats[:appearances] %></strong> total
+        &middot; <%= @stats[:upcoming] %> upcoming
+        &middot; <%= @stats[:past] %> past
+      </p>
+      <p class="actions">
+        <%= link_to "Manage", admin_appearances_path %>
+        &middot;
+        <%= link_to "New appearance", new_admin_appearance_path %>
+        &middot;
+        <%= link_to "View public", speaking_appearances_path %>
+      </p>
+    </li>
+
+    <li>
+      <h2><%= link_to "Talks", admin_talks_path %></h2>
+      <p class="count"><strong><%= @stats[:talks] %></strong> total</p>
+      <p class="actions">
+        <%= link_to "Manage", admin_talks_path %>
+        &middot;
+        <%= link_to "New talk", new_admin_talk_path %>
+        &middot;
+        <%= link_to "View public", speaking_talks_path %>
+      </p>
+    </li>
+
+    <li>
+      <h2>Recordings</h2>
+      <p class="count"><strong><%= @stats[:recordings] %></strong> total</p>
+      <p class="actions">
+        Manage from individual appearance pages
+      </p>
+    </li>
+
+    <li>
+      <h2><%= link_to "Appearance Types", admin_appearance_types_path %></h2>
+      <p class="count"><strong><%= @stats[:appearance_types] %></strong> total</p>
+      <p class="actions">
+        <%= link_to "Manage", admin_appearance_types_path %>
+        &middot;
+        <%= link_to "New type", new_admin_appearance_type_path %>
+      </p>
+    </li>
+
+    <li>
+      <h2><%= link_to "Articles", admin_articles_path %></h2>
+      <p class="count">
+        <strong><%= @stats[:articles] %></strong> total
+        &middot; <%= @stats[:published_articles] %> published
+      </p>
+      <p class="actions">
+        <%= link_to "Manage", admin_articles_path %>
+        &middot;
+        <%= link_to "New article", new_admin_article_path %>
+        &middot;
+        <%= link_to "View public", articles_path %>
+      </p>
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,16 @@
+<% set_meta_tags title: "Articles",
+                 og: { title: "Articles" } %>
+
+<h1>Articles</h1>
+
+<section id="articles">
+  <% if @articles.any? %>
+    <ol class="articles">
+      <% @articles.each do |article| %>
+        <%= render article %>
+      <% end %>
+    </ol>
+  <% else %>
+    <p>No articles yet.</p>
+  <% end %>
+</section>

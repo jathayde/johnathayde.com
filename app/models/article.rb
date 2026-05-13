@@ -23,4 +23,18 @@
 #  updated_at          :datetime         not null
 #
 class Article < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: %i[slugged finders]
+
+  validates :title, presence: true
+  validates :body, presence: true
+  validates :page_title, presence: true
+  validates :meta_description, presence: true, length: { maximum: 155 }
+
+  scope :published, -> { where.not(published_at: nil).where("published_at <= ?", Time.current) }
+  scope :visible_on_index, -> { published.where(hidden_on_index: false).order(published_at: :desc) }
+
+  def published?
+    published_at.present? && published_at <= Time.current
+  end
 end

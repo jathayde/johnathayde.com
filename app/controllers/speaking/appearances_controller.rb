@@ -1,73 +1,13 @@
+# frozen_string_literal: true
+
 class Speaking::AppearancesController < ApplicationController
-  before_action :set_speaking_appearance, only: %i[ show edit update destroy ]
-
-  # GET /speaking/appearances or /speaking/appearances.json
   def index
-    @speaking_appearances = Appearance.all.order(date: :desc)
+    appearances = Appearance.includes(:appearance_type, :talk)
+    @upcoming_appearances = appearances.upcoming.order(date: :asc)
+    @past_appearances_by_year = appearances.past.order(date: :desc).group_by { |a| a.date.year }
   end
 
-  # GET /speaking/appearances/1 or /speaking/appearances/1.json
   def show
+    @speaking_appearance = Appearance.friendly.find(params[:id])
   end
-
-  # GET /speaking/appearances/new
-  def new
-    @speaking_appearance = Appearance.new
-  end
-
-  # GET /speaking/appearances/1/edit
-  def edit
-  end
-
-  # POST /speaking/appearances or /speaking/appearances.json
-  def create
-    @speaking_appearance = Appearance.new(speaking_appearance_params)
-
-    respond_to do |format|
-      if @speaking_appearance.save
-        format.html { redirect_to speaking_appearance_url(@speaking_appearance), notice: "Appearance was successfully created." }
-        format.json { render :show, status: :created, location: @speaking_appearance }
-      else
-        format.html { render :new, status: :unprocessable_content }
-        format.json { render json: @speaking_appearance.errors, status: :unprocessable_content }
-      end
-    end
-  end
-
-  # PATCH/PUT /speaking/appearances/1 or /speaking/appearances/1.json
-  def update
-    respond_to do |format|
-      if @speaking_appearance.update(speaking_appearance_params)
-        format.html { redirect_to speaking_appearance_url(@speaking_appearance), notice: "Appearance was successfully updated." }
-        format.json { render :show, status: :ok, location: @speaking_appearance }
-      else
-        format.html { render :edit, status: :unprocessable_content }
-        format.json { render json: @speaking_appearance.errors, status: :unprocessable_content }
-      end
-    end
-  end
-
-  # DELETE /speaking/appearances/1 or /speaking/appearances/1.json
-  def destroy
-    @speaking_appearance.destroy
-
-    respond_to do |format|
-      format.html { redirect_to speaking_appearances_url, notice: "Appearance was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_speaking_appearance
-      @speaking_appearance = Appearance.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def speaking_appearance_params
-      params.require(:speaking_appearance).permit(
-        :event, :date, :location, :who, :what, :notes, :url, :slug,
-        :speaker_deck_override, :appearance_type_id, :talk_id, :recording_id
-      )
-    end
 end

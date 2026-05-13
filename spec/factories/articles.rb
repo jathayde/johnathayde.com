@@ -24,6 +24,9 @@
 #
 FactoryBot.define do
   factory :article do
-    
+    sequence(:title) { |n| "Sample Article #{n}" }
+    body             { Faker::Lorem.paragraph }
+    page_title       { title }
+    meta_description { Faker::Lorem.sentence.first(150) }
   end
 end
