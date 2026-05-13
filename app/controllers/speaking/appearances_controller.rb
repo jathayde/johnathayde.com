@@ -28,8 +28,8 @@ class Speaking::AppearancesController < ApplicationController
         format.html { redirect_to speaking_appearance_url(@speaking_appearance), notice: "Appearance was successfully created." }
         format.json { render :show, status: :created, location: @speaking_appearance }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @speaking_appearance.errors, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_content }
+        format.json { render json: @speaking_appearance.errors, status: :unprocessable_content }
       end
     end
   end
@@ -41,8 +41,8 @@ class Speaking::AppearancesController < ApplicationController
         format.html { redirect_to speaking_appearance_url(@speaking_appearance), notice: "Appearance was successfully updated." }
         format.json { render :show, status: :ok, location: @speaking_appearance }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @speaking_appearance.errors, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_content }
+        format.json { render json: @speaking_appearance.errors, status: :unprocessable_content }
       end
     end
   end
@@ -65,6 +65,9 @@ class Speaking::AppearancesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def speaking_appearance_params
-      params.fetch(:speaking_appearance, {})
+      params.require(:speaking_appearance).permit(
+        :event, :date, :location, :who, :what, :notes, :url, :slug,
+        :speaker_deck_override, :appearance_type_id, :talk_id, :recording_id
+      )
     end
 end

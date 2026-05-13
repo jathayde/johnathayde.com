@@ -1,22 +1,49 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id                     :bigint           not null, primary key
-#  email                  :string           default(""), not null
-#  encrypted_password     :string           default(""), not null
-#  remember_created_at    :datetime
-#  reset_password_sent_at :datetime
-#  reset_password_token   :string
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
-#
-# Indexes
-#
-#  index_users_on_email                 (email) UNIQUE
-#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
-#
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-# RSpec.describe User, type: :model do
-# end
+RSpec.describe User, type: :model do
+  describe 'Devise modules' do
+    it 'enables database_authenticatable' do
+      expect(described_class.devise_modules).to include(:database_authenticatable)
+    end
+
+    it 'enables registerable' do
+      expect(described_class.devise_modules).to include(:registerable)
+    end
+
+    it 'enables recoverable' do
+      expect(described_class.devise_modules).to include(:recoverable)
+    end
+
+    it 'enables rememberable' do
+      expect(described_class.devise_modules).to include(:rememberable)
+    end
+
+    it 'enables validatable' do
+      expect(described_class.devise_modules).to include(:validatable)
+    end
+  end
+
+  describe 'validations (via :validatable)' do
+    let(:valid_password) { 'correct-horse-battery-staple' }
+
+    it 'requires an email' do
+      user = described_class.new(password: valid_password)
+      expect(user).not_to be_valid
+      expect(user.errors[:email]).to be_present
+    end
+
+    it 'requires the email to look like an email' do
+      user = described_class.new(email: 'not-an-email', password: valid_password)
+      expect(user).not_to be_valid
+      expect(user.errors[:email]).to be_present
+    end
+
+    it 'rejects passwords shorter than 6 characters' do
+      user = described_class.new(email: 'jane@example.com', password: 'short')
+      expect(user).not_to be_valid
+      expect(user.errors[:password]).to be_present
+    end
+  end
+end

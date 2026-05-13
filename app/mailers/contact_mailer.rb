@@ -5,8 +5,10 @@ class ContactMailer < ApplicationMailer
 
   def new_message(message)
     @message = message
-    mail(from: @message.email)
-    mail(reply_to: @message.email)
-    mail(subject: "[JohnAthayde.com] #{message.subject}")
+    mail(
+      from: @message.email,
+      reply_to: @message.email,
+      subject: "[JohnAthayde.com] #{message.subject}"
+    )
   end
 end
