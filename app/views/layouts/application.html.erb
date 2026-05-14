@@ -52,7 +52,7 @@
     <% end %>
   </head>
 
-  <body class="<%= controller_name.parameterize %>">
+  <body class="<%= controller_path.parameterize %> <%= action_name %>">
     <!--[if lt IE 8]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser.

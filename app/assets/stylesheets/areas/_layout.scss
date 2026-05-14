@@ -61,6 +61,18 @@ header {
       }
     }
 
+    // On pages where the page content provides its own heading (resume,
+    // speaking index, talks, appearances), hide the bio call-out while
+    // keeping the tall hero/masthead image.
+    body.pages.resume &,
+    body.speaking &,
+    body.speaking-talks &,
+    body.speaking-appearances & {
+      hgroup {
+        display: none;
+      }
+    }
+
     h1 {
       color: $white;
       font-weight: 900;
