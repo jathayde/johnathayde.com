@@ -1,0 +1,162 @@
+.music-intro {
+  margin-bottom: 2rem;
+}
+
+.music-artist-grid {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.music-artist-card {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  background: #fff;
+
+  .music-artist-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .music-artist-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+  }
+
+  h2 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.1rem;
+  }
+
+  .role,
+  .meta {
+    margin: 0.25rem 0;
+    font-size: 0.85rem;
+    color: #555;
+  }
+}
+
+.music-artist-hero {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.music-intro .dates {
+  color: #555;
+  font-size: 0.95rem;
+  margin: 0.25rem 0;
+}
+
+.music-artist-description {
+  margin: 1.5rem 0;
+}
+
+.music-artist-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0 2rem;
+
+  li a { font-size: 0.9rem; }
+}
+
+.music-recording-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.music-recording {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.5rem;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+
+  .music-recording-cover {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  h3 { margin: 0 0 0.25rem 0; }
+  .meta, .role { color: #555; font-size: 0.9rem; margin: 0.15rem 0; }
+}
+
+.music-track-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5rem 0;
+
+  li { padding: 0.15rem 0; font-size: 0.95rem; }
+}
+
+.music-listen-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.music-recording-embed,
+.music-video-embed {
+  margin: 0.75rem 0;
+  max-width: 100%;
+
+  iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+}
+
+.music-timeline {
+  list-style: none;
+  padding: 0;
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+
+    .date {
+      font-weight: 600;
+      color: #444;
+    }
+
+    .timeline-cover {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      float: left;
+      margin-right: 0.75rem;
+    }
+
+    h2 { margin: 0 0 0.25rem 0; font-size: 1.05rem; }
+    .kind, .role { color: #555; font-size: 0.9rem; margin: 0.15rem 0; }
+  }
+}

@@ -1,0 +1,44 @@
+<%= form_with(model: track,
+              scope: :music_track,
+              url: track.persisted? ? admin_music_recording_track_path(@recording, track) : admin_music_recording_tracks_path(@recording),
+              method: track.persisted? ? :patch : :post) do |form| %>
+  <% if track.errors.any? %>
+    <div class="form-errors">
+      <ul>
+        <% track.errors.each { |e| %><li><%= e.full_message %></li><% } %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :track_number %>
+    <%= form.number_field :track_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :john_role, "John's role on this track" %>
+    <%= form.text_field :john_role %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, rows: 3 %>
+  </div>
+
+  <fieldset>
+    <legend>Links (optional)</legend>
+    <div class="field"><%= form.label :spotify_url, "Spotify" %><%= form.url_field :spotify_url %></div>
+    <div class="field"><%= form.label :apple_music_url, "Apple Music" %><%= form.url_field :apple_music_url %></div>
+    <div class="field"><%= form.label :bandcamp_url, "Bandcamp" %><%= form.url_field :bandcamp_url %></div>
+    <div class="field"><%= form.label :youtube_url, "YouTube" %><%= form.url_field :youtube_url %></div>
+  </fieldset>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

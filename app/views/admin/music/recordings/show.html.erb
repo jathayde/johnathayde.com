@@ -1,0 +1,47 @@
+<% if notice %><p class="flash-notice"><%= notice %></p><% end %>
+
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Music", admin_music_artists_path %> »
+  <%= link_to @recording.artist.name, admin_music_artist_path(@recording.artist) %> »
+</p>
+
+<h1><%= @recording.title %> <small>(<%= @recording.display_date_label %>)</small></h1>
+
+<p class="admin-actions">
+  <%= link_to "Edit", edit_admin_music_recording_path(@recording) %>
+  &middot;
+  <%= button_to "Delete", admin_music_recording_path(@recording), method: :delete,
+                data: { turbo_confirm: "Delete this recording and its tracks?" },
+                class: "linklike" %>
+</p>
+
+<dl class="admin-meta">
+  <dt>Kind</dt><dd><%= @recording.kind %></dd>
+  <% if @recording.john_role_override.present? %>
+    <dt>John's role</dt><dd><%= @recording.john_role_override %></dd>
+  <% end %>
+  <% if @recording.cover_image.attached? %>
+    <dt>Cover</dt><dd><%= image_tag @recording.cover_image, style: "max-width: 200px;" %></dd>
+  <% end %>
+</dl>
+
+<section class="tracks">
+  <h2>Tracks (<%= @tracks.size %>)</h2>
+  <p><%= link_to "Add track", new_admin_music_recording_track_path(@recording) %></p>
+  <% if @tracks.any? %>
+    <ul>
+      <% @tracks.each do |track| %>
+        <li>
+          <% if track.track_number %>#<%= track.track_number %> &middot; <% end %>
+          <strong><%= track.title %></strong>
+          <% if track.john_role.present? %>— <%= track.john_role %><% end %>
+          &middot; <%= link_to "Edit", edit_admin_music_recording_track_path(@recording, track) %>
+          &middot; <%= button_to "Delete", admin_music_recording_track_path(@recording, track),
+                                  method: :delete, class: "linklike",
+                                  data: { turbo_confirm: "Remove this track?" } %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</section>

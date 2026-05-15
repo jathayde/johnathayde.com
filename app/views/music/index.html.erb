@@ -1,2 +1,31 @@
-<h1>Music</h1>
-<p>Juniper Lane, Rotoscope, No Second Troy, Honor By August, Boboroshi & Kynz, production, mixing, and more. Coming Soon.</p>
+<% set_meta_tags title: "Music",
+                 og: { title: "Music" } %>
+
+<%= render "header", title: "Music" do %>
+  <p>
+    Three decades of records as artist, producer, mixer, and collaborator.
+    Browse by artist below, or <%= link_to "view chronologically", music_timeline_path %>.
+  </p>
+<% end %>
+
+<ol class="music-artist-grid">
+  <% @artists.each do |artist| %>
+    <li class="music-artist-card">
+      <%= link_to music_artist_path(artist), class: "music-artist-link" do %>
+        <% if artist.feature_photo.attached? %>
+          <%= image_tag artist.feature_photo, class: "music-artist-photo", alt: artist.name %>
+        <% end %>
+        <h2><%= artist.name %></h2>
+        <% if artist.john_role.present? %>
+          <p class="role"><%= artist.john_role %></p>
+        <% end %>
+        <p class="meta">
+          <%= pluralize(artist.recordings.size, "recording") %>
+          <% if artist.videos.size.positive? %>
+            &middot; <%= pluralize(artist.videos.size, "video") %>
+          <% end %>
+        </p>
+      <% end %>
+    </li>
+  <% end %>
+</ol>

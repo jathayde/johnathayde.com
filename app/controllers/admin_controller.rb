@@ -13,7 +13,11 @@ class AdminController < ApplicationController
       recordings: Recording.count,
       appearance_types: AppearanceType.count,
       articles: Article.count,
-      published_articles: Article.where.not(published_at: nil).count
+      published_articles: Article.where.not(published_at: nil).count,
+      music_artists: Music::Artist.count,
+      music_recordings: Music::Recording.count,
+      music_tracks: Music::Track.count,
+      music_videos: Music::Video.count
     }
   end
 end

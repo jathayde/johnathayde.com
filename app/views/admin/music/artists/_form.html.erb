@@ -1,0 +1,82 @@
+<%= form_with(model: artist,
+              scope: :music_artist,
+              url: artist.persisted? ? admin_music_artist_path(artist) : admin_music_artists_path,
+              method: artist.persisted? ? :patch : :post,
+              multipart: true) do |form| %>
+  <% if artist.errors.any? %>
+    <div class="form-errors">
+      <h2><%= pluralize(artist.errors.count, "error") %> prohibited this artist from being saved:</h2>
+      <ul>
+        <% artist.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.number_field :position %>
+    <p class="hint">Lower numbers render first on the public Music page.</p>
+  </div>
+
+  <div class="field">
+    <%= form.label :john_role, "John's role" %>
+    <%= form.text_field :john_role, placeholder: "Bass, vocals (or leave blank for record-specific credits)" %>
+  </div>
+
+  <fieldset>
+    <legend>Active dates</legend>
+    <div class="field">
+      <%= form.label :active_from, "Artist active from" %>
+      <%= form.date_field :active_from %>
+    </div>
+    <div class="field">
+      <%= form.label :active_to, "Artist active to" %>
+      <%= form.date_field :active_to %>
+    </div>
+    <div class="field">
+      <%= form.label :john_from, "John active from" %>
+      <%= form.date_field :john_from %>
+    </div>
+    <div class="field">
+      <%= form.label :john_to, "John active to" %>
+      <%= form.date_field :john_to %>
+    </div>
+  </fieldset>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.rich_text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :feature_photo %>
+    <%= form.file_field :feature_photo, accept: "image/*" %>
+    <% if artist.feature_photo.attached? %>
+      <p class="hint">Current: <%= image_tag artist.feature_photo, style: "max-width: 200px;" %></p>
+    <% end %>
+  </div>
+
+  <fieldset>
+    <legend>Links</legend>
+    <div class="field"><%= form.label :url, "Official site" %><%= form.url_field :url %></div>
+    <div class="field"><%= form.label :bandcamp_url, "Bandcamp" %><%= form.url_field :bandcamp_url %></div>
+    <div class="field"><%= form.label :spotify_url, "Spotify" %><%= form.url_field :spotify_url %></div>
+    <div class="field"><%= form.label :apple_music_url, "Apple Music" %><%= form.url_field :apple_music_url %></div>
+    <div class="field"><%= form.label :soundcloud_url, "SoundCloud" %><%= form.url_field :soundcloud_url %></div>
+    <div class="field"><%= form.label :youtube_url, "YouTube" %><%= form.url_field :youtube_url %></div>
+    <div class="field"><%= form.label :instagram_url, "Instagram" %><%= form.url_field :instagram_url %></div>
+    <div class="field"><%= form.label :facebook_url, "Facebook" %><%= form.url_field :facebook_url %></div>
+    <div class="field"><%= form.label :twitter_url, "Twitter / X" %><%= form.url_field :twitter_url %></div>
+  </fieldset>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

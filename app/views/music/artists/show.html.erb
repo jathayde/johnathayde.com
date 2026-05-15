@@ -1,0 +1,115 @@
+<% set_meta_tags title: @artist.name,
+                 og: { title: @artist.name } %>
+
+<%= render "music/header", title: @artist.name do %>
+  <p>
+    <%= link_to "← Music", music_path %>
+    <% if @artist.john_role.present? %> &middot; <%= @artist.john_role %><% end %>
+  </p>
+  <% if @artist.active_from || @artist.active_to || @artist.john_from || @artist.john_to %>
+    <p class="dates">
+      <% if @artist.active_from || @artist.active_to %>
+        Active <%= [@artist.active_from&.year, @artist.active_to&.year || "present"].compact.join(" – ") %>
+      <% end %>
+      <% if @artist.john_from || @artist.john_to %>
+        &middot; John: <%= [@artist.john_from&.year, @artist.john_to&.year || "present"].compact.join(" – ") %>
+      <% end %>
+    </p>
+  <% end %>
+<% end %>
+
+<% if @artist.feature_photo.attached? %>
+  <%= image_tag @artist.feature_photo, class: "music-artist-hero", alt: @artist.name %>
+<% end %>
+
+<% if @artist.description.present? %>
+  <section class="music-artist-description">
+    <%= @artist.description %>
+  </section>
+<% end %>
+
+<% if (links = @artist.social_links).any? %>
+  <ul class="music-artist-links">
+    <% links.each do |key, value| %>
+      <li><%= link_to key.to_s.sub("_url", "").humanize, value, target: "_blank", rel: "noopener" %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @recordings.any? %>
+  <section class="music-recordings">
+    <h2>Recordings</h2>
+    <ol class="music-recording-list">
+      <% @recordings.each do |rec| %>
+        <li class="music-recording">
+          <% if rec.cover_image.attached? %>
+            <%= image_tag rec.cover_image, class: "music-recording-cover", alt: "#{rec.title} cover" %>
+          <% end %>
+          <div class="music-recording-detail">
+            <h3><%= rec.title %></h3>
+            <p class="meta">
+              <%= rec.display_date_label %> &middot; <%= rec.kind.titleize %>
+            </p>
+            <% if rec.john_role_override.present? %>
+              <p class="role"><%= rec.john_role_override %></p>
+            <% end %>
+            <% if rec.notes.present? %>
+              <p class="notes"><%= rec.notes %></p>
+            <% end %>
+            <% if rec.tracks.any? %>
+              <details>
+                <summary><%= pluralize(rec.tracks.size, "track") %></summary>
+                <ul class="music-track-list">
+                  <% rec.tracks.each do |track| %>
+                    <li>
+                      <strong><%= track.title %></strong>
+                      <% if track.john_role.present? %>— <%= track.john_role %><% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </details>
+            <% end %>
+            <% if rec.embed_code.present? %>
+              <div class="music-recording-embed"><%= raw rec.embed_code %></div>
+            <% end %>
+            <% listen_links = { "Bandcamp" => rec.bandcamp_url, "Spotify" => rec.spotify_url,
+                                "Apple Music" => rec.apple_music_url, "YouTube" => rec.youtube_url,
+                                "SoundCloud" => rec.soundcloud_url }.compact_blank %>
+            <% if listen_links.any? %>
+              <ul class="music-listen-links">
+                <% listen_links.each do |label, url| %>
+                  <li><%= link_to label, url, target: "_blank", rel: "noopener" %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ol>
+  </section>
+<% end %>
+
+<% if @videos.any? %>
+  <section class="music-videos">
+    <h2>Videos</h2>
+    <% @videos.each do |video| %>
+      <article class="music-video">
+        <h3><%= video.title %></h3>
+        <p class="meta">
+          <%= video.kind.humanize %>
+          <% if video.performed_on %>&middot; <%= video.performed_on.strftime("%b %-d, %Y") %><% end %>
+        </p>
+        <%= music_video_embed(video) %>
+        <% if video.notes.present? %>
+          <p class="notes"><%= video.notes %></p>
+        <% end %>
+      </article>
+    <% end %>
+  </section>
+<% end %>
+
+<% if admin? %>
+  <p class="admin-actions">
+    <%= link_to "Edit in admin", admin_music_artist_path(@artist) %>
+  </p>
+<% end %>

@@ -39,10 +39,27 @@
     </li>
 
     <li>
-      <h2>Recordings</h2>
+      <h2>Speaking recordings</h2>
       <p class="count"><strong><%= @stats[:recordings] %></strong> total</p>
       <p class="actions">
-        Manage from individual appearance pages
+        Edit each recording from its parent appearance page.
+      </p>
+    </li>
+
+    <li>
+      <h2><%= link_to "Music · Artists", admin_music_artists_path %></h2>
+      <p class="count">
+        <strong><%= @stats[:music_artists] %></strong> artists
+        &middot; <%= @stats[:music_recordings] %> recordings
+        &middot; <%= @stats[:music_tracks] %> tracks
+        &middot; <%= @stats[:music_videos] %> videos
+      </p>
+      <p class="actions">
+        <%= link_to "Manage", admin_music_artists_path %>
+        &middot;
+        <%= link_to "New artist", new_admin_music_artist_path %>
+        &middot;
+        <%= link_to "View public", music_path %>
       </p>
     </li>
 

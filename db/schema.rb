@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_13_193257) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_15_030003) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.bigint "record_id", null: false
+    t.string "record_type", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
@@ -101,6 +111,82 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_13_193257) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "music_artists", force: :cascade do |t|
+    t.date "active_from"
+    t.date "active_to"
+    t.string "apple_music_url"
+    t.string "bandcamp_url"
+    t.datetime "created_at", null: false
+    t.string "facebook_url"
+    t.string "instagram_url"
+    t.date "john_from"
+    t.string "john_role"
+    t.date "john_to"
+    t.string "name", null: false
+    t.integer "position", default: 0, null: false
+    t.string "slug"
+    t.string "soundcloud_url"
+    t.string "spotify_url"
+    t.string "twitter_url"
+    t.datetime "updated_at", null: false
+    t.string "url"
+    t.string "youtube_url"
+    t.index ["position"], name: "index_music_artists_on_position"
+    t.index ["slug"], name: "index_music_artists_on_slug", unique: true
+  end
+
+  create_table "music_recordings", force: :cascade do |t|
+    t.string "apple_music_url"
+    t.bigint "artist_id", null: false
+    t.string "bandcamp_url"
+    t.datetime "created_at", null: false
+    t.text "embed_code"
+    t.string "john_role_override"
+    t.string "kind", default: "album", null: false
+    t.text "notes"
+    t.date "release_date"
+    t.integer "release_year", null: false
+    t.string "slug"
+    t.string "soundcloud_url"
+    t.string "spotify_url"
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.string "youtube_url"
+    t.index ["artist_id", "slug"], name: "index_music_recordings_on_artist_id_and_slug", unique: true
+    t.index ["artist_id"], name: "index_music_recordings_on_artist_id"
+    t.index ["release_year"], name: "index_music_recordings_on_release_year"
+  end
+
+  create_table "music_tracks", force: :cascade do |t|
+    t.string "apple_music_url"
+    t.string "bandcamp_url"
+    t.datetime "created_at", null: false
+    t.string "john_role"
+    t.text "notes"
+    t.bigint "recording_id", null: false
+    t.string "spotify_url"
+    t.string "title", null: false
+    t.integer "track_number"
+    t.datetime "updated_at", null: false
+    t.string "youtube_url"
+    t.index ["recording_id", "track_number"], name: "index_music_tracks_on_recording_id_and_track_number"
+    t.index ["recording_id"], name: "index_music_tracks_on_recording_id"
+  end
+
+  create_table "music_videos", force: :cascade do |t|
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.text "embed_code"
+    t.string "kind", default: "music_video", null: false
+    t.text "notes"
+    t.date "performed_on"
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.string "url", null: false
+    t.index ["artist_id"], name: "index_music_videos_on_artist_id"
+    t.index ["performed_on"], name: "index_music_videos_on_performed_on"
+  end
+
   create_table "recordings", force: :cascade do |t|
     t.bigint "appearance_id", null: false
     t.datetime "created_at", null: false
@@ -164,6 +250,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_13_193257) do
   add_foreign_key "appearances", "appearance_types"
   add_foreign_key "appearances", "recordings"
   add_foreign_key "appearances", "talks"
+  add_foreign_key "music_recordings", "music_artists", column: "artist_id"
+  add_foreign_key "music_tracks", "music_recordings", column: "recording_id"
+  add_foreign_key "music_videos", "music_artists", column: "artist_id"
   add_foreign_key "recordings", "appearances"
   add_foreign_key "recordings", "talks"
   add_foreign_key "taggings", "tags"

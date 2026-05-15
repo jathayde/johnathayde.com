@@ -4,3 +4,57 @@ body.admin {
     margin-top: 0.5em;
   }
 }
+
+.admin-sortable-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.admin-sortable-item {
+  display: grid;
+  grid-template-columns: 32px 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.admin-sortable-item.sortable-ghost {
+  opacity: 0.4;
+  background: #f0f8ff;
+}
+
+.drag-handle {
+  cursor: grab;
+  user-select: none;
+  font-size: 1.2rem;
+  color: #888;
+  text-align: center;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+.admin-sortable-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+
+  .admin-sortable-title {
+    font-weight: 600;
+  }
+
+  .meta {
+    font-size: 0.85rem;
+    color: #666;
+  }
+}
+
+.admin-sortable-actions {
+  font-size: 0.9rem;
+}

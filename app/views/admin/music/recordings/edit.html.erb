@@ -1,0 +1,10 @@
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Music", admin_music_artists_path %> »
+  <%= link_to @recording.artist.name, admin_music_artist_path(@recording.artist) %> »
+  <%= link_to @recording.title, admin_music_recording_path(@recording) %> »
+</p>
+
+<h1>Edit <%= @recording.title %></h1>
+
+<%= render "form", recording: @recording %>

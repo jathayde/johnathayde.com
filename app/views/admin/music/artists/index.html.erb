@@ -1,0 +1,35 @@
+<% set_meta_tags title: "Music · Artists" %>
+
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+</p>
+
+<h1>Music · Artists</h1>
+
+<p class="actions">
+  <%= link_to "New artist", new_admin_music_artist_path %>
+</p>
+
+<p class="hint">Drag the ☰ handle to reorder; changes save automatically.</p>
+
+<ol class="admin-sortable-list"
+    data-controller="sortable"
+    data-sortable-url-value="<%= reorder_admin_music_artists_path %>">
+  <% @artists.each do |artist| %>
+    <li class="admin-sortable-item" data-id="<%= artist.id %>">
+      <span class="drag-handle" aria-label="Drag to reorder">&#9776;</span>
+      <span class="admin-sortable-main">
+        <%= link_to artist.name, admin_music_artist_path(artist), class: "admin-sortable-title" %>
+        <span class="meta">
+          <%= pluralize(artist.recordings.size, "recording") %>
+          <% if artist.videos.size.positive? %>· <%= pluralize(artist.videos.size, "video") %><% end %>
+        </span>
+      </span>
+      <span class="admin-sortable-actions">
+        <%= link_to "Edit", edit_admin_music_artist_path(artist) %>
+        ·
+        <%= link_to "View", music_artist_path(artist), target: "_blank", rel: "noopener" %>
+      </span>
+    </li>
+  <% end %>
+</ol>

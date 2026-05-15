@@ -1,0 +1,12 @@
+<%#
+  Shared header for every page in the music area.
+  Locals:
+    title:  string shown in the H1 (required).
+  Optional block: tagline / contextual links rendered below the H1.
+%>
+<section class="music-intro">
+  <h1><%= title %></h1>
+  <% if block_given? %>
+    <%= yield %>
+  <% end %>
+</section>

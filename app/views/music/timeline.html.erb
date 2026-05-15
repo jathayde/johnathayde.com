@@ -1,0 +1,42 @@
+<% set_meta_tags title: "Music · Timeline" %>
+
+<%= render "header", title: "Music timeline" do %>
+  <p>
+    Recordings and videos in chronological order.
+    <%= link_to "Back to by-artist view", music_path %>.
+  </p>
+<% end %>
+
+<ol class="music-timeline">
+  <% @timeline.each do |item| %>
+    <% if item.is_a?(Music::Recording) %>
+      <li class="timeline-item timeline-recording">
+        <div class="date"><%= item.display_date_label %></div>
+        <div class="content">
+          <% if item.cover_image.attached? %>
+            <%= image_tag item.cover_image, class: "timeline-cover", alt: "#{item.title} cover" %>
+          <% end %>
+          <h2>
+            <%= link_to item.artist.name, music_artist_path(item.artist) %>
+            — <%= item.title %>
+          </h2>
+          <p class="kind"><%= item.kind.titleize %></p>
+          <% if item.john_role_override.present? %>
+            <p class="role"><%= item.john_role_override %></p>
+          <% end %>
+        </div>
+      </li>
+    <% else %>
+      <li class="timeline-item timeline-video">
+        <div class="date"><%= item.performed_on.strftime("%b %Y") %></div>
+        <div class="content">
+          <h2>
+            <%= link_to item.artist.name, music_artist_path(item.artist) %>
+            — <%= item.title %>
+          </h2>
+          <p class="kind">Video · <%= item.kind.humanize %></p>
+        </div>
+      </li>
+    <% end %>
+  <% end %>
+</ol>

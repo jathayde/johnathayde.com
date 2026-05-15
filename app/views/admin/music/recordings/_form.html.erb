@@ -1,0 +1,72 @@
+<%= form_with(model: recording,
+              scope: :music_recording,
+              url: recording.persisted? ? admin_music_recording_path(recording) : admin_music_artist_recordings_path(recording.artist),
+              method: recording.persisted? ? :patch : :post,
+              multipart: true) do |form| %>
+  <% if recording.errors.any? %>
+    <div class="form-errors">
+      <h2><%= pluralize(recording.errors.count, "error") %> prohibited this recording from being saved:</h2>
+      <ul>
+        <% recording.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :release_year %>
+    <%= form.number_field :release_year, required: true, min: 1950, max: Date.current.year + 1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :release_date, "Release date (optional, finer-grained)" %>
+    <%= form.date_field :release_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kind %>
+    <%= form.select :kind, Music::Recording::KINDS.map { |k| [k.titleize, k] } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :john_role_override, "John's role on this recording" %>
+    <%= form.text_area :john_role_override, rows: 2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, rows: 4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cover_image, "Cover art" %>
+    <%= form.file_field :cover_image, accept: "image/*" %>
+    <% if recording.cover_image.attached? %>
+      <p class="hint">Current: <%= image_tag recording.cover_image, style: "max-width: 200px;" %></p>
+    <% end %>
+  </div>
+
+  <fieldset>
+    <legend>Listen / watch</legend>
+    <div class="field"><%= form.label :bandcamp_url, "Bandcamp" %><%= form.url_field :bandcamp_url %></div>
+    <div class="field"><%= form.label :spotify_url, "Spotify" %><%= form.url_field :spotify_url %></div>
+    <div class="field"><%= form.label :apple_music_url, "Apple Music" %><%= form.url_field :apple_music_url %></div>
+    <div class="field"><%= form.label :soundcloud_url, "SoundCloud" %><%= form.url_field :soundcloud_url %></div>
+    <div class="field"><%= form.label :youtube_url, "YouTube" %><%= form.url_field :youtube_url %></div>
+  </fieldset>
+
+  <div class="field">
+    <%= form.label :embed_code, "Embed snippet (Bandcamp / Spotify iframe)" %>
+    <%= form.text_area :embed_code, rows: 3 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

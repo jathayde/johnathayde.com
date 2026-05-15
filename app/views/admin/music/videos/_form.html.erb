@@ -1,0 +1,46 @@
+<%= form_with(model: video,
+              scope: :music_video,
+              url: video.persisted? ? admin_music_video_path(video) : admin_music_artist_videos_path(video.artist),
+              method: video.persisted? ? :patch : :post) do |form| %>
+  <% if video.errors.any? %>
+    <div class="form-errors">
+      <ul>
+        <% video.errors.each { |e| %><li><%= e.full_message %></li><% } %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kind %>
+    <%= form.select :kind, Music::Video::KINDS.map { |k| [k.humanize, k] } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :performed_on, "Performance / publish date" %>
+    <%= form.date_field :performed_on %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url, "YouTube or Vimeo URL" %>
+    <%= form.url_field :url, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :embed_code, "Embed snippet (optional, overrides URL)" %>
+    <%= form.text_area :embed_code, rows: 3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, rows: 3 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,62 @@
+<% if notice %><p class="flash-notice"><%= notice %></p><% end %>
+
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Music", admin_music_artists_path %> »
+</p>
+
+<h1><%= @artist.name %></h1>
+
+<p class="admin-actions">
+  <%= link_to "Edit", edit_admin_music_artist_path(@artist) %>
+  &middot;
+  <%= link_to "View public", music_artist_path(@artist) %>
+  &middot;
+  <%= button_to "Delete", admin_music_artist_path(@artist), method: :delete,
+                data: { turbo_confirm: "Delete this artist, all its recordings, tracks, and videos?" },
+                class: "linklike" %>
+</p>
+
+<dl class="admin-meta">
+  <dt>Position</dt><dd><%= @artist.position %></dd>
+  <% if @artist.john_role.present? %>
+    <dt>John's role</dt><dd><%= @artist.john_role %></dd>
+  <% end %>
+  <% if @artist.active_from || @artist.active_to %>
+    <dt>Active</dt><dd><%= [@artist.active_from, @artist.active_to].compact.map(&:year).join(" – ") %></dd>
+  <% end %>
+  <% if @artist.john_from || @artist.john_to %>
+    <dt>John's tenure</dt><dd><%= [@artist.john_from, @artist.john_to].compact.map(&:year).join(" – ") %></dd>
+  <% end %>
+</dl>
+
+<% if @artist.description.present? %>
+  <section class="description"><%= @artist.description %></section>
+<% end %>
+
+<section class="recordings">
+  <h2>Recordings (<%= @recordings.size %>)</h2>
+  <p><%= link_to "New recording", new_admin_music_artist_recording_path(@artist) %></p>
+  <ul>
+    <% @recordings.each do |rec| %>
+      <li>
+        <%= link_to "#{rec.title} (#{rec.release_year})", admin_music_recording_path(rec) %>
+        <span class="meta">— <%= rec.kind %><% if rec.tracks.any? %>, <%= pluralize(rec.tracks.size, "track") %><% end %></span>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<section class="videos">
+  <h2>Videos (<%= @videos.size %>)</h2>
+  <p><%= link_to "New video", new_admin_music_artist_video_path(@artist) %></p>
+  <ul>
+    <% @videos.each do |video| %>
+      <li>
+        <%= video.title %>
+        <span class="meta">— <%= video.kind %><% if video.performed_on %>, <%= video.performed_on %><% end %></span>
+        &middot; <%= link_to "Edit", edit_admin_music_video_path(video) %>
+      </li>
+    <% end %>
+  </ul>
+</section>
