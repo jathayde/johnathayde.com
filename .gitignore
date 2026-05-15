@@ -41,3 +41,8 @@ yarn-debug.log*
 # Ignore key files for decrypting credentials and more.
 /config/*.key
 
+
+# ClaudeOnRails
+.claude-on-rails/sessions/
+.claude-swarm/
+claude-swarm.log

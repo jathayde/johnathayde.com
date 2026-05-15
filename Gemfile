@@ -101,6 +101,7 @@ group :development do
   gem 'annotaterb'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'claude-on-rails'
   gem 'heavens_door'
   gem 'letter_opener'
   gem 'letter_opener_web', '~> 2.0'
