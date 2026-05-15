@@ -15,8 +15,13 @@ puts "Fetching covers for #{talks.count} talk(s)..."
 
 talks.find_each do |talk|
   result = SpeakerDeck::CoverFetcher.call(talk)
-  label = { attached: "✓", noop: "·", failed: "✗" }[result]
-  puts "  #{label} #{talk.title}"
+  label = {
+    attached:         "✓ attached",
+    already_attached: "· already had a cover",
+    no_deck_id:       "? no parseable deck id (embed not recognized)",
+    failed:           "✗ fetch failed"
+  }[result]
+  puts "  #{label.ljust(40)} #{talk.title}"
 end
 
 attached = Talk.joins(:cover_image_attachment).count

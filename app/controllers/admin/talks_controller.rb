@@ -45,9 +45,10 @@ class Admin::TalksController < ApplicationController
   def fetch_cover
     result = SpeakerDeck::CoverFetcher.call(@talk, force: true)
     notice = case result
-             when :attached then "Pulled the first slide from SpeakerDeck."
-             when :noop     then "Nothing to fetch -- no SpeakerDeck embed on this talk."
-             when :failed   then "Couldn't fetch the cover from SpeakerDeck. Try uploading manually."
+             when :attached         then "Pulled the first slide from SpeakerDeck."
+             when :already_attached then "Cover already attached -- no change."
+             when :no_deck_id       then "Couldn't find a deck id in the embed snippet. Paste the legacy <script> or current <iframe> form and try again."
+             when :failed           then "Fetched the deck id, but SpeakerDeck didn't return an image. Try uploading manually."
              end
     redirect_to admin_talk_url(@talk), notice: notice
   end

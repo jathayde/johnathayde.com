@@ -23,10 +23,10 @@ module SpeakerDeck
     end
 
     def call(force: false)
-      return :noop if @talk.cover_image.attached? && !force
+      return :already_attached if @talk.cover_image.attached? && !force
 
       id = parse_deck_id
-      return :noop if id.blank?
+      return :no_deck_id if id.blank?
 
       attach(id) ? :attached : :failed
     rescue StandardError => e
@@ -36,11 +36,34 @@ module SpeakerDeck
 
     private
 
+    # Tries, in order:
+    #   1. Legacy script tag:   data-id="abc123"
+    #   2. Modern iframe src:   speakerdeck.com/player/abc123
+    #   3. Public deck URL:     speakerdeck.com/<user>/<slug> (resolves via Location header)
     def parse_deck_id
       embed = @talk.speaker_deck_embed.to_s
       return nil if embed.blank?
 
-      embed[/data-id=["']([^"']+)["']/i, 1]
+      embed[/data-id=["']([^"']+)["']/i, 1] ||
+        embed[%r{speakerdeck\.com/player/([a-f0-9]+)}i, 1] ||
+        resolve_public_url(embed)
+    end
+
+    # When the embed contains a bare public URL (speakerdeck.com/<user>/<slug>),
+    # SpeakerDeck redirects /<user>/<slug> -> /player/<id> when fetched. Pull the
+    # id out of that Location header.
+    def resolve_public_url(embed)
+      url = embed[%r{https?://speakerdeck\.com/[\w-]+/[\w-]+}i]
+      return nil unless url
+
+      uri = URI(url)
+      response = Net::HTTP.start(uri.host, uri.port, use_ssl: true, open_timeout: 5, read_timeout: 10) do |http|
+        http.head(uri.request_uri, "User-Agent" => UA)
+      end
+      location = response["location"].to_s
+      location[%r{/player/([a-f0-9]+)}, 1]
+    rescue StandardError
+      nil
     end
 
     def attach(id)
