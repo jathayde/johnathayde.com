@@ -3,7 +3,7 @@
 class Admin::TalksController < ApplicationController
   layout "admin"
   before_action :authenticate_admin!
-  before_action :set_talk, only: %i[show edit update destroy]
+  before_action :set_talk, only: %i[show edit update destroy fetch_cover]
 
   def index
     @talks = Talk.order(:title)
@@ -42,6 +42,16 @@ class Admin::TalksController < ApplicationController
     redirect_to admin_talks_url, notice: "Talk was successfully destroyed."
   end
 
+  def fetch_cover
+    result = SpeakerDeck::CoverFetcher.call(@talk, force: true)
+    notice = case result
+             when :attached then "Pulled the first slide from SpeakerDeck."
+             when :noop     then "Nothing to fetch -- no SpeakerDeck embed on this talk."
+             when :failed   then "Couldn't fetch the cover from SpeakerDeck. Try uploading manually."
+             end
+    redirect_to admin_talk_url(@talk), notice: notice
+  end
+
   private
 
   def set_talk
@@ -49,6 +59,6 @@ class Admin::TalksController < ApplicationController
   end
 
   def talk_params
-    params.require(:talk).permit(:title, :subtitle, :description, :speaker_deck_embed)
+    params.require(:talk).permit(:title, :subtitle, :description, :speaker_deck_embed, :cover_image)
   end
 end

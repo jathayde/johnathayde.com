@@ -1,4 +1,4 @@
-<%= form_with(model: [:admin, talk]) do |form| %>
+<%= form_with(model: [:admin, talk], multipart: true) do |form| %>
   <% if talk.errors.any? %>
     <div class="form-errors">
       <h2><%= pluralize(talk.errors.count, "error") %> prohibited this talk from being saved:</h2>
@@ -23,6 +23,21 @@
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description, rows: 8, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cover_image, "Cover image" %>
+    <%= form.file_field :cover_image, accept: "image/*" %>
+    <% if talk.cover_image.attached? %>
+      <p class="hint">
+        Current: <%= image_tag talk.cover_image, style: "max-width: 240px; display: block; margin-top: 0.5em;" %>
+      </p>
+    <% else %>
+      <p class="hint">
+        Upload manually, or save the talk first and use &ldquo;Fetch first slide from
+        SpeakerDeck&rdquo; on the talk page to pull <code>slide_0.jpg</code> automatically.
+      </p>
+    <% end %>
   </div>
 
   <div class="field">

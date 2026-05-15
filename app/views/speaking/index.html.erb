@@ -39,11 +39,16 @@
   <h2 class="tinylabel"><b>02</b> Talks</h2>
 
   <ul id="talk_list">
-  <h2>Talks</h2>
   <% @talks.each do |talk| %>
     <li id="<%= talk.slug %>">
-      <div class="cover-image"></div>
-      <h3><%= link_to talk.title , "" %><span><%= " (#{talk.subtitle})" if talk.subtitle.present? %></span></h3>
+      <% if talk.cover_image.attached? %>
+        <%= image_tag talk.cover_image.variant(resize_to_fill: [600, 300]),
+                      class: "cover-image", alt: "#{talk.title} cover", loading: "lazy" %>
+      <% end %>
+      <h3>
+        <%= link_to talk.title, speaking_talk_path(talk) %>
+        <span><%= " (#{talk.subtitle})" if talk.subtitle.present? %></span>
+      </h3>
     </li>
   <% end %>
   </ul>

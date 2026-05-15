@@ -30,7 +30,9 @@ Rails.application.routes.draw do
     resources :appearances do
       resources :recordings
     end
-    resources :talks
+    resources :talks do
+      member { post :fetch_cover }
+    end
     resources :articles
 
     namespace :music do

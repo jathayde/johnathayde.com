@@ -11,6 +11,13 @@
   <p class="subtitle"><%= @talk.subtitle %></p>
 <% end %>
 
+<% if @talk.cover_image.attached? %>
+  <section class="cover">
+    <h2>Cover</h2>
+    <%= image_tag @talk.cover_image, style: "max-width: 320px; display: block;" %>
+  </section>
+<% end %>
+
 <%= simple_format @talk.description, class: "talk-description" %>
 
 <% if @talk.speaker_deck_embed.present? %>
@@ -41,6 +48,14 @@
 
 <p class="admin-actions">
   <%= link_to "Edit", edit_admin_talk_path(@talk) %>
+  <% if @talk.speaker_deck_embed.present? %>
+    &middot;
+    <%= button_to (@talk.cover_image.attached? ? "Re-fetch cover from SpeakerDeck" : "Fetch first slide from SpeakerDeck"),
+                  fetch_cover_admin_talk_path(@talk),
+                  method: :post,
+                  class: "linklike",
+                  data: { turbo_confirm: @talk.cover_image.attached? ? "Replace the existing cover?" : nil } %>
+  <% end %>
   &middot;
   <%= button_to "Delete", admin_talk_path(@talk), method: :delete,
                 data: { turbo_confirm: "Delete this talk and all its appearance links?" },
