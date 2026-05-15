@@ -14,7 +14,7 @@
 <% if @talk.speaker_deck_embed.present? %>
   <section class="speaker-deck">
     <h2>Slides</h2>
-    <%= raw @talk.speaker_deck_embed %>
+    <%= speaker_deck_embed @talk.speaker_deck_embed %>
   </section>
 <% end %>
 

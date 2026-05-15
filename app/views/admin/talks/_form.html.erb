@@ -28,8 +28,12 @@
   <div class="field">
     <%= form.label :speaker_deck_embed, "Speaker Deck embed" %>
     <%= form.text_area :speaker_deck_embed, rows: 3,
-                       placeholder: '<script async class="speakerdeck-embed" data-id="..." data-ratio="..." src="//speakerdeck.com/assets/embed.js"></script>' %>
-    <p class="hint">Paste the full <code>&lt;script&gt;</code> tag from Speaker Deck&rsquo;s share dialog.</p>
+                       placeholder: '<iframe src="https://speakerdeck.com/player/..." ...></iframe>' %>
+    <p class="hint">
+      Paste the <code>&lt;iframe&gt;</code> from Speaker Deck&rsquo;s share dialog,
+      or the legacy <code>&lt;script class=&quot;speakerdeck-embed&quot;&gt;</code>
+      tag &mdash; we&rsquo;ll render it as an iframe either way.
+    </p>
   </div>
 
   <div class="actions">

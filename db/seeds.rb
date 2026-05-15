@@ -742,3 +742,13 @@ Appearance.create!(
 # UX Strategies Summit 2014 - UX talk
 # Scouting Hot FInds Podcast/Patchvault
 # LFTN Podcast?
+
+###############################################################################
+# RESET SEQUENCES
+# We insert with explicit ids above so foreign keys line up, which leaves the
+# Postgres sequences pointing at 1. The first user-created record then trips
+# `duplicate key value violates unique constraint`. Bump each sequence past
+# the seeded max.
+%w[talks appearances appearance_types].each do |table|
+  ActiveRecord::Base.connection.reset_pk_sequence!(table)
+end
