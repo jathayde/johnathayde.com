@@ -213,7 +213,7 @@ section#talks {
       .cover-image {
         display: block;
         width: 100%;
-        height: 150px;
+        aspect-ratio: 16 / 9;
         object-fit: cover;
         margin-bottom: 1em;
       }
