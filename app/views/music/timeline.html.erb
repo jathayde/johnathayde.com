@@ -14,7 +14,8 @@
         <div class="date"><%= item.display_date_label %></div>
         <div class="content">
           <% if item.cover_image.attached? %>
-            <%= image_tag item.cover_image, class: "timeline-cover", alt: "#{item.title} cover" %>
+            <%= image_tag item.cover_image.variant(resize_to_fill: [160, 160]),
+                          class: "timeline-cover", alt: "#{item.title} cover", loading: "lazy" %>
           <% end %>
           <h2>
             <%= link_to item.artist.name, music_artist_path(item.artist) %>

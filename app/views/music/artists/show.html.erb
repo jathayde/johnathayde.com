@@ -19,7 +19,8 @@
 <% end %>
 
 <% if @artist.feature_photo.attached? %>
-  <%= image_tag @artist.feature_photo, class: "music-artist-hero", alt: @artist.name %>
+  <%= image_tag @artist.feature_photo.variant(resize_to_limit: [1600, 720]),
+                class: "music-artist-hero", alt: @artist.name %>
 <% end %>
 
 <% if @artist.description.present? %>
@@ -43,7 +44,8 @@
       <% @recordings.each do |rec| %>
         <li class="music-recording">
           <% if rec.cover_image.attached? %>
-            <%= image_tag rec.cover_image, class: "music-recording-cover", alt: "#{rec.title} cover" %>
+            <%= image_tag rec.cover_image.variant(resize_to_fill: [280, 280]),
+                          class: "music-recording-cover", alt: "#{rec.title} cover", loading: "lazy" %>
           <% end %>
           <div class="music-recording-detail">
             <h3><%= rec.title %></h3>

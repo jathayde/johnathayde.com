@@ -13,7 +13,8 @@
     <li class="music-artist-card">
       <%= link_to music_artist_path(artist), class: "music-artist-link" do %>
         <% if artist.feature_photo.attached? %>
-          <%= image_tag artist.feature_photo, class: "music-artist-photo", alt: artist.name %>
+          <%= image_tag artist.feature_photo.variant(resize_to_fill: [440, 440]),
+                        class: "music-artist-photo", alt: artist.name, loading: "lazy" %>
         <% end %>
         <h2><%= artist.name %></h2>
         <% if artist.john_role.present? %>
