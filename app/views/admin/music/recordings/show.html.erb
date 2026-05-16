@@ -11,6 +11,12 @@
 <p class="admin-actions">
   <%= link_to "Edit", edit_admin_music_recording_path(@recording) %>
   &middot;
+  <%= button_to (@recording.cover_image.attached? ? "Re-fetch cover art" : "Look up cover art"),
+                fetch_cover_admin_music_recording_path(@recording),
+                method: :post,
+                class: "linklike",
+                data: { turbo_confirm: @recording.cover_image.attached? ? "Replace the existing cover?" : nil } %>
+  &middot;
   <%= button_to "Delete", admin_music_recording_path(@recording), method: :delete,
                 data: { turbo_confirm: "Delete this recording and its tracks?" },
                 class: "linklike" %>

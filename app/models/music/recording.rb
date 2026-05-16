@@ -51,6 +51,19 @@ module Music
 
     scope :ordered, -> { order(release_year: :desc, release_date: :desc, title: :asc) }
 
+    # On every save, enqueue a best-effort lookup if either the cover art or
+    # the Apple Music URL is still missing. The fetcher is idempotent and
+    # short-circuits when both are already present.
+    after_save_commit :enqueue_cover_fetch, if: :cover_metadata_incomplete?
+
+    def cover_metadata_incomplete?
+      !cover_image.attached? || apple_music_url.blank?
+    end
+
+    def enqueue_cover_fetch
+      Music::CoverFetcherJob.perform_later(id)
+    end
+
     def display_date
       release_date || Date.new(release_year, 1, 1)
     end

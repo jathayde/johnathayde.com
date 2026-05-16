@@ -4,7 +4,7 @@ class Admin::Music::RecordingsController < ApplicationController
   layout "admin"
   before_action :authenticate_admin!
   before_action :set_artist, only: %i[new create]
-  before_action :set_recording, only: %i[show edit update destroy]
+  before_action :set_recording, only: %i[show edit update destroy fetch_cover]
 
   def show
     @tracks = @recording.tracks
@@ -37,6 +37,17 @@ class Admin::Music::RecordingsController < ApplicationController
     artist = @recording.artist
     @recording.destroy
     redirect_to admin_music_artist_url(artist), notice: "Recording deleted."
+  end
+
+  def fetch_cover
+    result = Music::CoverFetcher.call(@recording, force: true)
+    notice = case result
+             when :attached then "Pulled cover art for #{@recording.title}."
+             when :enriched then "Captured Apple Music URL (no cover image found)."
+             when :noop     then "Nothing new -- iTunes and MusicBrainz didn't return a match."
+             when :failed   then "Lookup failed. Try uploading the cover manually."
+             end
+    redirect_to admin_music_recording_url(@recording), notice: notice
   end
 
   private

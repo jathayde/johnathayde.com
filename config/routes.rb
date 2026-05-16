@@ -42,6 +42,7 @@ Rails.application.routes.draw do
         resources :videos,     only: %i[new create]
       end
       resources :recordings, except: %i[new create] do
+        member { post :fetch_cover }
         resources :tracks, except: %i[show]
       end
       resources :videos, except: %i[show new create]
