@@ -73,11 +73,12 @@ header {
       }
     }
 
-    h1 {
+    .site-name {
       color: $white;
       font-weight: 900;
       @include font-size(52px);
       line-height: 1;
+      margin-top: 0;
       margin-bottom: 10px;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 
@@ -88,7 +89,7 @@ header {
       @include media('>tablet') {
         @include font-size(72px);
       }
-    } // h1
+    } // .site-name
 
     h2 {
       color: $white;
