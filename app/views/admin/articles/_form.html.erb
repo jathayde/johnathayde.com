@@ -40,6 +40,10 @@
     <div class="field">
       <%= form.label :category_id, "Category" %>
       <%= form.collection_select :category_id, Category.order(:name), :id, :name, include_blank: "— None —" %>
+      <p class="hint">
+        <%= link_to "Manage categories", admin_categories_path, target: "_blank", rel: "noopener" %>
+        — opens in a new tab so this form keeps your draft; re-pick after adding one.
+      </p>
     </div>
 
     <div class="field">

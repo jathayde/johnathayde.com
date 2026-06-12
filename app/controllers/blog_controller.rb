@@ -2,7 +2,7 @@
 
 class BlogController < ApplicationController
   def index
-    @articles = Article.visible_on_index
+    @articles = Article.visible_on_index.with_rich_text_body.includes(:category)
   end
 
   def show
@@ -18,12 +18,12 @@ class BlogController < ApplicationController
 
   def category
     @category = Category.friendly.find(params[:slug])
-    @articles = @category.articles.visible_on_index
+    @articles = @category.articles.visible_on_index.with_rich_text_body
   end
 
   def tag
     @tag = ActsAsTaggableOn::Tag.find_by!(name: params[:tag])
-    @articles = Article.visible_on_index.tagged_with(@tag.name)
+    @articles = Article.visible_on_index.tagged_with(@tag.name).with_rich_text_body.includes(:category)
   end
 
   def feed

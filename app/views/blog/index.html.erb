@@ -3,6 +3,8 @@
 
 <h1>Blog</h1>
 
+<p class="blog-intro">"Blog!?" you ask yourself. "That's so old-school!" Yes, indeed. With every social publishing platform turning into a hype machine, articles being written to trick you into reading them (Gotta have those eyeballs!), and just missing the old vibe of the early 00s web, I figured I'd put my money where my mouth is and start publsihing on my own site again. You can even <%= link_to "subscribe via RSS", blog_feed_path(format: :atom) %>. So fetch.</p>
+
 <section id="articles">
   <% if @articles.any? %>
     <ol class="articles">

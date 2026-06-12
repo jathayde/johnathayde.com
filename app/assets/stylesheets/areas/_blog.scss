@@ -2,6 +2,13 @@
 // Body classes come from the layout: "blog index", "blog show", etc.
 
 body.blog {
+  p.blog-intro {
+    background-color: $gray-lighter;
+    border-radius: $base-border-radius;
+    font-style: italic;
+    padding: 1em 1.25em;
+    margin-bottom: 2em;
+  }
 
   // The global `header` rules (dark background, padding) are meant for the
   // site masthead — undo them for the post's own <header> inside <main>.
@@ -39,11 +46,17 @@ body.blog {
   // Post body typography. Lexxy/ActionText content rules use :where()
   // (zero specificity), so these single-class rules take precedence.
   .article-body {
-    p, li {
+    p,
+    li {
       margin-bottom: 0.9em;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       margin-top: 1em;
       margin-bottom: 0.35em;
     }
@@ -51,13 +64,13 @@ body.blog {
     // Code blocks: dark theme with the token palette from
     // guides.rubyonrails.org (via the rails-docs project), mapped onto
     // Lexxy's Prism token variables. Inline <code> keeps Lexxy's light look.
-    --lexxy-color-code-token-att: #9decfc;        // keywords
+    --lexxy-color-code-token-att: #9decfc; // keywords
     --lexxy-color-code-token-comment: #b4b4b3;
-    --lexxy-color-code-token-function: #d0ff71;   // defs, class names
+    --lexxy-color-code-token-function: #d0ff71; // defs, class names
     --lexxy-color-code-token-operator: #ff699b;
-    --lexxy-color-code-token-property: #cfb7fd;   // numbers, constants
+    --lexxy-color-code-token-property: #cfb7fd; // numbers, constants
     --lexxy-color-code-token-punctuation: #f8f8f2;
-    --lexxy-color-code-token-selector: #fff5ab;   // strings
+    --lexxy-color-code-token-selector: #fff5ab; // strings
     --lexxy-color-code-token-variable: #f8f8f2;
 
     pre {
@@ -141,6 +154,31 @@ body.blog {
         height: auto;
         max-width: 100%;
         margin-bottom: 0.75em;
+      }
+
+      .article-excerpt {
+        margin-top: 0.75em;
+
+        p {
+          margin: 0 0 0.9em;
+        }
+
+        p.read-more {
+          margin: 0;
+
+          a,
+          a:link,
+          a:visited {
+            color: $base;
+            font-weight: 600;
+            text-decoration: none;
+          }
+
+          a:hover,
+          a:active {
+            text-decoration: underline;
+          }
+        }
       }
     }
   }

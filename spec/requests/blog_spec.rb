@@ -16,6 +16,13 @@ RSpec.describe "/blog (public)", type: :request do
       expect(response.body).not_to include(draft_article.title)
       expect(response.body).not_to include(scheduled_article.title)
     end
+
+    it "shows an excerpt with a read more link" do
+      published_article
+      get blog_path
+      expect(response.body).to include("article-excerpt")
+      expect(response.body).to include("Read more")
+    end
   end
 
   describe "GET /blog/:slug" do
