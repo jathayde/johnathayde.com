@@ -68,7 +68,9 @@ header {
     body.speaking &,
     body.speaking-talks &,
     body.speaking-appearances &,
-    body.blog & {
+    body.blog &,
+    body.music &,
+    body.music-artists & {
       hgroup {
         display: none;
       }
