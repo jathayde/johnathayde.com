@@ -5,16 +5,26 @@ body.blog {
 
   // The global `header` rules (dark background, padding) are meant for the
   // site masthead — undo them for the post's own <header> inside <main>.
+  main p.breadcrumbs {
+    margin-top: 50px;
+  }
+
+  // Breathing room between the end of the post (tag pills) and the footer
+  main article {
+    margin-bottom: 2em;
+  }
+
   main article > header,
   main section > header {
     background: transparent;
     margin: 0 0 1.5em;
     padding: 0;
 
-    // main's generic h1 margin (1em at 72px) leaves huge gaps here
+    // main's generic h1 margin (1em at 72px) leaves huge gaps here;
+    // the breadcrumb above carries the spacing instead.
     h1 {
       line-height: 1.05;
-      margin: 0.33em 0 0.15em;
+      margin: 0 0 0.15em;
     }
 
     p.meta {
