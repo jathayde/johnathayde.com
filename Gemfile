@@ -60,6 +60,8 @@ gem 'acts-as-taggable-on'
 gem 'aws-sdk-s3'
 gem 'fog-aws'
 gem 'friendly_id'
+# Word-based HTML truncation (keeps tags balanced) for listing excerpts
+gem 'html_truncator', '~> 0.4'
 # Rich text editor for Action Text (Trix successor). Beta — pin the version.
 gem 'lexxy', '~> 0.9.18'
 gem 'meta-tags'

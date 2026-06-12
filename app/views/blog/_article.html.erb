@@ -21,8 +21,8 @@
       &middot; <%= link_to article.category.name, blog_category_path(article.category) %>
     <% end %>
   </p>
-  <div class="article-excerpt">
-    <%= simple_format article.excerpt %>
-    <p class="read-more"><%= link_to "Read more →", blog_post_path(article) %></p>
+  <div class="article-excerpt trix-content lexxy-content">
+    <%= excerpt_html(render("body", article: article)) %>
   </div>
+  <p class="read-more"><%= link_to "Read more →", blog_post_path(article) %></p>
 </li>

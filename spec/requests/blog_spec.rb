@@ -17,11 +17,21 @@ RSpec.describe "/blog (public)", type: :request do
       expect(response.body).not_to include(scheduled_article.title)
     end
 
-    it "shows an excerpt with a read more link" do
-      published_article
+    it "shows a formatted excerpt with a read more link" do
+      FactoryBot.create(:article, :published,
+                        body: "<h2>Heading</h2><p>Prose with <strong>BoldToken</strong>.</p>")
       get blog_path
       expect(response.body).to include("article-excerpt")
+      expect(response.body).to include("<strong>BoldToken</strong>")
       expect(response.body).to include("Read more")
+    end
+
+    it "truncates long excerpts to 300 words" do
+      long_body = "<p>#{(1..400).map { |n| "word#{n}" }.join(' ')}</p>"
+      FactoryBot.create(:article, :published, body: long_body)
+      get blog_path
+      expect(response.body).to include("word300")
+      expect(response.body).not_to include("word301")
     end
   end
 

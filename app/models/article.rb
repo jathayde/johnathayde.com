@@ -60,11 +60,6 @@ class Article < ApplicationRecord
     published? && published_at.present? && published_at.future?
   end
 
-  # Plain-text excerpt for index/category/tag listings.
-  def excerpt(words: 300)
-    body.to_plain_text.truncate_words(words, omission: "…")
-  end
-
   private
 
   def default_published_at

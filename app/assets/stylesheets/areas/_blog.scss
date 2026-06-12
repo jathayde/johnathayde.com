@@ -43,9 +43,11 @@ body.blog {
     }
   }
 
-  // Post body typography. Lexxy/ActionText content rules use :where()
-  // (zero specificity), so these single-class rules take precedence.
-  .article-body {
+  // Post body typography, shared with listing excerpts. Lexxy/ActionText
+  // content rules use :where() (zero specificity), so these single-class
+  // rules take precedence.
+  .article-body,
+  .article-excerpt {
     p,
     li {
       margin-bottom: 0.9em;
@@ -124,15 +126,19 @@ body.blog {
     }
   }
 
-  // Index / category / tag listings
+  // Index / category / tag listings. Scoped to direct children — the
+  // %list-in-disguise li reset must not leak into lists inside excerpts.
   ol.articles {
     @extend %list-in-disguise;
 
-    li {
+    > li {
       margin-bottom: 2.5em;
 
-      h3 {
-        @include font-size(24px);
+      > h3 {
+        font-family: $quarto;
+        @include font-size(36px);
+        font-weight: 400;
+        line-height: 1.1;
         margin: 0 0 0.25em;
 
         a,
@@ -159,25 +165,41 @@ body.blog {
       .article-excerpt {
         margin-top: 0.75em;
 
-        p {
-          margin: 0 0 0.9em;
+        // Restore real list rendering against the %list-in-disguise reset
+        ul,
+        ol {
+          padding-left: 1.5em;
         }
 
-        p.read-more {
-          margin: 0;
+        ul {
+          list-style: disc;
+        }
 
-          a,
-          a:link,
-          a:visited {
-            color: $base;
-            font-weight: 600;
-            text-decoration: none;
-          }
+        ol {
+          list-style: decimal;
+        }
 
-          a:hover,
-          a:active {
-            text-decoration: underline;
-          }
+        li {
+          list-style: inherit;
+          margin: 0 0 0.9em;
+          padding: 0;
+        }
+      }
+
+      p.read-more {
+        margin: 0.75em 0 0;
+
+        a,
+        a:link,
+        a:visited {
+          color: $base;
+          font-weight: 600;
+          text-decoration: none;
+        }
+
+        a:hover,
+        a:active {
+          text-decoration: underline;
         }
       }
     }

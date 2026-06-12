@@ -64,21 +64,6 @@ RSpec.describe Article, type: :model do
     end
   end
 
-  describe "#excerpt" do
-    it "truncates to the requested word count" do
-      article = FactoryBot.build(:article, body: "<p>#{(1..400).map { |n| "word#{n}" }.join(' ')}</p>")
-      excerpt = article.excerpt(words: 300)
-      expect(excerpt).to include("word300")
-      expect(excerpt).not_to include("word301")
-      expect(excerpt).to end_with("…")
-    end
-
-    it "returns short bodies untruncated" do
-      article = FactoryBot.build(:article, body: "<p>Just a few words here.</p>")
-      expect(article.excerpt).to eq("Just a few words here.")
-    end
-  end
-
   describe "canonical_url" do
     it "allows blank" do
       expect(FactoryBot.build(:article, canonical_url: "")).to be_valid
