@@ -26,12 +26,12 @@ RSpec.describe "/blog (public)", type: :request do
       expect(response.body).to include("Read more")
     end
 
-    it "truncates long excerpts to 300 words" do
-      long_body = "<p>#{(1..400).map { |n| "word#{n}" }.join(' ')}</p>"
+    it "truncates long excerpts to 150 words" do
+      long_body = "<p>#{(1..200).map { |n| "word#{n}" }.join(' ')}</p>"
       FactoryBot.create(:article, :published, body: long_body)
       get blog_path
-      expect(response.body).to include("word300")
-      expect(response.body).not_to include("word301")
+      expect(response.body).to include("word150")
+      expect(response.body).not_to include("word151")
     end
   end
 

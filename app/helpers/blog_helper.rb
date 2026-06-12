@@ -4,7 +4,7 @@ module BlogHelper
   # Truncate rendered rich-text HTML to a word budget while keeping the
   # markup intact (tags balanced, formatting preserved). Input is our own
   # ActionText-rendered HTML, so it is already sanitized.
-  def excerpt_html(html, words: 300)
+  def excerpt_html(html, words: 150)
     HTML_Truncator.truncate(html.to_s, words, ellipsis: "…").html_safe # rubocop:disable Rails/OutputSafety
   end
 
