@@ -57,6 +57,25 @@ RSpec.describe "/blog (public)", type: :request do
     end
   end
 
+  describe "video embeds" do
+    it "turns a bare YouTube link into a privacy-enhanced iframe embed" do
+      url = "https://www.youtube.com/watch?v=oPD_uw_bLgQ"
+      article = FactoryBot.create(:article, :published,
+                                  body: %(<p><a href="#{url}">#{url}</a></p><p>Prose.</p>))
+      get blog_post_path(article)
+      expect(response.body).to include('<figure class="video-embed">')
+      expect(response.body).to include("https://www.youtube-nocookie.com/embed/oPD_uw_bLgQ")
+    end
+
+    it "leaves YouTube links with their own text alone" do
+      article = FactoryBot.create(:article, :published,
+                                  body: %(<p><a href="https://www.youtube.com/watch?v=oPD_uw_bLgQ">watch my talk</a></p>))
+      get blog_post_path(article)
+      expect(response.body).not_to include("video-embed")
+      expect(response.body).to include("watch my talk")
+    end
+  end
+
   describe "canonical URL and structured data" do
     it "defaults rel=canonical to the post's own /blog URL" do
       get blog_post_path(published_article)
