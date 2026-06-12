@@ -26,6 +26,48 @@ body.blog {
     }
   }
 
+  // Post body typography. Lexxy/ActionText content rules use :where()
+  // (zero specificity), so these single-class rules take precedence.
+  .article-body {
+    p, li {
+      margin-bottom: 0.9em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1em;
+    }
+
+    // Code blocks: dark theme with the token palette from
+    // guides.rubyonrails.org (via the rails-docs project), mapped onto
+    // Lexxy's Prism token variables. Inline <code> keeps Lexxy's light look.
+    --lexxy-color-code-token-att: #9decfc;        // keywords
+    --lexxy-color-code-token-comment: #b4b4b3;
+    --lexxy-color-code-token-function: #d0ff71;   // defs, class names
+    --lexxy-color-code-token-operator: #ff699b;
+    --lexxy-color-code-token-property: #cfb7fd;   // numbers, constants
+    --lexxy-color-code-token-punctuation: #f8f8f2;
+    --lexxy-color-code-token-selector: #fff5ab;   // strings
+    --lexxy-color-code-token-variable: #f8f8f2;
+
+    pre {
+      background-color: #292929;
+      border-radius: $base-border-radius;
+      color: #f8f8f2;
+      display: block;
+      font-size: 0.85em;
+      line-height: 1.5;
+      margin: 0 0 1em;
+      overflow-x: auto;
+      padding: 0.85em 1em;
+
+      code {
+        background: none;
+        color: inherit;
+        padding: 0;
+      }
+    }
+  }
+
   p.meta {
     color: $gray-darker;
     @include font-size(14px);
