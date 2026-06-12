@@ -69,10 +69,17 @@ header {
     body.speaking-talks &,
     body.speaking-appearances &,
     body.blog &,
-    body.music &,
     body.music-artists & {
       hgroup {
         display: none;
+      }
+    }
+
+    // Music index keeps the tall photo masthead, just without the
+    // name/bio text — visibility preserves the hgroup's height.
+    body.music & {
+      hgroup {
+        visibility: hidden;
       }
     }
 

@@ -25,7 +25,6 @@
       @include font-size(36px);
       line-height: 1;
       margin: 0 0 0.2em;
-      text-transform: uppercase;
       letter-spacing: 0.02em;
 
       @include media('>tablet') {
