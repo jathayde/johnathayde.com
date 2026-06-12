@@ -39,6 +39,20 @@ RSpec.describe Appearance, type: :model do
     expect(FactoryBot.create(:appearance)).to be_valid
   end
 
+  describe 'url' do
+    it 'allows blank' do
+      expect(FactoryBot.build(:appearance, url: '')).to be_valid
+    end
+
+    it 'allows http(s) URLs' do
+      expect(FactoryBot.build(:appearance, url: 'https://railsconf.org/2026')).to be_valid
+    end
+
+    it 'rejects non-http schemes' do
+      expect(FactoryBot.build(:appearance, url: 'javascript:alert(1)')).not_to be_valid
+    end
+  end
+
   describe 'associations' do
     it { is_expected.to belong_to(:appearance_type) }
     it { is_expected.to belong_to(:talk).optional }

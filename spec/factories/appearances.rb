@@ -40,7 +40,7 @@ FactoryBot.define do
     who { 'MyString' }
     what { 'MyString' }
     notes { Faker::Lorem.paragraph }
-    url { 'MyString' }
+    url { "https://example.com/event" }
     slug { 'MyString' }
     association :appearance_type
   end

@@ -49,6 +49,9 @@ class Appearance < ApplicationRecord
   validates :location,  presence: true
   validates :who,       presence: true
   validates :what,      presence: true
+  # Rendered as an href on public + admin pages — keep it to http(s)
+  validates :url, format: { with: %r{\Ahttps?://\S+\z}i, message: "must be an http(s) URL" },
+                  allow_blank: true
 
   # Use lambda because it only runs app on boot, Time.zone.today needs to be
   # calculated whenever the scope is called instead. Also, with {} keep

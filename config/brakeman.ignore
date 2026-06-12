@@ -1,0 +1,19 @@
+{
+  "ignored_warnings": [
+    {
+      "fingerprint": "9f84459d9deabf84ef3d6dfbd983fec3d454cf7ad473b99efc5b4f3d36bbab5e",
+      "check_name": "LinkToHref",
+      "note": "Article#canonical_url is admin-entered and model-validated to match \\Ahttps?://\\S+\\z, so a javascript: href cannot be stored."
+    },
+    {
+      "fingerprint": "b10756b9f92dac5e4f9e0db455f05163e4235974c4a96eb072913ab19ce99c5f",
+      "check_name": "LinkToHref",
+      "note": "Appearance#url is admin-entered and model-validated to match \\Ahttps?://\\S+\\z, so a javascript: href cannot be stored."
+    },
+    {
+      "fingerprint": "ed67750b7c96b6fac4fbaf56a648dab02f977be6ffec3dae9a8d0f8a891f42e4",
+      "check_name": "LinkToHref",
+      "note": "Appearance#url is admin-entered and model-validated to match \\Ahttps?://\\S+\\z, so a javascript: href cannot be stored."
+    }
+  ]
+}

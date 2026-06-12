@@ -44,7 +44,7 @@ class Article < ApplicationRecord
   validates :page_title, presence: true
   validates :meta_description, presence: true, length: { maximum: 155 }
   validates :published_at, presence: true, if: :published?
-  validates :canonical_url, format: { with: %r{\Ahttps?://}i, message: "must be an http(s) URL" },
+  validates :canonical_url, format: { with: %r{\Ahttps?://\S+\z}i, message: "must be an http(s) URL" },
                             allow_blank: true
 
   # Live = published status AND publish time reached (a future published_at
