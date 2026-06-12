@@ -12,5 +12,5 @@ pin 'process', to: 'https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.21/nodelibs/bro
 pin 'stimulus-textarea-autogrow', to: 'https://ga.jspm.io/npm:stimulus-textarea-autogrow@4.0.0/dist/stimulus-textarea-autogrow.es.js'
 pin '@rails/actioncable', to: 'actioncable.esm.js'
 pin_all_from 'app/javascript/channels', under: 'channels'
-pin "trix"
-pin "@rails/actiontext", to: "actiontext.esm.js"
+pin "lexxy", to: "lexxy.js"
+pin "@rails/activestorage", to: "activestorage.esm.js"

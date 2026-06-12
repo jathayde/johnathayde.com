@@ -67,7 +67,8 @@ header {
     body.pages.resume &,
     body.speaking &,
     body.speaking-talks &,
-    body.speaking-appearances & {
+    body.speaking-appearances &,
+    body.blog & {
       hgroup {
         display: none;
       }
@@ -174,6 +175,12 @@ header {
 
         a:hover,
         a:active {
+          font-weight: 600;
+        }
+
+        // simple-navigation marks the current section's li as .selected
+        &.selected:not(:last-child) a {
+          border-bottom: 2px solid $base;
           font-weight: 600;
         }
       } // li

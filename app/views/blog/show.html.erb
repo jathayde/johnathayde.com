@@ -1,0 +1,71 @@
+<% set_meta_tags title: (@article.page_title.presence || @article.title),
+                 description: @article.meta_description,
+                 canonical: (@article.canonical_url.presence || blog_post_url(@article)),
+                 og: {
+                   title:       @article.og_title.presence       || @article.title,
+                   description: @article.og_description.presence || @article.meta_description,
+                   image:       article_social_image_url(@article)
+                 },
+                 twitter: {
+                   title:       @article.twitter_title.presence       || @article.title,
+                   description: @article.twitter_description.presence || @article.meta_description,
+                   image:       @article.twitter_image.presence || article_social_image_url(@article)
+                 } %>
+
+<p class="breadcrumbs"><%= link_to "Blog", blog_path %> »</p>
+
+<article id="<%= dom_id @article %>">
+  <header>
+    <h1><%= @article.title %></h1>
+    <% if @article.subtitle.present? %>
+      <p class="subtitle"><%= @article.subtitle %></p>
+    <% end %>
+    <p class="meta">
+      <% if @article.published_at %>
+        <time datetime="<%= @article.published_at.iso8601 %>">
+          <%= @article.published_at.to_date.stamp("04 May 2020") %>
+        </time>
+      <% end %>
+      <% if @article.author.present? %>
+        &middot; <%= @article.author %>
+      <% end %>
+      <% if @article.category %>
+        &middot; <%= link_to @article.category.name, blog_category_path(@article.category) %>
+      <% end %>
+    </p>
+    <% if @article.canonical_url.present? %>
+      <p class="canonical-note">
+        Originally published at
+        <%= link_to URI.parse(@article.canonical_url).host, @article.canonical_url, rel: "noopener" %>
+      </p>
+    <% end %>
+  </header>
+
+  <% if @article.feature_image.attached? %>
+    <figure class="feature-image">
+      <%= image_tag @article.feature_image.variant(:hero), alt: @article.title %>
+    </figure>
+  <% end %>
+
+  <div class="article-body">
+    <%= render "body", article: @article %>
+  </div>
+
+  <% if @article.tag_list.any? %>
+    <footer class="article-tags">
+      <ul class="tags">
+        <% @article.tags.each do |tag| %>
+          <li><%= link_to tag.name, blog_tag_path(tag.name) %></li>
+        <% end %>
+      </ul>
+    </footer>
+  <% end %>
+</article>
+
+<%= render "structured_data", article: @article %>
+
+<% if admin? %>
+  <p class="admin-actions">
+    <%= link_to "Edit in admin", edit_admin_article_path(@article) %>
+  </p>
+<% end %>

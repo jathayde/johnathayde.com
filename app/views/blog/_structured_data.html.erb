@@ -1,0 +1,26 @@
+<%
+structured_data = {
+  "@context" => "https://schema.org",
+  "@type" => "BlogPosting",
+  "headline" => article.title,
+  "description" => article.meta_description,
+  "datePublished" => article.published_at&.iso8601,
+  "dateModified" => article.updated_at.iso8601,
+  "author" => {
+    "@type" => "Person",
+    "name" => article.author.presence || "John Athayde",
+    "url" => root_url
+  },
+  "mainEntityOfPage" => {
+    "@type" => "WebPage",
+    "@id" => (article.canonical_url.presence || blog_post_url(article))
+  },
+  "url" => blog_post_url(article),
+  "image" => article_social_image_url(article),
+  "articleSection" => article.category&.name,
+  "keywords" => article.tag_list.to_a.presence&.join(", ")
+}.compact
+%>
+<script type="application/ld+json">
+  <%= raw structured_data.to_json %>
+</script>

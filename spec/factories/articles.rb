@@ -25,8 +25,19 @@
 FactoryBot.define do
   factory :article do
     sequence(:title) { |n| "Sample Article #{n}" }
-    body             { Faker::Lorem.paragraph }
+    body             { "<p>#{Faker::Lorem.paragraph}</p>" }
     page_title       { title }
     meta_description { Faker::Lorem.sentence.first(150) }
+    status           { "draft" }
+
+    trait :published do
+      status       { "published" }
+      published_at { 1.day.ago }
+    end
+
+    trait :scheduled do
+      status       { "published" }
+      published_at { 1.week.from_now }
+    end
   end
 end

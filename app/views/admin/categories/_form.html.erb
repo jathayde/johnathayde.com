@@ -1,0 +1,27 @@
+<%= form_with(model: [:admin, category]) do |form| %>
+  <% if category.errors.any? %>
+    <div class="form-errors">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this from being saved:</h2>
+      <ul>
+        <% category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, rows: 3 %>
+    <p class="hint">Optional. Shown on the category page.</p>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

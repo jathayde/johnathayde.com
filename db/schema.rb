@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_15_030003) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_11_175315) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -81,10 +81,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_15_030003) do
 
   create_table "articles", force: :cascade do |t|
     t.string "author"
-    t.text "body", null: false
+    t.string "canonical_url"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.boolean "hidden_on_index", default: false
     t.string "img_source"
+    t.text "legacy_body"
     t.string "meta_description", limit: 155, null: false
     t.string "og_description"
     t.string "og_image"
@@ -92,12 +94,25 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_15_030003) do
     t.text "page_title", null: false
     t.datetime "published_at"
     t.string "slug"
+    t.string "status", default: "draft", null: false
     t.string "subtitle"
     t.string "title", null: false
     t.string "twitter_description"
     t.string "twitter_image"
     t.string "twitter_title"
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_articles_on_category_id"
+    t.index ["status"], name: "index_articles_on_status"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.string "name", null: false
+    t.string "slug"
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -250,6 +265,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_15_030003) do
   add_foreign_key "appearances", "appearance_types"
   add_foreign_key "appearances", "recordings"
   add_foreign_key "appearances", "talks"
+  add_foreign_key "articles", "categories"
   add_foreign_key "music_recordings", "music_artists", column: "artist_id"
   add_foreign_key "music_tracks", "music_recordings", column: "recording_id"
   add_foreign_key "music_videos", "music_artists", column: "artist_id"

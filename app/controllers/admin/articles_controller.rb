@@ -50,7 +50,8 @@ class Admin::ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(
       :title, :subtitle, :author, :body, :page_title, :meta_description,
-      :published_at, :hidden_on_index, :img_source,
+      :status, :published_at, :hidden_on_index, :img_source, :category_id, :tag_list,
+      :feature_image, :canonical_url,
       :og_title, :og_description, :og_image,
       :twitter_title, :twitter_description, :twitter_image
     )

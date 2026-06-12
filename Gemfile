@@ -60,8 +60,12 @@ gem 'acts-as-taggable-on'
 gem 'aws-sdk-s3'
 gem 'fog-aws'
 gem 'friendly_id'
+# Rich text editor for Action Text (Trix successor). Beta — pin the version.
+gem 'lexxy', '~> 0.9.18'
 gem 'meta-tags'
 gem 'recaptcha'
+# Converts Action Text HTML to Markdown for the blog's .md/LLM endpoints
+gem 'reverse_markdown', '~> 3.0'
 gem 'simple-navigation'
 gem 'sitemap_generator'
 gem 'stamp'

@@ -1,0 +1,11 @@
+# John Athayde — Blog
+
+> Writing on product design, Rails, and building things, by John Athayde.
+
+Each post is available as Markdown at the listed URL.
+
+## Posts
+
+<% @articles.each do |article| -%>
+- [<%= article.title %>](<%= blog_post_url(article, format: :md) %>): <%= article.meta_description %>
+<% end -%>

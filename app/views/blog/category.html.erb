@@ -1,0 +1,23 @@
+<% set_meta_tags title: "#{@category.name} — Blog",
+                 description: @category.description.presence,
+                 og: { title: "#{@category.name} — Blog" } %>
+
+<p class="breadcrumbs"><%= link_to "Blog", blog_path %> »</p>
+
+<h1><%= @category.name %></h1>
+
+<% if @category.description.present? %>
+  <p class="category-description"><%= @category.description %></p>
+<% end %>
+
+<section id="articles">
+  <% if @articles.any? %>
+    <ol class="articles">
+      <% @articles.each do |article| %>
+        <%= render "article", article: article %>
+      <% end %>
+    </ol>
+  <% else %>
+    <p>No posts in this category yet.</p>
+  <% end %>
+</section>

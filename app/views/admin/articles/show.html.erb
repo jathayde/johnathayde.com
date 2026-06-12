@@ -8,8 +8,10 @@
 <h1><%= @article.title %></h1>
 
 <p>
-  <% if @article.published? %>
+  <% if @article.live? %>
     <span class="badge published">Published</span>
+  <% elsif @article.scheduled? %>
+    <span class="badge scheduled">Scheduled</span>
   <% else %>
     <span class="badge unpublished">Draft</span>
   <% end %>
@@ -33,7 +35,9 @@
 </dl>
 
 <h2>Body</h2>
-<%= simple_format @article.body, class: "article-body" %>
+<div class="article-body">
+  <%= @article.body %>
+</div>
 
 <p class="admin-actions">
   <%= link_to "Edit", edit_admin_article_path(@article) %>
@@ -41,8 +45,8 @@
   <%= button_to "Delete", admin_article_path(@article), method: :delete,
                 data: { turbo_confirm: "Delete this article?" },
                 class: "linklike" %>
-  <% if @article.published? %>
+  <% if @article.live? %>
     &middot;
-    <%= link_to "View public", article_path(@article) %>
+    <%= link_to "View public", blog_post_path(@article) %>
   <% end %>
 </p>

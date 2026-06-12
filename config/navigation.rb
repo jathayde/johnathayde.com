@@ -61,7 +61,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :home, '', root_path
     primary.item :resume, 'Resume/CV', '/resume'
     primary.item :work, 'Work', '/work'
-    # primary.item :blog, 'Blog', ''
+    primary.item :blog, 'Blog', '/blog', highlights_on: %r{\A/blog}
     primary.item :speaking, 'Speaking', '/speaking'
     primary.item :music, 'Music', '/music'
     primary.item :contact, 'Say Hello', contact_url

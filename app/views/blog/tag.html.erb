@@ -1,0 +1,18 @@
+<% set_meta_tags title: "Tagged “#{@tag.name}” — Blog",
+                 og: { title: "Tagged “#{@tag.name}” — Blog" } %>
+
+<p class="breadcrumbs"><%= link_to "Blog", blog_path %> »</p>
+
+<h1>Tagged “<%= @tag.name %>”</h1>
+
+<section id="articles">
+  <% if @articles.any? %>
+    <ol class="articles">
+      <% @articles.each do |article| %>
+        <%= render "article", article: article %>
+      <% end %>
+    </ol>
+  <% else %>
+    <p>No posts with this tag yet.</p>
+  <% end %>
+</section>

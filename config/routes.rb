@@ -21,7 +21,20 @@ Rails.application.routes.draw do
     resources :talks,       only: %i[index show]
   end
 
-  resources :articles, only: %i[index show]
+  # ---- Blog ----
+  # Literal segments (category/tag/feed) must stay above the :slug wildcard.
+  get '/blog',                to: 'blog#index',    as: 'blog'
+  get '/blog/feed',           to: 'blog#feed',     as: 'blog_feed', defaults: { format: 'atom' }
+  get '/blog/category/:slug', to: 'blog#category', as: 'blog_category'
+  get '/blog/tag/:tag',       to: 'blog#tag',      as: 'blog_tag'
+  get '/blog/:slug',          to: 'blog#show',     as: 'blog_post'
+
+  # Legacy article URLs
+  get '/articles',       to: redirect('/blog', status: 301)
+  get '/articles/:slug', to: redirect('/blog/%{slug}', status: 301)
+
+  # LLM-readable index of blog posts (llmstxt.org convention)
+  get '/llms.txt', to: 'blog#llms'
 
   # ---- Admin CRUD (HTTP basic auth, admin layout) ----
   get '/admin', to: 'admin#index', as: 'admin'
@@ -34,6 +47,7 @@ Rails.application.routes.draw do
       member { post :fetch_cover }
     end
     resources :articles
+    resources :categories, except: %i[show]
 
     namespace :music do
       resources :artists do

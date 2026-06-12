@@ -1,5 +1,10 @@
 <li id="<%= dom_id article %>">
-  <h3><%= link_to article.title, article_path(article) %></h3>
+  <% if article.feature_image.attached? %>
+    <%= link_to blog_post_path(article), class: "feature-image" do %>
+      <%= image_tag article.feature_image.variant(:card), alt: article.title %>
+    <% end %>
+  <% end %>
+  <h3><%= link_to article.title, blog_post_path(article) %></h3>
   <% if article.subtitle.present? %>
     <p class="article-subtitle"><%= article.subtitle %></p>
   <% end %>
@@ -11,6 +16,9 @@
     <% end %>
     <% if article.author.present? %>
       &middot; <%= article.author %>
+    <% end %>
+    <% if article.category %>
+      &middot; <%= link_to article.category.name, blog_category_path(article.category) %>
     <% end %>
   </p>
 </li>

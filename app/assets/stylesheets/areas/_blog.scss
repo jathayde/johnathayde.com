@@ -1,0 +1,139 @@
+// Blog (public): index, post pages, category and tag listings.
+// Body classes come from the layout: "blog index", "blog show", etc.
+
+body.blog {
+
+  // The global `header` rules (dark background, padding) are meant for the
+  // site masthead — undo them for the post's own <header> inside <main>.
+  main article > header,
+  main section > header {
+    background: transparent;
+    margin: 0 0 1.5em;
+    padding: 0;
+
+    // main's generic h1 margin (1em at 72px) leaves huge gaps here
+    h1 {
+      line-height: 1.05;
+      margin: 0.33em 0 0.15em;
+    }
+
+    p.meta {
+      margin: 0;
+    }
+
+    p.canonical-note {
+      margin: 0.5em 0 0;
+    }
+  }
+
+  p.meta {
+    color: $gray-darker;
+    @include font-size(14px);
+
+    a,
+    a:link,
+    a:visited {
+      color: $base;
+    }
+
+    time {
+      white-space: nowrap;
+    }
+  }
+
+  p.canonical-note {
+    color: $gray-darker;
+    font-style: italic;
+    @include font-size(13px);
+  }
+
+  figure.feature-image {
+    margin: 1.5em 0;
+
+    img {
+      border-radius: $base-border-radius;
+      display: block;
+      height: auto;
+      max-width: 100%;
+    }
+  }
+
+  // Index / category / tag listings
+  ol.articles {
+    @extend %list-in-disguise;
+
+    li {
+      margin-bottom: 2.5em;
+
+      h3 {
+        @include font-size(24px);
+        margin: 0 0 0.25em;
+
+        a,
+        a:link,
+        a:visited {
+          color: $black;
+          text-decoration: none;
+        }
+
+        a:hover,
+        a:active {
+          color: $base;
+        }
+      }
+
+      a.feature-image img {
+        border-radius: $base-border-radius;
+        display: block;
+        height: auto;
+        max-width: 100%;
+        margin-bottom: 0.75em;
+      }
+    }
+  }
+
+  // Tag pills
+  footer.article-tags {
+    background: transparent;
+    margin: 2em 0 0;
+    padding: 0;
+
+    ul.tags {
+      @extend %list-in-disguise;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5em;
+
+      li {
+        margin: 0;
+        padding: 0;
+
+        a,
+        a:link,
+        a:visited {
+          background-color: $gray-lighter;
+          border-radius: 999px;
+          color: $gray-darkest;
+          display: inline-block;
+          @include font-size(13px);
+          line-height: 1;
+          padding: 0.5em 1em;
+          text-decoration: none;
+          transition: all 0.2s ease-in-out;
+        }
+
+        a:hover,
+        a:active {
+          background-color: $base;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  p.category-description {
+    color: $gray-darker;
+    font-style: italic;
+  }
+}

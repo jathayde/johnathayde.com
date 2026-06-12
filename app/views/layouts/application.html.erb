@@ -40,9 +40,11 @@
     <meta name="theme-color" content="#ffffff">
 
     <link rel="author" href="/humans.txt" />
+    <%= auto_discovery_link_tag :atom, blog_feed_url(format: :atom), title: "John Athayde — Blog" %>
 
     <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/672732/7327232/css/fonts.css" />
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "/lexxy/0.9.18/lexxy-content.css" %>
     <%= javascript_importmap_tags %>
 
     <% if content_for?(:head) %>

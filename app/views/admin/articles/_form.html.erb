@@ -30,7 +30,7 @@
 
     <div class="field">
       <%= form.label :body %>
-      <%= form.text_area :body, rows: 16, required: true %>
+      <%= form.rich_text_area :body %>
     </div>
   </fieldset>
 
@@ -38,8 +38,25 @@
     <legend>Publishing</legend>
 
     <div class="field">
-      <%= form.label :published_at, "Publish at (leave blank for draft)" %>
+      <%= form.label :category_id, "Category" %>
+      <%= form.collection_select :category_id, Category.order(:name), :id, :name, include_blank: "— None —" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :tag_list, "Tags" %>
+      <%= form.text_field :tag_list, value: article.tag_list.to_s %>
+      <p class="hint">Comma-separated, e.g. <code>rails, design systems</code>.</p>
+    </div>
+
+    <div class="field">
+      <%= form.label :status %>
+      <%= form.select :status, Article.statuses.keys.map { |s| [s.titleize, s] } %>
+    </div>
+
+    <div class="field">
+      <%= form.label :published_at, "Publish at" %>
       <%= form.datetime_local_field :published_at %>
+      <p class="hint">With status Published: blank = now, a future date = scheduled.</p>
     </div>
 
     <div class="field">
@@ -60,14 +77,32 @@
     </div>
 
     <div class="field">
+      <%= form.label :canonical_url, "Canonical URL" %>
+      <%= form.url_field :canonical_url %>
+      <p class="hint">Leave blank unless this was first published elsewhere (e.g. Meticulous.com) — search engines will credit that URL instead.</p>
+    </div>
+
+    <div class="field">
       <%= form.label :meta_description %>
       <%= form.text_area :meta_description, rows: 2, maxlength: 155, required: true %>
       <p class="hint">Max 155 characters.</p>
     </div>
 
     <div class="field">
-      <%= form.label :img_source, "Header image URL" %>
+      <%= form.label :feature_image, "Feature image" %>
+      <%= form.file_field :feature_image, accept: "image/*" %>
+      <% if article.feature_image.attached? %>
+        <p class="hint">
+          Current: <%= image_tag article.feature_image.variant(:card), style: "max-width: 240px;" %>
+        </p>
+      <% end %>
+      <p class="hint">Optional. Shown on the index and post page, and used for social cards.</p>
+    </div>
+
+    <div class="field">
+      <%= form.label :img_source, "Header image URL (legacy)" %>
       <%= form.url_field :img_source %>
+      <p class="hint">Superseded by the feature image upload above.</p>
     </div>
 
     <h3>OpenGraph (optional overrides)</h3>

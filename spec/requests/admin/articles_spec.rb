@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "/admin/articles", type: :request do
-  let(:article) { FactoryBot.create(:article, published_at: 1.day.ago) }
-  let(:draft) { FactoryBot.create(:article, published_at: nil) }
+  let(:article) { FactoryBot.create(:article, :published) }
+  let(:draft) { FactoryBot.create(:article) }
 
   let(:valid_attributes) do
     {
@@ -33,6 +33,14 @@ RSpec.describe "/admin/articles", type: :request do
     it "shows a draft with admin auth (preview)" do
       get admin_article_path(draft), headers: admin_auth_headers
       expect(response).to be_successful
+    end
+  end
+
+  describe "GET /admin/articles/new" do
+    it "renders the Lexxy editor for the body" do
+      get new_admin_article_path, headers: admin_auth_headers
+      expect(response).to be_successful
+      expect(response.body).to include("<lexxy-editor")
     end
   end
 

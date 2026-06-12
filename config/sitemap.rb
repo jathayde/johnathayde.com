@@ -40,10 +40,14 @@ SitemapGenerator::Sitemap.create do
         changefreq: 'monthly', lastmod: talk.updated_at
   end
 
-  # Articles
-  Article.where.not(published_at: nil).find_each do |article|
-    add "/articles/#{article.slug || article.id}",
+  # Blog
+  add '/blog', changefreq: 'weekly', priority: 0.8
+  Article.live.find_each do |article|
+    add "/blog/#{article.slug || article.id}",
         changefreq: 'monthly', lastmod: article.updated_at
+  end
+  Category.joins(:articles).merge(Article.live).distinct.find_each do |category|
+    add "/blog/category/#{category.slug}", changefreq: 'weekly'
   end
 
   # Work

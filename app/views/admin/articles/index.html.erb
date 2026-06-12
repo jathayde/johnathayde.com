@@ -23,8 +23,10 @@
       <tr id="<%= dom_id article %>">
         <td><%= link_to article.title, admin_article_path(article) %></td>
         <td>
-          <% if article.published? %>
+          <% if article.live? %>
             <span class="badge published">Published</span>
+          <% elsif article.scheduled? %>
+            <span class="badge scheduled">Scheduled</span>
           <% else %>
             <span class="badge unpublished">Draft</span>
           <% end %>
@@ -44,8 +46,8 @@
         <td><%= article.author %></td>
         <td>
           <%= link_to "Edit", edit_admin_article_path(article) %>
-          <% if article.published? %>
-            &middot; <%= link_to "View public", article_path(article) %>
+          <% if article.live? %>
+            &middot; <%= link_to "View public", blog_post_path(article) %>
           <% end %>
         </td>
       </tr>
