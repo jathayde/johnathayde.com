@@ -1,6 +1,17 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  # Canonical host is www; 301 the bare domain there (force_ssl handles http -> https).
+  constraints(host: /\Ajohnathayde\.com\z/) do
+    match '(*path)', via: :all, to: redirect(status: 301) { |_params, request|
+      "https://www.johnathayde.com#{request.fullpath}"
+    }
+  end
+
+  # Sitemaps are generated to S3 (see config/sitemap.rb); expose them at the usual paths.
+  get '/sitemap.xml',    to: redirect('https://johnathayde-com.s3.amazonaws.com/sitemaps/sitemap.xml.gz', status: 301)
+  get '/sitemap.xml.gz', to: redirect('https://johnathayde-com.s3.amazonaws.com/sitemaps/sitemap.xml.gz', status: 301)
+
   root to: 'pages#placeholder'
 
   get '/home', to: 'pages#index'

@@ -1,1 +1,2 @@
 # See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+Sitemap: https://johnathayde-com.s3.amazonaws.com/sitemaps/sitemap.xml.gz
