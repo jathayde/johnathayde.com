@@ -16,7 +16,7 @@ SitemapGenerator::Sitemap.sitemaps_host = "https://#{ENV['FOG_DIRECTORY']}.s3.am
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 
 SitemapGenerator::Sitemap.create do
-  add '/',        changefreq: 'weekly',  priority: 0.9
+  # Root is added automatically (include_root defaults to true); don't add it again.
   add '/contact', changefreq: 'monthly'
   add '/resume',  changefreq: 'monthly'
 
@@ -31,7 +31,8 @@ SitemapGenerator::Sitemap.create do
   add '/speaking',              changefreq: 'monthly', priority: 0.8
   add '/speaking/appearances',  changefreq: 'monthly'
   add '/speaking/talks',        changefreq: 'monthly'
-  Appearance.find_each do |appearance|
+  # Slugs are not unique across appearances (e.g. a recurring meetup); one URL each.
+  Appearance.order(updated_at: :desc).find_each.uniq { |a| a.slug || a.id }.each do |appearance|
     add "/speaking/appearances/#{appearance.slug || appearance.id}",
         changefreq: 'monthly', lastmod: appearance.updated_at
   end
@@ -42,12 +43,21 @@ SitemapGenerator::Sitemap.create do
 
   # Blog
   add '/blog', changefreq: 'weekly', priority: 0.8
-  Article.live.find_each do |article|
+  # Posts whose canonical points elsewhere (cross-posts) are intentionally
+  # non-canonical here and must not be listed.
+  Article.live.where(canonical_url: [nil, '']).find_each do |article|
     add "/blog/#{article.slug || article.id}",
         changefreq: 'monthly', lastmod: article.updated_at
   end
   Category.joins(:articles).merge(Article.live).distinct.find_each do |category|
     add "/blog/category/#{category.slug}", changefreq: 'weekly'
+  end
+  ActsAsTaggableOn::Tag
+    .joins(:taggings)
+    .where(taggings: { taggable_type: 'Article', taggable_id: Article.visible_on_index.select(:id) })
+    .distinct
+    .find_each do |tag|
+    add blog_tag_path(tag: tag.name), changefreq: 'weekly'
   end
 
   # Work
