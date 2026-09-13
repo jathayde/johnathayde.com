@@ -241,6 +241,14 @@ header {
           &#x {
             @include background-image("socials/x");
           }
+
+          &#mastodon {
+            @include background-image("socials/mastodon");
+          }
+
+          &#bluesky {
+            @include background-image("socials/bluesky");
+          }
         }
       }
     } // ul#header_socials
@@ -359,6 +367,14 @@ footer#page_footer {
 
           &#x {
             @include background-image("socials/x");
+          }
+
+          &#mastodon {
+            @include background-image("socials/mastodon");
+          }
+
+          &#bluesky {
+            @include background-image("socials/bluesky");
           }
         } // a
 

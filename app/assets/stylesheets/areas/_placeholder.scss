@@ -99,6 +99,7 @@ body.placeholder {
     line-height: 1.4;
     margin: 0 auto;
     text-align: center;
+    text-wrap: balance;
 
     b {font-weight: 600;}
 
@@ -143,6 +144,14 @@ body.placeholder {
 
         &#x {
           @include background-image("socials/x");
+        }
+
+        &#mastodon {
+          @include background-image("socials/mastodon");
+        }
+
+        &#bluesky {
+          @include background-image("socials/bluesky");
         }
       } // a
 
