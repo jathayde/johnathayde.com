@@ -299,6 +299,11 @@ body.work {
       background-image: asset-url("work/rails_guides/page-cover.jpg");
       background-position: center center;
     }
+
+    &#powerfleet_rebrand_head {
+      background-image: asset-url("work/powerfleet_rebrand/page-cover.jpg");
+      background-position: center center;
+    }
   }
   // ----------------------------------------------------------------------------
 
@@ -347,6 +352,37 @@ body.work {
     figcaption p {
       font-style: italic;
       text-align: center;
+    }
+  }
+
+  // Page-like artwork (guideline spreads, catalog pages, sheets): keep it inside
+  // the column, pull it in, and float it like a printed sheet.
+  figure.page {
+    margin: 2em auto;
+    max-width: 85%;
+    width: 85%;
+
+    @include media('>desktop') {
+      margin: 3em auto;
+      max-width: 80%;
+      width: 80%;
+    }
+
+    &.portrait {
+      max-width: 60%;
+      width: 60%;
+
+      @include media('>desktop') {
+        max-width: 50%;
+        width: 50%;
+      }
+    }
+
+    img {
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 12px 32px rgba(0, 0, 0, 0.14);
+      display: block;
+      margin-bottom: 1em;
     }
   }
 
@@ -507,6 +543,35 @@ body.work {
 
         h3 {
           visibility: hidden;
+        }
+
+        p {
+          color: $gray-darkest;
+          top: 155px;
+          line-height: 1.2em;
+          @include font-size(12px);
+          width: 80%;
+          margin-left: 10%;
+
+          @include media('>tablet') {
+            @include font-size(18px);
+            top: 70%;
+          }
+        }
+      }
+
+      &#powerfleet_rebrand {
+        background-image: asset-url("work/powerfleet_rebrand/pf_rebrand_cover.jpg");
+
+        h3 {
+          color: $gray-darkest;
+          top: 100px;
+          @include font-size(16px);
+
+          @include media('>tablet') {
+            @include font-size(24px);
+            top: 60%;
+          }
         }
 
         p {

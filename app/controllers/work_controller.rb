@@ -11,6 +11,9 @@ class WorkController < ApplicationController
   def powerfleet_chassis
   end
 
+  def powerfleet_rebrand
+  end
+
   def procore
   end
 

@@ -36,4 +36,11 @@ RSpec.describe "Works", type: :request do
     end
   end
 
+  describe "GET /powerfleet-rebrand" do
+    it "returns http success" do
+      get "/work/powerfleet-rebrand"
+      expect(response).to have_http_status(:success)
+    end
+  end
+
 end

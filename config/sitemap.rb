@@ -66,6 +66,7 @@ SitemapGenerator::Sitemap.create do
   add '/work/navanti-pulse',       changefreq: 'monthly'
   add '/work/procore',             changefreq: 'monthly'
   add '/work/powerfleet-chassis',  changefreq: 'monthly'
+  add '/work/powerfleet-rebrand',  changefreq: 'monthly'
   add '/work/rails-guides',        changefreq: 'monthly'
 end
 
