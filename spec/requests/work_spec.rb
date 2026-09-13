@@ -29,4 +29,11 @@ RSpec.describe "Works", type: :request do
     end
   end
 
+  describe "GET /rails-guides" do
+    it "returns http success" do
+      get "/work/rails-guides"
+      expect(response).to have_http_status(:success)
+    end
+  end
+
 end

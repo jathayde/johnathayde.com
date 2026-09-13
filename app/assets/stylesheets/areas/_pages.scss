@@ -294,6 +294,11 @@ body.work {
       background-image: asset-url("work/powerfleet_chassis/page-cover.jpg");
       background-position: center center;
     }
+
+    &#rails_guides_head {
+      background-image: asset-url("work/rails_guides/page-cover.jpg");
+      background-position: center center;
+    }
   }
   // ----------------------------------------------------------------------------
 
@@ -422,6 +427,33 @@ body.work {
       }
 
       // Setting background images and text layout for each card
+      &#rails_guides {
+        background-image: asset-url("work/rails_guides/rg-cover.jpg");
+
+        h3 {
+          top: 100px;
+          @include font-size(16px);
+
+          @include media('>tablet') {
+            @include font-size(24px);
+            top: 60%;
+          }
+        }
+
+        p {
+          top: 155px;
+          line-height: 1.2em;
+          @include font-size(12px);
+          width: 80%;
+          margin-left: 10%;
+
+          @include media('>tablet') {
+            @include font-size(18px);
+            top: 70%;
+          }
+        }
+      }
+
       &#livingsocial_csr {
         background-image: asset-url("work/livingsocial_csr/ls-cover.jpg");
 

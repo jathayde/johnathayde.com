@@ -79,4 +79,5 @@ Rails.application.routes.draw do
   get '/work/navanti-pulse', to: 'work#navanti_pulse'
   get '/work/procore', to: 'work#procore'
   get '/work/powerfleet-chassis', to: 'work#powerfleet_chassis'
+  get '/work/rails-guides', to: 'work#rails_guides'
 end

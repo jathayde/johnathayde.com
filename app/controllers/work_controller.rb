@@ -13,4 +13,7 @@ class WorkController < ApplicationController
 
   def procore
   end
+
+  def rails_guides
+  end
 end
