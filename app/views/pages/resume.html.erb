@@ -34,8 +34,8 @@
       apply the brand across every silo, and carry it into the product. Recent runs at PowerFleet (full
       company rebrand through NASDAQ relaunch during a 2x revenue, 4x headcount acquisition) and at ATI
       (a Driven Brands company). Earlier, I built and maintained Wilde, a packaged design system
-      shipped as a Ruby gem and Bower package that unified 30 internal tools and Salesforce flows at
-      LivingSocial, before &ldquo;design system&rdquo; was the common term.
+      shipped as a Ruby gem and Bower package that powered the UI of 30 internal tools and skinned
+      Salesforce flows at LivingSocial, before &ldquo;design system&rdquo; was the common term.
     </p>
     <p>
       Currently running three Rails products as the sole PM, designer, and developer (PatchVault,
@@ -106,16 +106,21 @@
         <li>
           <strong>Xirgo / Elastic M2M, V3 Auto UX (ongoing since 2024).</strong>
           Led UI refresh and design strategy for a multi-brand, multi-language, multi-device
-          Angular-based IoT platform. Architected the design token system in Tokens Studio and built a
-          Figma to GitLab CI pipeline to keep design and engineering in parity across white-label brand
-          partners.
+          Angular-based IoT platform. Architected the design token system and built the generation
+          pipeline now running in production: Figma Console MCP generates the token file through Claude
+          into the repo, which pushes to GitLab where a CI job parses it. Design and engineering stay in
+          parity across white-label brand partners because the pipeline enforces it. Brought in by the
+          former PowerFleet CEO and CPO at the startup of the new company; currently extending across
+          the broader portfolio.
         </li>
         <li>
           <strong>Procore, UX practice-building engagement (2015 to 2016).</strong>
-          Invited in by the Head of Engineering after my RailsConf talk. Trained the org on UX
-          discovery, helped hire the first two UX designers, designed the Change Management and
-          Submittals modules (80+ screens and states), and established UX as a primary practice area
-          before handing off.
+          Invited in by Sam Crigman, then Head of Engineering and now CTO, after my RailsConf talk on
+          dev-designer collaboration. Trained the org on UX discovery, helped hire the first two UX
+          designers, designed the Change Management and Submittals modules (80+ screens and states), and
+          set the embedded-designer operating model before handing off. The team scaled to 15 within
+          twelve months on that foundation. Procore became the AEC industry&rsquo;s first unicorn and
+          IPO&rsquo;d in 2021.
         </li>
         <li>
           <strong>Rails Foundation (ongoing).</strong>
@@ -126,8 +131,9 @@
           <strong>AI tooling and MCP exploration.</strong>
           Built a series of autonomous agents (Scout, Bugle, and others) on top of the OpAgent
           framework, running on local inference and the Anthropic API, with integrations to HubSpot,
-          Apollo, and Telegram. Currently experimenting with Figma Console MCP. Active in the MCP and
-          Claude Code ecosystem for design ops, agency ops, and design-system context.
+          Apollo, and Telegram. Figma Console MCP is in production in the Xirgo token pipeline described
+          above. Active in the MCP and Claude Code ecosystem for design ops, agency ops, and
+          design-system context.
         </li>
         <li>
           <strong>Other client work</strong> has included Driven Brands, Guggenheim Securities,
@@ -191,34 +197,39 @@
       <p class="resume-dates"><time>Feb 2019 &ndash; Aug 2022</time> &middot; Remote</p>
       <p>
         Sole design leader through a transformative acquisition that doubled revenue and quadrupled
-        global headcount.
+        global headcount. Hired and managed a designer as a direct report.
       </p>
       <ul>
         <li>
-          Rebranded the company end-to-end in Oct 2019 (web, print, video, trade show, brand
-          guidelines) and relaunched on NASDAQ.
+          Inherited at least five separately-built products across divisions from the merged source
+          companies. Brought them under a single PowerFleet brand and built out the shared visual
+          language across them through skinning and forward-looking concept work &mdash; the groundwork
+          for a design system the company never got to finish. Did the design in Sketch and the HTML/CSS
+          implementation in React myself, since no one on the engineering side was set up to. Built on
+          variables throughout, which is the same abstraction, before &ldquo;tokens&rdquo; was the word
+          for it.
         </li>
         <li>
-          Reskinned the existing React platform, writing the CSS by hand against the engineering
-          team&rsquo;s component structure, and authored brand-to-product guidelines for international
-          subsidiaries.
+          Designed modules and third-party integrations for the next-generation PowerFleet Unity
+          platform, in Sketch and later Figma.
         </li>
         <li>
-          Led reimagination of the next-generation platform: research, IA, user flows, wireframes,
-          visual design, testing, and design system implementation.
+          Led reimagination of that platform end to end: research, IA, user flows, wireframes, visual
+          design, and testing. A clickable Intermodal Concept prototype and a six-minute concept video I
+          built sold the executive team on the global Connect refresh that became Unity in H1 2022.
         </li>
         <li>
-          Built a clickable prototype for an Intermodal Concept and a 6-minute concept video that sold
-          the executive team on a global Connect platform refresh, which led to the PowerFleet Unity
-          project in H1 2022.
+          Rebranded the company end to end in Oct 2019 (web, print, video, trade show, brand guidelines)
+          and relaunched on NASDAQ. Managed three primary brands and spun down legacy brands from
+          pre-2019 M&amp;A.
         </li>
         <li>
-          Brand management and updates across all three primary brands; spin-down of older brands from
-          pre-2019 M&amp;A activity.
+          Authored brand-to-product guidelines that let international subsidiaries update their own
+          software modules in step with the system.
         </li>
         <li>
-          Sourced and managed external contractors to deliver against enterprise scope without growing
-          headcount.
+          Delivered against enterprise scope by sourcing and managing external contractors rather than
+          growing headcount.
         </li>
       </ul>
     </article>
@@ -300,7 +311,10 @@
         <li>Built out the creative and microsites team from 4 to 15 over two years.</li>
         <li>Managed 100+ jobs per month through team pipeline.</li>
         <li>Directed work that improved ad performance on large media buys (MSN.com home page, others).</li>
-        <li>Redesigned Wirefly.com property in conjunction with EightShapes (UX).</li>
+        <li>
+          Redesigned the Wirefly.com property with Nathan Curtis at EightShapes &mdash; he took UX, I
+          took UI.
+        </li>
       </ul>
     </article>
 
@@ -355,6 +369,12 @@
         Recent talks: Blue Ridge Ruby 2026 (permaculture principles applied to UX), RailsConf 2025
         (&ldquo;UX &amp; Design for Rails Devs&rdquo;), Frontrunners 2022 (&ldquo;Design Systems from
         Zero to One,&rdquo; George Mason University).
+      </li>
+      <li>
+        Podcasts: Melissa Perri&rsquo;s <em>Product Thinking</em>,
+        <%= link_to "Ep. 91", "https://produxlabs.com/product-thinking-blog/episode-91-john-athayde" %>
+        (&ldquo;Investing in Internal Tools &amp; Design Systems,&rdquo; Oct 2022),
+        <em>Maintainable</em> (forthcoming).
       </li>
       <li>
         <strong>DeveloperUX</strong>, training curriculum for engineering teams on UX fundamentals,
