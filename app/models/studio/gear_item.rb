@@ -32,10 +32,13 @@ module Studio
     enum :category, {
       mics: "mics",
       preamps: "preamps",
+      compressors: "compressors",
       converters: "converters",
       monitoring: "monitoring",
       outboard: "outboard",
       instruments: "instruments",
+      synths: "synths",
+      amplifiers: "amplifiers",
       software: "software",
       video: "video",
       misc: "misc"
@@ -44,10 +47,13 @@ module Studio
     CATEGORY_LABELS = {
       "mics" => "Microphones",
       "preamps" => "Preamps",
+      "compressors" => "Compressors",
       "converters" => "Converters and Interfaces",
       "monitoring" => "Monitoring",
       "outboard" => "Outboard",
       "instruments" => "Instruments",
+      "synths" => "Synths / Keyboards",
+      "amplifiers" => "Amplifiers",
       "software" => "Software",
       "video" => "Video",
       "misc" => "Miscellaneous"

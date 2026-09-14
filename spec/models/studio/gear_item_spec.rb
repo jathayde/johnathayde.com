@@ -58,6 +58,13 @@ RSpec.describe Studio::GearItem, type: :model do
     expect(FactoryBot.build(:studio_gear_item)).not_to be_affiliate
   end
 
+  it "offers every signal-chain category" do
+    expect(described_class.categories.keys).to eq(
+      %w[mics preamps compressors converters monitoring outboard instruments synths amplifiers software video misc]
+    )
+    expect(described_class::CATEGORY_LABELS.keys).to match_array(described_class.categories.keys)
+  end
+
   describe ".grouped_for_display" do
     it "groups active items by category in signal-chain order, dropping empty groups" do
       out = FactoryBot.create(:studio_gear_item, category: "monitoring", position: 0)
