@@ -318,6 +318,12 @@ body.studio {
       h3 {
         @include font-size(17px);
         margin: 0 0 0.2em;
+
+        .quantity {
+          color: $gray-darker;
+          font-weight: 400;
+          margin-right: 0.25em;
+        }
       }
 
       p.blurb {

@@ -4,7 +4,7 @@ RSpec.describe "/admin/studio/gear_items", type: :request do
   let(:gear_item) { FactoryBot.create(:studio_gear_item) }
 
   let(:valid_attributes) do
-    { name: "U 87 Ai", manufacturer: "Neumann", category: "mics", blurb: "The one.", affiliate_url: "https://example.com/u87" }
+    { name: "U 87 Ai", manufacturer: "Neumann", category: "mics", quantity: 2, blurb: "The one.", affiliate_url: "https://example.com/u87" }
   end
 
   describe "GET /admin/studio/gear_items" do
@@ -35,6 +35,7 @@ RSpec.describe "/admin/studio/gear_items", type: :request do
         post admin_studio_gear_items_path, params: { studio_gear_item: valid_attributes }, headers: admin_auth_headers
       }.to change(Studio::GearItem, :count).by(1)
       expect(Studio::GearItem.last.position).to eq(5)
+      expect(Studio::GearItem.last.quantity).to eq(2)
     end
   end
 

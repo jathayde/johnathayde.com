@@ -10,6 +10,7 @@
 #  manufacturer  :string
 #  name          :string           not null
 #  position      :integer          default(0), not null
+#  quantity      :integer          default(1), not null
 #  slug          :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
@@ -38,6 +39,16 @@ RSpec.describe Studio::GearItem, type: :model do
     item = FactoryBot.create(:studio_gear_item, manufacturer: "Shure", name: "SM57")
     item.update!(name: "SM7B")
     expect(item.slug).to eq("shure-sm7b")
+  end
+
+  it "defaults quantity to 1 and labels only multiples" do
+    item = FactoryBot.build(:studio_gear_item)
+    expect(item.quantity).to eq(1)
+    expect(item.quantity_label).to be_nil
+    item.quantity = 2
+    expect(item.quantity_label).to eq("2×")
+    item.quantity = 0
+    expect(item).not_to be_valid
   end
 
   it "validates the affiliate URL scheme" do

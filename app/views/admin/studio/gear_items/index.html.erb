@@ -31,7 +31,7 @@
         <li class="admin-sortable-item" data-id="<%= item.id %>" id="<%= dom_id item %>">
           <span class="drag-handle" aria-label="Drag to reorder">&#9776;</span>
           <span class="admin-sortable-main">
-            <%= link_to item.display_name, edit_admin_studio_gear_item_path(item), class: "admin-sortable-title" %>
+            <%= link_to [item.quantity_label, item.display_name].compact.join(" "), edit_admin_studio_gear_item_path(item), class: "admin-sortable-title" %>
             <span class="meta">
               <% unless item.active %><span class="badge unpublished">Inactive</span><% end %>
               <% if item.affiliate? %>affiliate link &middot; <% end %>

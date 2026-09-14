@@ -155,7 +155,7 @@ RSpec.describe "/studio (public)", type: :request do
 
   describe "GET /studio/gear" do
     it "groups active gear by category in signal-chain order with ItemList JSON-LD" do
-      FactoryBot.create(:studio_gear_item, category: "monitoring", name: "MonitorToken")
+      FactoryBot.create(:studio_gear_item, category: "monitoring", name: "MonitorToken", quantity: 2)
       FactoryBot.create(:studio_gear_item, :affiliate, category: "mics", name: "MicToken")
       FactoryBot.create(:studio_gear_item, :inactive, category: "preamps", name: "HiddenToken")
 
@@ -163,6 +163,7 @@ RSpec.describe "/studio (public)", type: :request do
       expect(response).to be_successful
       expect(response.body).to include("MicToken")
       expect(response.body).to include("MonitorToken")
+      expect(response.body).to include(%(<span class="quantity">2×</span>))
       expect(response.body).not_to include("HiddenToken")
       expect(response.body.index("Microphones")).to be < response.body.index("Monitoring")
       expect(response.body).to include('"@type":"ItemList"')

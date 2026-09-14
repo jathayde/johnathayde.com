@@ -61,7 +61,7 @@ class Admin::Studio::GearItemsController < ApplicationController
 
   def gear_item_params
     params.require(:studio_gear_item).permit(
-      :name, :manufacturer, :category, :blurb, :affiliate_url, :position, :active
+      :name, :manufacturer, :category, :quantity, :blurb, :affiliate_url, :position, :active
     )
   end
 end

@@ -30,7 +30,10 @@
       <ul class="studio-gear-list">
         <% items.each do |item| %>
           <li id="<%= item.slug %>">
-            <h3><%= gear_item_link(item) %></h3>
+            <h3>
+              <% if item.quantity_label %><span class="quantity"><%= item.quantity_label %></span><% end %>
+              <%= gear_item_link(item) %>
+            </h3>
             <% if item.blurb.present? %>
               <p class="blurb"><%= item.blurb %></p>
             <% end %>

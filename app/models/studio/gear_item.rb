@@ -12,6 +12,7 @@
 #  manufacturer  :string
 #  name          :string           not null
 #  position      :integer          default(0), not null
+#  quantity      :integer          default(1), not null
 #  slug          :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
@@ -56,6 +57,7 @@ module Studio
     has_many :posts, through: :post_gear_items, class_name: "Studio::Post"
 
     validates :name, presence: true
+    validates :quantity, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
     validates :affiliate_url, format: { with: %r{\Ahttps?://\S+\z}i, message: "must be an http(s) URL" },
                               allow_blank: true
 
@@ -75,6 +77,11 @@ module Studio
 
     def display_name
       [manufacturer, name].compact_blank.join(" ")
+    end
+
+    # "2x" prefix when there is more than one, otherwise nothing.
+    def quantity_label
+      "#{quantity}\u00d7" if quantity.to_i > 1
     end
 
     def affiliate?

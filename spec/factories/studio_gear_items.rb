@@ -10,6 +10,7 @@
 #  manufacturer  :string
 #  name          :string           not null
 #  position      :integer          default(0), not null
+#  quantity      :integer          default(1), not null
 #  slug          :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
