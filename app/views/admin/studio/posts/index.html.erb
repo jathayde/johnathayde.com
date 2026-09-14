@@ -1,0 +1,55 @@
+<% if notice %><p class="flash-notice"><%= notice %></p><% end %>
+
+<p class="breadcrumbs"><%= link_to "Admin", admin_path %> » Studio · Posts</p>
+
+<h1>Studio · Posts</h1>
+
+<p class="admin-actions">
+  <%= link_to "New post", new_admin_studio_post_path %>
+  &middot;
+  <%= link_to "Gear list", admin_studio_gear_items_path %>
+</p>
+
+<table class="admin-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Status</th>
+      <th>Published at</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr id="<%= dom_id post %>">
+        <td><%= link_to post.title, admin_studio_post_path(post) %></td>
+        <td><%= post.category_label %></td>
+        <td>
+          <% if post.live? %>
+            <span class="badge published">Published</span>
+          <% elsif post.scheduled? %>
+            <span class="badge scheduled">Scheduled</span>
+          <% else %>
+            <span class="badge unpublished">Draft</span>
+          <% end %>
+        </td>
+        <td>
+          <% if post.published_at %>
+            <time datetime="<%= post.published_at.iso8601 %>">
+              <%= post.published_at.to_date.stamp("04 May 2020") %>
+            </time>
+          <% else %>
+            —
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_admin_studio_post_path(post) %>
+          <% if post.live? %>
+            &middot; <%= link_to "View public", studio_post_path(post) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

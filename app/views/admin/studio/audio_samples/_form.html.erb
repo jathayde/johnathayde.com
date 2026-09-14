@@ -1,0 +1,37 @@
+<%= form_with(model: audio_sample,
+              scope: :studio_audio_sample,
+              url: audio_sample.persisted? ? admin_studio_audio_sample_path(audio_sample) : admin_studio_post_audio_samples_path(audio_sample.post),
+              method: audio_sample.persisted? ? :patch : :post,
+              multipart: true) do |form| %>
+  <% if audio_sample.errors.any? %>
+    <div class="form-errors">
+      <ul>
+        <% audio_sample.errors.each { |e| %><li><%= e.full_message %></li><% } %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :label %>
+    <%= form.text_field :label, required: true, placeholder: "dry / wet — plate / final mix" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.number_field :position %>
+    <p class="hint">Order on the post. Lower numbers render first.</p>
+  </div>
+
+  <div class="field">
+    <%= form.label :file, "Audio file" %>
+    <%= form.file_field :file, accept: "audio/*", required: !audio_sample.file.attached? %>
+    <% if audio_sample.file.attached? %>
+      <p class="hint">Current: <%= audio_sample.file.filename %> (<%= number_to_human_size(audio_sample.file.byte_size) %>). Choose a file to replace it.</p>
+    <% end %>
+    <p class="hint">MP3 or WAV. Played inline on the post with a download link.</p>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

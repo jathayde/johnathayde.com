@@ -1,0 +1,11 @@
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Studio · Posts", admin_studio_posts_path %> »
+  <%= link_to @post.title, admin_studio_post_path(@post) %> »
+</p>
+
+<h1>New audio sample</h1>
+
+<%= render "form", audio_sample: @audio_sample %>
+
+<p><%= link_to "Back to post", admin_studio_post_path(@post) %></p>

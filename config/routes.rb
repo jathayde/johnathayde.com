@@ -40,6 +40,12 @@ Rails.application.routes.draw do
   get '/blog/tag/:tag',       to: 'blog#tag',      as: 'blog_tag'
   get '/blog/:slug',          to: 'blog#show',     as: 'blog_post'
 
+  # ---- Studio ----
+  # The literal /studio/gear must stay above the :slug wildcard.
+  get '/studio',       to: 'studio#index', as: 'studio'
+  get '/studio/gear',  to: 'studio#gear',  as: 'studio_gear'
+  get '/studio/:slug', to: 'studio#show',  as: 'studio_post'
+
   # Legacy article URLs
   get '/articles',       to: redirect('/blog', status: 301)
   get '/articles/:slug', to: redirect('/blog/%{slug}', status: 301)
@@ -59,6 +65,16 @@ Rails.application.routes.draw do
     end
     resources :articles
     resources :categories, except: %i[show]
+
+    namespace :studio do
+      resources :posts do
+        resources :audio_samples, only: %i[new create]
+      end
+      resources :audio_samples, only: %i[edit update destroy]
+      resources :gear_items, except: %i[show] do
+        collection { patch :reorder }
+      end
+    end
 
     namespace :music do
       resources :artists do

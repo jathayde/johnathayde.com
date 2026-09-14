@@ -1,0 +1,48 @@
+<% if notice %><p class="flash-notice"><%= notice %></p><% end %>
+
+<p class="breadcrumbs"><%= link_to "Admin", admin_path %> » Studio · Gear</p>
+
+<h1>Studio · Gear</h1>
+
+<p class="admin-actions">
+  <%= link_to "New gear item", new_admin_studio_gear_item_path %>
+  &middot;
+  <%= link_to "Posts", admin_studio_posts_path %>
+  &middot;
+  <%= link_to "View public", studio_gear_path %>
+</p>
+
+<p class="hint">Drag the ☰ handle to reorder within a category; changes save automatically.</p>
+
+<% if @groups.empty? %>
+  <p>No gear yet.</p>
+<% end %>
+
+<% @groups.each do |category, items| %>
+  <section class="gear-group">
+    <h2>
+      <%= Studio::GearItem::CATEGORY_LABELS.fetch(category) %>
+      <small><%= link_to "add", new_admin_studio_gear_item_path(category: category) %></small>
+    </h2>
+    <ol class="admin-sortable-list"
+        data-controller="sortable"
+        data-sortable-url-value="<%= reorder_admin_studio_gear_items_path %>">
+      <% items.each do |item| %>
+        <li class="admin-sortable-item" data-id="<%= item.id %>" id="<%= dom_id item %>">
+          <span class="drag-handle" aria-label="Drag to reorder">&#9776;</span>
+          <span class="admin-sortable-main">
+            <%= link_to item.display_name, edit_admin_studio_gear_item_path(item), class: "admin-sortable-title" %>
+            <span class="meta">
+              <% unless item.active %><span class="badge unpublished">Inactive</span><% end %>
+              <% if item.affiliate? %>affiliate link &middot; <% end %>
+              <%= pluralize(item.posts.size, "post") %>
+            </span>
+          </span>
+          <span class="admin-sortable-actions">
+            <%= link_to "Edit", edit_admin_studio_gear_item_path(item) %>
+          </span>
+        </li>
+      <% end %>
+    </ol>
+  </section>
+<% end %>

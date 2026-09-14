@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_12_141946) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_13_200003) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -219,6 +219,63 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_12_141946) do
     t.index ["talk_id"], name: "index_recordings_on_talk_id"
   end
 
+  create_table "studio_audio_samples", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "label", null: false
+    t.integer "position", default: 0, null: false
+    t.bigint "post_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id", "position"], name: "index_studio_audio_samples_on_post_id_and_position"
+    t.index ["post_id"], name: "index_studio_audio_samples_on_post_id"
+  end
+
+  create_table "studio_gear_items", force: :cascade do |t|
+    t.boolean "active", default: true, null: false
+    t.string "affiliate_url"
+    t.text "blurb"
+    t.string "category", default: "misc", null: false
+    t.datetime "created_at", null: false
+    t.string "manufacturer"
+    t.string "name", null: false
+    t.integer "position", default: 0, null: false
+    t.string "slug"
+    t.datetime "updated_at", null: false
+    t.index ["active"], name: "index_studio_gear_items_on_active"
+    t.index ["category", "position"], name: "index_studio_gear_items_on_category_and_position"
+    t.index ["slug"], name: "index_studio_gear_items_on_slug", unique: true
+  end
+
+  create_table "studio_post_gear_items", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "gear_item_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gear_item_id"], name: "index_studio_post_gear_items_on_gear_item_id"
+    t.index ["post_id", "gear_item_id"], name: "index_studio_post_gear_items_on_post_id_and_gear_item_id", unique: true
+    t.index ["post_id"], name: "index_studio_post_gear_items_on_post_id"
+  end
+
+  create_table "studio_posts", force: :cascade do |t|
+    t.string "canonical_url"
+    t.string "category", default: "tracking", null: false
+    t.datetime "created_at", null: false
+    t.string "meta_description", limit: 160
+    t.string "meta_title"
+    t.string "og_image"
+    t.datetime "published_at"
+    t.text "signal_chain"
+    t.string "slug"
+    t.string "status", default: "draft", null: false
+    t.string "summary", null: false
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.text "verdict"
+    t.string "youtube_id"
+    t.index ["published_at"], name: "index_studio_posts_on_published_at"
+    t.index ["slug"], name: "index_studio_posts_on_slug", unique: true
+    t.index ["status"], name: "index_studio_posts_on_status"
+  end
+
   create_table "taggings", force: :cascade do |t|
     t.string "context", limit: 128
     t.datetime "created_at", precision: nil
@@ -271,5 +328,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_12_141946) do
   add_foreign_key "music_videos", "music_artists", column: "artist_id"
   add_foreign_key "recordings", "appearances"
   add_foreign_key "recordings", "talks"
+  add_foreign_key "studio_audio_samples", "studio_posts", column: "post_id"
+  add_foreign_key "studio_post_gear_items", "studio_gear_items", column: "gear_item_id"
+  add_foreign_key "studio_post_gear_items", "studio_posts", column: "post_id"
   add_foreign_key "taggings", "tags"
 end

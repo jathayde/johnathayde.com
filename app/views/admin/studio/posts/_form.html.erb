@@ -1,0 +1,151 @@
+<%= form_with(model: post,
+              scope: :studio_post,
+              url: post.persisted? ? admin_studio_post_path(post) : admin_studio_posts_path,
+              method: post.persisted? ? :patch : :post,
+              multipart: true) do |form| %>
+  <% if post.errors.any? %>
+    <div class="form-errors">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Content</legend>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, required: true %>
+    </div>
+
+    <div class="field"
+         data-controller="slug-warning"
+         data-slug-warning-original-value="<%= post.slug %>"
+         data-slug-warning-published-value="<%= post.persisted? && post.published? %>">
+      <%= form.label :slug %>
+      <%= form.text_field :slug, placeholder: "Leave blank to generate from the title",
+                          data: { slug_warning_target: "input", action: "input->slug-warning#check" } %>
+      <p class="hint">Public URL: <code>/studio/<%= post.slug.presence || "…" %></code>. Blank = auto-generated from the title.</p>
+      <p class="hint warning" data-slug-warning-target="warning" hidden>
+        This post is already published. Changing the slug breaks existing links to it; the old URL will 404.
+      </p>
+    </div>
+
+    <div class="field">
+      <%= form.label :category %>
+      <%= form.select :category, Studio::Post::CATEGORY_LABELS.map { |value, label| [label, value] } %>
+    </div>
+
+    <div class="field">
+      <%= form.label :summary %>
+      <%= form.text_area :summary, rows: 3, required: true, maxlength: 500 %>
+      <p class="hint">One or two sentences. Shown on the index cards, and used as the meta description unless overridden below.</p>
+    </div>
+
+    <div class="field">
+      <%= form.label :youtube_id, "YouTube video ID" %>
+      <%= form.text_field :youtube_id, placeholder: "dQw4w9WgXcQ" %>
+      <p class="hint">The 11-character ID from the video URL, not the full URL. Embedded at the top of the post.</p>
+    </div>
+
+    <div class="field">
+      <%= form.label :verdict %>
+      <%= form.text_area :verdict, rows: 3 %>
+      <p class="hint">One paragraph: the takeaway, shown right under the video.</p>
+    </div>
+
+    <div class="field">
+      <%= form.label :signal_chain, "Signal chain / settings" %>
+      <%= form.text_area :signal_chain, rows: 6 %>
+      <p class="hint">Plain text, one item per line. Rendered as a preformatted block.</p>
+    </div>
+
+    <div class="field">
+      <%= form.label :body %>
+      <%= form.rich_text_area :body %>
+    </div>
+
+    <div class="field">
+      <%= form.label :hero_image, "Hero image" %>
+      <%= form.file_field :hero_image, accept: "image/*" %>
+      <% if post.hero_image.attached? %>
+        <p class="hint">
+          Current: <%= image_tag post.hero_image.variant(:card), style: "max-width: 240px;", alt: "" %>
+        </p>
+      <% end %>
+      <p class="hint">Optional. Card image on the index, hero on the post when there is no video, and the default social image.</p>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Gear featured</legend>
+    <div class="field checkbox-grid">
+      <% Studio::GearItem.ordered.group_by(&:category).sort_by { |category, _| Studio::GearItem.categories.keys.index(category) }.each do |category, items| %>
+        <h3><%= Studio::GearItem::CATEGORY_LABELS.fetch(category) %></h3>
+        <%= form.collection_check_boxes :gear_item_ids, items, :id, :display_name do |b| %>
+          <label class="checkbox"><%= b.check_box %> <%= b.text %><% unless b.object.active %> <em>(inactive)</em><% end %></label>
+        <% end %>
+      <% end %>
+      <p class="hint"><%= link_to "Manage gear", admin_studio_gear_items_path, target: "_blank", rel: "noopener" %> — opens in a new tab so this form keeps your draft.</p>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Publishing</legend>
+
+    <div class="field">
+      <%= form.label :status %>
+      <%= form.select :status, Studio::Post.statuses.keys.map { |s| [s.titleize, s] } %>
+    </div>
+
+    <div class="field">
+      <%= form.label :published_at, "Publish at" %>
+      <%= form.datetime_local_field :published_at %>
+      <p class="hint">With status Published: blank = now, a future date = scheduled.</p>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>SEO & Social</legend>
+
+    <div class="field">
+      <%= form.label :meta_title %>
+      <%= form.text_field :meta_title, placeholder: post.title.presence || "Falls back to the title" %>
+      <p class="hint">Used as the &lt;title&gt; tag and og:title. Falls back to the title.</p>
+    </div>
+
+    <div class="field"
+         data-controller="char-count"
+         data-char-count-min-value="150"
+         data-char-count-max-value="<%= Studio::Post::META_DESCRIPTION_LIMIT %>">
+      <%= form.label :meta_description %>
+      <%= form.text_area :meta_description, rows: 2, maxlength: Studio::Post::META_DESCRIPTION_LIMIT,
+                         placeholder: "Falls back to the summary",
+                         data: { char_count_target: "input", action: "input->char-count#update" } %>
+      <p class="hint">
+        <span data-char-count-target="counter"></span>
+        &middot; Target 150 to 160 characters. Falls back to the summary (truncated) when blank.
+      </p>
+    </div>
+
+    <div class="field">
+      <%= form.label :og_image, "og:image URL" %>
+      <%= form.url_field :og_image %>
+      <p class="hint">Falls back to the hero image, then the YouTube poster frame.</p>
+    </div>
+
+    <div class="field">
+      <%= form.label :canonical_url, "Canonical URL override" %>
+      <%= form.url_field :canonical_url %>
+      <p class="hint">Leave blank unless this was first published elsewhere; search engines will credit that URL instead.</p>
+    </div>
+  </fieldset>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

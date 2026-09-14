@@ -1,0 +1,60 @@
+<%= form_with(model: gear_item,
+              scope: :studio_gear_item,
+              url: gear_item.persisted? ? admin_studio_gear_item_path(gear_item) : admin_studio_gear_items_path,
+              method: gear_item.persisted? ? :patch : :post) do |form| %>
+  <% if gear_item.errors.any? %>
+    <div class="form-errors">
+      <h2><%= pluralize(gear_item.errors.count, "error") %> prohibited this gear item from being saved:</h2>
+      <ul>
+        <% gear_item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :manufacturer %>
+    <%= form.text_field :manufacturer, placeholder: "Neumann" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true, placeholder: "U 87 Ai" %>
+    <p class="hint">Shown as manufacturer + name. The URL anchor on the gear page is generated from both.</p>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.select :category, Studio::GearItem::CATEGORY_LABELS.map { |value, label| [label, value] } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :blurb %>
+    <%= form.text_area :blurb, rows: 3 %>
+    <p class="hint">A sentence or two on what it is for and why it is here.</p>
+  </div>
+
+  <div class="field">
+    <%= form.label :affiliate_url, "Affiliate URL" %>
+    <%= form.url_field :affiliate_url %>
+    <p class="hint">Optional. Rendered with rel="sponsored nofollow" and a disclosure on any page that shows it.</p>
+  </div>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.number_field :position %>
+    <p class="hint">Order within the category. Lower numbers render first; drag to reorder on the gear list.</p>
+  </div>
+
+  <div class="field">
+    <%= form.label :active do %>
+      <%= form.check_box :active %>
+      Active (shown on the public gear list and on posts)
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

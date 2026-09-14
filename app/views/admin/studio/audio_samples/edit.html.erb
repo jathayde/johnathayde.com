@@ -1,0 +1,17 @@
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Studio · Posts", admin_studio_posts_path %> »
+  <%= link_to @audio_sample.post.title, admin_studio_post_path(@audio_sample.post) %> »
+</p>
+
+<h1>Edit audio sample</h1>
+
+<%= render "form", audio_sample: @audio_sample %>
+
+<p class="admin-actions">
+  <%= button_to "Delete", admin_studio_audio_sample_path(@audio_sample), method: :delete,
+                data: { turbo_confirm: "Delete this audio sample?" },
+                class: "linklike" %>
+  &middot;
+  <%= link_to "Back to post", admin_studio_post_path(@audio_sample.post) %>
+</p>

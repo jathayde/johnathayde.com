@@ -60,6 +60,13 @@ SitemapGenerator::Sitemap.create do
     add blog_tag_path(tag: tag.name), changefreq: 'weekly'
   end
 
+  # Studio
+  add '/studio',      changefreq: 'weekly', priority: 0.8
+  add '/studio/gear', changefreq: 'monthly'
+  Studio::Post.live.where(canonical_url: [nil, '']).find_each do |post|
+    add "/studio/#{post.slug}", changefreq: 'monthly', lastmod: post.updated_at
+  end
+
   # Work
   add '/work',                     changefreq: 'monthly'
   add '/work/livingsocial-csr',    changefreq: 'monthly'

@@ -1,0 +1,16 @@
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Studio · Gear", admin_studio_gear_items_path %> »
+</p>
+
+<h1>Edit <%= @gear_item.display_name %></h1>
+
+<%= render "form", gear_item: @gear_item %>
+
+<p class="admin-actions">
+  <%= button_to "Delete", admin_studio_gear_item_path(@gear_item), method: :delete,
+                data: { turbo_confirm: "Delete this gear item? It will be removed from any posts that feature it." },
+                class: "linklike" %>
+  &middot;
+  <%= link_to "Back to gear", admin_studio_gear_items_path %>
+</p>

@@ -1,0 +1,101 @@
+<% set_meta_tags title: @post.meta_title_or_title,
+                 description: @post.meta_description_or_summary,
+                 canonical: (@post.canonical_url.presence || studio_post_url(@post)),
+                 og: {
+                   title:       @post.meta_title_or_title,
+                   description: @post.meta_description_or_summary,
+                   image:       studio_post_social_image_url(@post),
+                   type:        (@post.youtube_id.present? ? "video.other" : "article")
+                 },
+                 twitter: {
+                   title:       @post.meta_title_or_title,
+                   description: @post.meta_description_or_summary,
+                   image:       studio_post_social_image_url(@post)
+                 } %>
+
+<p class="breadcrumbs"><%= link_to "Studio", studio_path %> »</p>
+
+<article id="<%= dom_id @post %>">
+  <header>
+    <h1><%= @post.title %></h1>
+    <p class="meta">
+      <span class="category"><%= @post.category_label %></span>
+      <% if @post.published_at %>
+        &middot;
+        <time datetime="<%= @post.published_at.iso8601 %>">
+          <%= @post.published_at.to_date.stamp("04 May 2020") %>
+        </time>
+      <% end %>
+    </p>
+    <% if @post.canonical_url.present? %>
+      <p class="canonical-note">
+        Originally published at
+        <%= link_to URI.parse(@post.canonical_url).host, @post.canonical_url, rel: "noopener" %>
+      </p>
+    <% end %>
+  </header>
+
+  <% if @post.youtube_id.present? %>
+    <%= studio_youtube_embed(@post) %>
+  <% elsif @post.hero_image.attached? %>
+    <figure class="feature-image">
+      <%= image_tag @post.hero_image.variant(:hero), alt: @post.title, width: 1600, height: 900 %>
+    </figure>
+  <% end %>
+
+  <% if @post.verdict.present? %>
+    <section class="studio-verdict">
+      <h2>The verdict</h2>
+      <p><%= @post.verdict %></p>
+    </section>
+  <% end %>
+
+  <% if @audio_samples.any? %>
+    <section class="audio-samples">
+      <h2>Listen</h2>
+      <ol>
+        <% @audio_samples.each do |sample| %>
+          <%= render "audio_sample", sample: sample %>
+        <% end %>
+      </ol>
+    </section>
+  <% end %>
+
+  <% if @post.signal_chain.present? %>
+    <section class="signal-chain">
+      <h2>Signal chain and settings</h2>
+      <pre><%= @post.signal_chain %></pre>
+    </section>
+  <% end %>
+
+  <div class="article-body">
+    <%= embed_video_links(@post.body) %>
+  </div>
+
+  <% if @gear_items.any? %>
+    <section class="gear-used">
+      <h2>Gear used</h2>
+      <ul>
+        <% @gear_items.each do |item| %>
+          <li>
+            <%= link_to item.display_name, studio_gear_path(anchor: item.slug) %>
+            <% if item.affiliate? %>
+              &middot; <%= gear_item_link(item, "Buy") %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+    <% if @gear_items.any?(&:affiliate?) %>
+      <%= render "disclosure" %>
+    <% end %>
+  <% end %>
+</article>
+
+<%= render "structured_data", post: @post %>
+
+<% if admin? %>
+  <p class="admin-actions">
+    <%= link_to "Edit in admin", edit_admin_studio_post_path(@post) %>
+  </p>
+<% end %>

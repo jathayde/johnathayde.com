@@ -64,6 +64,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :blog, 'Blog', '/blog', highlights_on: %r{\A/blog}
     primary.item :speaking, 'Speaking', '/speaking'
     primary.item :music, 'Music', '/music'
+    primary.item :studio, 'Studio', '/studio', highlights_on: %r{\A/studio}
     primary.item :contact, 'Say Hello', contact_url
 
     # Add an item which has a sub navigation (same params, but with block)

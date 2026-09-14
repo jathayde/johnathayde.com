@@ -1,0 +1,19 @@
+<li id="<%= dom_id post %>">
+  <% if post.hero_image.attached? %>
+    <%= link_to studio_post_path(post), class: "feature-image" do %>
+      <%= image_tag post.hero_image.variant(:card), alt: post.title, width: 800, height: 450, loading: "lazy" %>
+    <% end %>
+  <% end %>
+  <h2><%= link_to post.title, studio_post_path(post) %></h2>
+  <p class="meta">
+    <span class="category"><%= post.category_label %></span>
+    <% if post.published_at %>
+      &middot;
+      <time datetime="<%= post.published_at.iso8601 %>">
+        <%= post.published_at.to_date.stamp("04 May 2020") %>
+      </time>
+    <% end %>
+  </p>
+  <p class="summary"><%= post.summary %></p>
+  <p class="read-more"><%= link_to "Read more →", studio_post_path(post) %></p>
+</li>

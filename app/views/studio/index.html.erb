@@ -1,0 +1,39 @@
+<% set_meta_tags title: "Studio",
+                 description: "Notes from the studio: tracking, mixing, audio post, podcast and video production, with audio samples you can hear and the gear behind them.",
+                 canonical: studio_url,
+                 og: {
+                   title: "Studio",
+                   description: "Notes from the studio: tracking, mixing, audio post, podcast and video production, with audio samples you can hear and the gear behind them."
+                 },
+                 twitter: {
+                   title: "Studio",
+                   description: "Notes from the studio: tracking, mixing, audio post, podcast and video production, with audio samples you can hear and the gear behind them."
+                 } %>
+
+<h1>Studio</h1>
+
+<p class="studio-intro">
+  Notes from the studio: tracking sessions, mixes, audio post for film and video, podcast production,
+  and the video work that goes with it. Each post has the audio to hear the difference, the signal chain
+  and settings, and the gear it was made with.
+</p>
+
+<figure class="feature-image">
+  <%= image_tag "borealis_original.jpg", alt: "The studio: keyboards, outboard racks, and the desk", width: 3264, height: 2448 %>
+</figure>
+
+<p class="studio-gear-link">
+  <%= link_to "See the full gear list »", studio_gear_path, class: "button" %>
+</p>
+
+<section id="studio_posts">
+  <% if @posts.any? %>
+    <ol class="studio-posts">
+      <% @posts.each do |post| %>
+        <%= render "post", post: post %>
+      <% end %>
+    </ol>
+  <% else %>
+    <p>No posts yet.</p>
+  <% end %>
+</section>

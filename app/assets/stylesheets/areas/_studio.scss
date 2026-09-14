@@ -1,0 +1,371 @@
+// Studio (public): index, post pages, and the gear list.
+// Body classes come from the layout: "studio index", "studio show", "studio gear".
+
+body.studio {
+  header#masthead {
+    background-image: image-url("studio_guitar_header.jpg");
+    hgroup { visibility: hidden; }
+  }
+
+  p.studio-intro {
+    background-color: $gray-lighter;
+    border-radius: $base-border-radius;
+    font-style: italic;
+    padding: 1em 1.25em;
+    margin-bottom: 2em;
+  }
+
+  main p.breadcrumbs {
+    margin-top: 50px;
+  }
+
+  main article {
+    margin-bottom: 2em;
+  }
+
+  main article > header {
+    background: transparent;
+    margin: 0 0 1.5em;
+    padding: 0;
+
+    h1 {
+      line-height: 1.05;
+      margin: 0 0 0.15em;
+    }
+
+    p.meta {
+      margin: 0;
+    }
+
+    p.canonical-note {
+      color: $gray-darker;
+      font-style: italic;
+      @include font-size(13px);
+      margin: 0.5em 0 0;
+    }
+  }
+
+  p.meta {
+    color: $gray-darker;
+    @include font-size(14px);
+
+    .category {
+      color: $base;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      @include font-size(12px);
+    }
+
+    time {
+      white-space: nowrap;
+    }
+  }
+
+  p.studio-gear-link {
+    margin: 0 0 2.5em;
+
+    a.button,
+    a.button:link,
+    a.button:visited {
+      background-color: $base;
+      border-radius: $base-border-radius;
+      color: $white;
+      display: inline-block;
+      font-weight: 600;
+      padding: 0.75em 1.25em;
+      text-decoration: none;
+    }
+
+    a.button:hover,
+    a.button:active {
+      background-color: $dark-base;
+    }
+  }
+
+  figure.feature-image,
+  figure.video-embed {
+    margin: 1.5em 0;
+
+    img,
+    iframe {
+      border: 0;
+      border-radius: $base-border-radius;
+      display: block;
+      height: auto;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  figure.video-embed {
+    aspect-ratio: 16 / 9;
+
+    iframe {
+      height: 100%;
+    }
+  }
+
+  // Post body typography (same rules as blog posts).
+  .article-body {
+    p,
+    li {
+      margin-bottom: 1lh;
+    }
+
+    h2,
+    h3,
+    h4 {
+      margin-top: 1em;
+      margin-bottom: 0.35em;
+    }
+  }
+
+  // Post sections: verdict, samples, signal chain, gear used
+  article section {
+    margin: 2em 0;
+
+    > h2 {
+      @include font-size(20px);
+      margin: 0 0 0.75em;
+    }
+  }
+
+  section.studio-verdict {
+    background-color: $gray-lighter;
+    border-left: 4px solid $base;
+    border-radius: $base-border-radius;
+    padding: 1em 1.25em;
+
+    p {
+      margin: 0;
+      @include font-size(18px);
+      line-height: 1.5;
+    }
+  }
+
+  section.audio-samples {
+    ol {
+      @extend %list-in-disguise;
+    }
+
+    li.audio-sample {
+      margin: 0 0 1.25em;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    figcaption {
+      font-weight: 600;
+      margin-bottom: 0.35em;
+    }
+
+    audio {
+      display: block;
+      width: 100%;
+    }
+
+    p.download {
+      margin: 0.35em 0 0;
+      @include font-size(13px);
+    }
+  }
+
+  section.signal-chain pre {
+    background-color: $gray-lighter;
+    border-radius: $base-border-radius;
+    @include font-size(14px);
+    line-height: 1.6;
+    overflow-x: auto;
+    padding: 1em 1.25em;
+    white-space: pre-wrap;
+  }
+
+  section.gear-used ul {
+    @extend %list-in-disguise;
+
+    li {
+      margin: 0 0 0.5em;
+    }
+  }
+
+  aside.affiliate-disclosure {
+    clear: both;
+    border-top: 1px solid $gray-lighter;
+    color: $gray-darker;
+    font-style: italic;
+    @include font-size(13px);
+    margin: 2em 0 0;
+    padding-top: 1em;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // Index listing
+  ol.studio-posts {
+    @extend %list-in-disguise;
+
+    > li {
+      margin-bottom: 2.5em;
+
+      > h2 {
+        font-family: $quarto;
+        @include font-size(36px);
+        font-weight: 400;
+        line-height: 1.1;
+        margin: 0 0 0.25em;
+
+        a,
+        a:link,
+        a:visited {
+          color: $black;
+          text-decoration: none;
+        }
+
+        a:hover,
+        a:active {
+          color: $base;
+        }
+      }
+
+      a.feature-image img {
+        border-radius: $base-border-radius;
+        display: block;
+        height: auto;
+        max-width: 100%;
+        margin-bottom: 0.75em;
+      }
+
+      p.summary {
+        margin: 0.5em 0 0;
+      }
+
+      p.read-more {
+        margin: 0.75em 0 0;
+
+        a,
+        a:link,
+        a:visited {
+          color: $base;
+          font-weight: 600;
+          text-decoration: none;
+        }
+
+        a:hover,
+        a:active {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  // Gear list. flow-root keeps the floated photo inside main, so it can
+  // never hang into the footer when the list is short.
+  &.gear main {
+    display: flow-root;
+    padding-bottom: 2em;
+  }
+
+  figure.gear-photo {
+    margin: 0 0 1.5em;
+
+    @include media('>tablet') {
+      float: right;
+      margin: 0 0 1em 2em;
+      width: 45%;
+    }
+
+    img {
+      border-radius: $base-border-radius;
+      display: block;
+      height: auto;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    figcaption {
+      color: $gray-darker;
+      font-style: italic;
+      @include font-size(13px);
+      margin-top: 0.5em;
+      text-align: center;
+    }
+  }
+
+  section.gear-group {
+    clear: none;
+    margin: 0 0 2.5em;
+
+    > h2 {
+      border-bottom: 1px solid $gray-lighter;
+      @include font-size(22px);
+      margin: 0 0 0.75em;
+      padding-bottom: 0.25em;
+    }
+  }
+
+  ul.studio-gear-list {
+    @extend %list-in-disguise;
+
+    > li {
+      margin: 0 0 1.25em;
+      scroll-margin-top: 2em;
+
+      h3 {
+        @include font-size(17px);
+        margin: 0 0 0.2em;
+      }
+
+      p.blurb {
+        margin: 0 0 0.25em;
+      }
+
+      p.featured-in {
+        color: $gray-darker;
+        @include font-size(13px);
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Admin form affordances used by the studio forms
+body.admin {
+  .field p.hint.warning {
+    color: $red;
+    font-weight: 600;
+  }
+
+  .field [data-char-count-target="counter"] {
+    font-weight: 600;
+
+    &.over { color: $red; }
+    &.under { color: $warning-text; }
+    &.in-range { color: $base; }
+  }
+
+  .field.checkbox-grid {
+    h3 {
+      @include font-size(13px);
+      margin: 1em 0 0.25em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    label.checkbox {
+      display: inline-block;
+      margin: 0 1em 0.25em 0;
+      text-transform: none;
+    }
+  }
+
+  section.gear-group > h2 small {
+    font-weight: 400;
+    @include font-size(13px);
+    margin-left: 0.5em;
+  }
+}

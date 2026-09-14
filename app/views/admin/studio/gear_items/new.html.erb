@@ -1,0 +1,10 @@
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Studio · Gear", admin_studio_gear_items_path %> »
+</p>
+
+<h1>New gear item</h1>
+
+<%= render "form", gear_item: @gear_item %>
+
+<p><%= link_to "Back to gear", admin_studio_gear_items_path %></p>

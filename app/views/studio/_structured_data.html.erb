@@ -1,0 +1,33 @@
+<%
+breadcrumbs = {
+  "@context" => "https://schema.org",
+  "@type" => "BreadcrumbList",
+  "itemListElement" => [
+    { "@type" => "ListItem", "position" => 1, "name" => "Home",   "item" => root_url },
+    { "@type" => "ListItem", "position" => 2, "name" => "Studio", "item" => studio_url },
+    { "@type" => "ListItem", "position" => 3, "name" => post.title, "item" => studio_post_url(post) }
+  ]
+}
+%>
+<script type="application/ld+json">
+  <%= raw breadcrumbs.to_json %>
+</script>
+<% if post.youtube_id.present? %>
+  <%
+  video = {
+    "@context" => "https://schema.org",
+    "@type" => "VideoObject",
+    "name" => post.title,
+    "description" => post.meta_description_or_summary,
+    "thumbnailUrl" => [post.youtube_thumbnail_url, studio_post_social_image_url(post)].compact.uniq,
+    "uploadDate" => post.published_at&.iso8601,
+    "embedUrl" => post.youtube_embed_url,
+    "contentUrl" => post.youtube_watch_url,
+    "url" => studio_post_url(post),
+    "author" => { "@type" => "Person", "name" => "John Athayde", "url" => root_url }
+  }.compact
+  %>
+  <script type="application/ld+json">
+    <%= raw video.to_json %>
+  </script>
+<% end %>

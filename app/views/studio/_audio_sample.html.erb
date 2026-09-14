@@ -1,0 +1,11 @@
+<li id="<%= dom_id sample %>" class="audio-sample">
+  <figure>
+    <figcaption><%= sample.label %></figcaption>
+    <audio controls preload="none" src="<%= rails_blob_path(sample.file, disposition: "inline") %>">
+      Your browser does not support the audio element.
+    </audio>
+    <p class="download">
+      <%= link_to "Download #{sample.file.filename}", rails_blob_path(sample.file, disposition: "attachment"), download: sample.file.filename.to_s %>
+    </p>
+  </figure>
+</li>

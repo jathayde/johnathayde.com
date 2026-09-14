@@ -1,0 +1,15 @@
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Studio · Posts", admin_studio_posts_path %> »
+  <%= link_to @post.title, admin_studio_post_path(@post) %> »
+</p>
+
+<h1>Edit studio post</h1>
+
+<%= render "form", post: @post %>
+
+<p>
+  <%= link_to "Back to post", admin_studio_post_path(@post) %>
+  &middot;
+  <%= link_to "Back to posts", admin_studio_posts_path %>
+</p>

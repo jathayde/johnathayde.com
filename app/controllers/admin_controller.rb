@@ -18,7 +18,11 @@ class AdminController < ApplicationController
       music_artists: Music::Artist.count,
       music_recordings: Music::Recording.count,
       music_tracks: Music::Track.count,
-      music_videos: Music::Video.count
+      music_videos: Music::Video.count,
+      studio_posts: Studio::Post.count,
+      published_studio_posts: Studio::Post.live.count,
+      studio_gear_items: Studio::GearItem.count,
+      studio_audio_samples: Studio::AudioSample.count
     }
   end
 end

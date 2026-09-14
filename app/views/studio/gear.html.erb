@@ -1,0 +1,76 @@
+<% set_meta_tags title: "Gear — Studio",
+                 description: "The studio gear list, grouped by signal chain: microphones, preamps, converters, monitoring, outboard, instruments, software, and video.",
+                 canonical: studio_gear_url,
+                 og: {
+                   title: "Studio Gear",
+                   description: "The studio gear list, grouped by signal chain: microphones, preamps, converters, monitoring, outboard, instruments, software, and video."
+                 },
+                 twitter: {
+                   title: "Studio Gear",
+                   description: "The studio gear list, grouped by signal chain: microphones, preamps, converters, monitoring, outboard, instruments, software, and video."
+                 } %>
+
+<p class="breadcrumbs"><%= link_to "Studio", studio_path %> »</p>
+
+<h1>Gear</h1>
+
+<p class="studio-intro">
+  Everything in the signal chain, source to output. Items link to the posts they show up in.
+</p>
+
+<figure class="gear-photo">
+  <%= image_tag "borealis_piled.jpg", alt: "Outboard racks, a console, and stacked synths in the studio", width: 2000, height: 1500, loading: "lazy" %>
+  <figcaption>The racks, the console, and the synth stack.</figcaption>
+</figure>
+
+<% if @groups.any? %>
+  <% @groups.each do |category, items| %>
+    <section class="gear-group" id="gear_<%= category %>">
+      <h2><%= Studio::GearItem::CATEGORY_LABELS.fetch(category) %></h2>
+      <ul class="studio-gear-list">
+        <% items.each do |item| %>
+          <li id="<%= item.slug %>">
+            <h3><%= gear_item_link(item) %></h3>
+            <% if item.blurb.present? %>
+              <p class="blurb"><%= item.blurb %></p>
+            <% end %>
+            <% if (posts = @featured_in[item.id]).present? %>
+              <p class="featured-in">
+                Featured in:
+                <%= posts.map { |post| link_to(post.title, studio_post_path(post)) }.join(", ").html_safe %>
+              </p>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+<% else %>
+  <p>The gear list is coming soon.</p>
+<% end %>
+
+<% all_items = @groups.flat_map(&:last) %>
+<% if all_items.any?(&:affiliate?) %>
+  <%= render "disclosure" %>
+<% end %>
+
+<%
+item_list = {
+  "@context" => "https://schema.org",
+  "@type" => "ItemList",
+  "name" => "Studio gear",
+  "url" => studio_gear_url,
+  "numberOfItems" => all_items.size,
+  "itemListElement" => all_items.each_with_index.map do |item, index|
+    {
+      "@type" => "ListItem",
+      "position" => index + 1,
+      "name" => item.display_name,
+      "url" => (item.affiliate_url.presence || studio_gear_url(anchor: item.slug))
+    }
+  end
+}
+%>
+<script type="application/ld+json">
+  <%= raw item_list.to_json %>
+</script>

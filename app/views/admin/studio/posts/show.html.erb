@@ -1,0 +1,77 @@
+<% if notice %><p class="flash-notice"><%= notice %></p><% end %>
+
+<p class="breadcrumbs">
+  <%= link_to "Admin", admin_path %> »
+  <%= link_to "Studio · Posts", admin_studio_posts_path %> »
+</p>
+
+<h1><%= @post.title %></h1>
+
+<p>
+  <% if @post.live? %>
+    <span class="badge published">Published</span>
+  <% elsif @post.scheduled? %>
+    <span class="badge scheduled">Scheduled</span>
+  <% else %>
+    <span class="badge unpublished">Draft</span>
+  <% end %>
+</p>
+
+<p class="admin-actions">
+  <%= link_to "Edit", edit_admin_studio_post_path(@post) %>
+  &middot;
+  <%= button_to "Delete", admin_studio_post_path(@post), method: :delete,
+                data: { turbo_confirm: "Delete this post and its audio samples?" },
+                class: "linklike" %>
+  &middot;
+  <%= link_to "Preview", studio_post_path(@post) %>
+</p>
+
+<dl class="admin-detail">
+  <dt>Slug</dt>             <dd><code>/studio/<%= @post.slug %></code></dd>
+  <dt>Category</dt>         <dd><%= @post.category_label %></dd>
+  <dt>Summary</dt>          <dd><%= @post.summary %></dd>
+  <% if @post.youtube_id.present? %>
+    <dt>YouTube</dt>        <dd><%= link_to @post.youtube_id, @post.youtube_watch_url, target: "_blank", rel: "noopener" %></dd>
+  <% end %>
+  <% if @post.published_at %>
+    <dt>Publish date</dt>   <dd><time datetime="<%= @post.published_at.iso8601 %>"><%= @post.published_at.to_date.stamp("04 May 2020") %></time></dd>
+  <% end %>
+  <dt>Meta title</dt>       <dd><%= @post.meta_title_or_title %><% if @post.meta_title.blank? %> <em>(from title)</em><% end %></dd>
+  <dt>Meta description</dt> <dd><%= @post.meta_description_or_summary %><% if @post.meta_description.blank? %> <em>(from summary)</em><% end %></dd>
+  <% if @post.canonical_url.present? %>
+    <dt>Canonical URL</dt>  <dd><%= @post.canonical_url %></dd>
+  <% end %>
+  <% if @post.gear_items.any? %>
+    <dt>Gear</dt>           <dd><%= @post.gear_items.map(&:display_name).join(", ") %></dd>
+  <% end %>
+</dl>
+
+<% if @post.verdict.present? %>
+  <h2>Verdict</h2>
+  <p><%= @post.verdict %></p>
+<% end %>
+
+<section class="audio-samples">
+  <h2>Audio samples (<%= @audio_samples.size %>)</h2>
+  <p><%= link_to "New audio sample", new_admin_studio_post_audio_sample_path(@post) %></p>
+  <ul>
+    <% @audio_samples.each do |sample| %>
+      <li>
+        <strong><%= sample.label %></strong>
+        <span class="meta">— <%= sample.file.filename %> (<%= number_to_human_size(sample.file.byte_size) %>), position <%= sample.position %></span>
+        &middot; <%= link_to "Edit", edit_admin_studio_audio_sample_path(sample) %>
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<% if @post.signal_chain.present? %>
+  <h2>Signal chain</h2>
+  <pre><%= @post.signal_chain %></pre>
+<% end %>
+
+<h2>Body</h2>
+<div class="article-body">
+  <%= @post.body %>
+</div>
