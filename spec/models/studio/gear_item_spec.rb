@@ -60,7 +60,7 @@ RSpec.describe Studio::GearItem, type: :model do
 
   it "offers every signal-chain category" do
     expect(described_class.categories.keys).to eq(
-      %w[mics preamps compressors converters monitoring outboard instruments synths amplifiers software video misc]
+      %w[mics preamps compressors converters monitoring outboard instruments synths samplers midi amplifiers software video misc]
     )
     expect(described_class::CATEGORY_LABELS.keys).to match_array(described_class.categories.keys)
   end
